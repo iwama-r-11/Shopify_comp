@@ -1,0 +1,105 @@
+{%- capture section_settings -%}
+{
+  "videoType": {{ section.settings.video_url.type | json }},
+  "videoId": {{ section.settings.video_url.id | json }},
+  "requestHost": {{ request.host | json }}
+}
+{%- endcapture -%}
+
+<section class="Section" id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="background-video" data-section-settings='{{ section_settings }}'>
+  <div class="ImageHero {% if section.settings.section_size != 'normal' %}ImageHero--{{ section.settings.section_size }}{% endif %}">
+    <div class="ImageHero__VideoHolder"></div>
+    <div class="ImageHero__TitleWrapper">
+      {%- if section.settings.subheading != blank -%}
+        <h3 class="mageHero__TitleWrapper__SubTitle">{{ section.settings.subheading | escape }}</h3>
+      {%- endif -%}
+      {%- if section.settings.video_title != blank -%}
+      	<div class="ImageHero__TitleWrapper__Title">{{ section.settings.video_title | escape }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+      	<div class="ImageHero__TitleWrapper__Link"><a href="{{ section.settings.button_link }}">{{ section.settings.button_label | escape }}</a></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .mageHero__TitleWrapper__SubTitle {
+    font-size: 26px;
+    line-height: 1;
+    padding: 0;
+    margin: 0 0 -12px;
+    font-weight: lighter;
+  }
+  screen and (max-width: 640px) {
+  	.mageHero__TitleWrapper__SubTitle {
+      margin: 0 0 5px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main video",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Background videos are automatically muted to allow autoplay on mobile. If you require audio, use the \"Featured Video\" section."
+    },
+    {
+      "type": "select",
+      "id": "section_size",
+      "label": "Section size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "id": "video_url",
+      "label": "Video URL",
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+    },
+    {
+      "type": "text",
+      "id": "video_title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-heading"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Video",
+      "name": "Main video",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1309 @@
+@charset "UTF-8";
+
+/* =======================================================================
+CSSの名前：style.css
+最終更新日時：2021/8/24
+--------------------------------------------------------------------------
+エシカルLPページ用css
+======================================================================= */
+
+#main .Rte img, #main .Rte .VideoWrapper, #main .Rte .Form {
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+
+.PageContent{
+	max-width:1290px;
+}
+
+.Rte .lp_ethical ul{
+  margin-left:0;
+}
+
+.lp_ethical .sozai-list{
+text-decoration:none !important;
+}
+.Rte h2 {
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+@media (min-width: 768px) {
+  .pc-only {
+    display: inline-block;
+  }
+  .sp-only {
+    display: none !important;
+  }
+  .lp_ethical {
+    
+  }
+  .lp_ethical .kv-block {
+    max-width: 1290px;
+    margin: 0 auto 0;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .lp_ethical .mv {
+    position: relative;
+    max-width: 1240px;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+ .lp_ethical .kv .lead-text {
+    max-width: 1290px;
+    margin: 0 auto 0;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .lp_ethical .lead-text .inner {
+    max-width: 1240px;
+    margin: 0 auto 25px;
+    background: #fff;
+  }
+  .wrap.brand .lp_ethical .lead-text .text {
+    padding: 34px 0 40px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 21px;
+    text-align: left !important;
+    color: #393c41;
+    max-width: 950px;
+  }
+  .Rte .lp_ethical .bg-block {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 0;
+    padding-top: 94px;
+    padding-bottom: 130px;
+    background: #fff;
+  }
+  .Rte .lp_ethical .inner {
+    padding: 0 140px;
+  }
+  .Rte .lp_ethical .numbering {
+    font-family: "TTCommons-light";
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.07em;
+    line-height: 21px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 10px;
+  }
+ .Rte .lp_ethical .h2-ttl {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: 0.03em;
+    line-height: 39px;
+    text-align: center;
+    color: #000;
+  }
+  .Rte .lp_ethical .h3-ttl {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    line-height: 26px;
+    text-align: left;
+    color: #000;
+    margin-top: 0px;
+    margin-bottom: 21px;
+  }
+  .Rte .lp_ethical .txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 21px;
+    text-align: left;
+    color: #393c41;
+    margin-bottom: 10px;
+  }
+  .lp_ethical .small-txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    line-height: 21px;
+    text-align: left;
+    color: #393c41;
+    display: flex;
+  }
+  .lp_ethical .small-txt .icon-co2 {
+    width: 40px;
+    display: block;
+    margin-top: 2px;
+    margin-right: 8px;
+  }
+  .lp_ethical .co2 .icon-co2 img {
+    width: 100%;
+  }
+  .lp_ethical .small-txt p {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    line-height: 14px;
+    text-align: left;
+    color: #393c41;
+    margin-bottom: 0;
+  }
+  .lp_ethical .flex-cont {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 64px 0 0;
+  }
+  .lp_ethical .flex-cont .flex-left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .lp_ethical .flex-cont .flex-right {
+    width: 49.5%;
+    display: flex;
+    align-items: center;
+  }
+  .lp_ethical .bg-block .flex-left {
+    width: 63%;
+  }
+  .lp_ethical .bg-block .flex-right {
+    padding-left: 6.4%;
+  }
+  .lp_ethical .bg-block .txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    line-height: 25px;
+    text-align: left;
+    color: #000;
+  }
+  .lp_ethical .bg-block .sub-txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #666;
+  }
+  .lp_ethical .bg-block .flex-cont.nature {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 64px 0 50px;
+  }
+  .lp_ethical .bg-block .flex-cont.nature .flex-left {
+    width: 60%;
+  }
+  .lp_ethical .bg-block .flex-cont.nature .flex-right {
+    width: 41%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .lp_ethical .flex-cont.material .flex-left {
+    width: 64%;
+    margin-right: 5%;
+  }
+  .lp_ethical .flex-cont.material .flex-right {
+    width: 38%;
+    display: inline-block;
+    align-items: center;
+    padding-left: 0;
+  }
+  .lp_ethical .bg-block .sozai-list-block {
+    padding-bottom: 78px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .lp_ethical .bg-block .sozai-list-block ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .lp_ethical .bg-block .sozai-list-block li {
+    width: 166px;
+    margin: 0 30px 0 0;
+  }
+  .lp_ethical .bg-block .sozai-list-block li:last-child {
+    width: 166px;
+    margin: 0 0 0 0;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 {
+    padding-top: 50px;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 li {
+    width: 166px;
+    margin: 0 30px 0 0;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 li:last-child {
+    width: 166px;
+    margin: 0 0 0 0;
+  }
+  .lp_ethical .sozai-list {
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  .lp_ethical .sozai-list:hover {
+    opacity: 0.5;
+  }
+  .lp_ethical .bg-block .sozai-name {
+    position: relative;
+  }
+  .lp_ethical .bg-block .sozai-name::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background-image: url(https://cdn.shopify.com/s/files/1/0564/4438/7370/files/ethical_modal_arow.svg);
+    background-size: cover; 
+    transform: translateY(0%) translateX(-50%);
+  }
+  .lp_ethical .bg-block .sozai-name {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    line-height: 40px;
+    color: #000;
+    padding-left: 3px;
+  }
+  .lp_ethical .flex-cont.material .flex-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lp_ethical .bg-block .flex-cont.muda {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 64px 0 80px;
+  }
+  .lp_ethical .bg-block .flex-cont.muda .flex-left {
+    width: 45%;
+  }
+  .lp_ethical .bg-block .flex-cont.muda .flex-right {
+    width: 61%;
+    padding-left: 8%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .lp_ethical .bg-block .flex-cont.bag-img {
+    
+  }
+  .lp_ethical .bg-block .flex-cont.bag-img .graph-table {
+    margin-top: 10px;
+  }
+
+  .lp_ethical .bg-block .flex-cont.long {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 64px 0 80px;
+  }
+  .lp_ethical .bg-block .flex-cont.long2 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 64px 0 0;
+  }
+  .lp_ethical .bg-block .flex-cont.long .flex-left {
+    width: 51%;
+    padding-right: 3%;
+  }
+  .lp_ethical .bg-block .flex-cont.long .flex-right {
+    width: 50%;
+    padding-left: 4%;
+    display: flex;
+    align-items: center;
+  }
+  .lp_ethical .bg-block .flex-cont.long2 .flex-left {
+    width: 50%;
+    padding-right: 4%;
+  }
+  .lp_ethical .bg-block .flex-cont.long2 .flex-right {
+    width: 51%;
+    padding-left: 3%;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .lp_ethical .bg-block .flex-cont.ecosystem {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 64px 0 0;
+  }
+  .lp_ethical .bg-block .flex-cont.ecosystem .flex-left {
+    width: 45%;
+  }
+  .lp_ethical .bg-block .flex-cont.ecosystem .flex-right {
+    width: 55%;
+    padding-left: 5%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .lp_ethical .bg-block .flex-cont .txt span.cap {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 9px;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    text-align: left;
+    color: #000;
+    vertical-align: super;
+  }
+
+  .lp_ethical .flex-cont.important.im-set2 {
+    margin: 120px 0 0;
+  }
+  .lp_ethical .flex-cont.important .flex-left {
+    width: 50%;
+    padding-right: 5%;
+    display: block;
+  }
+  .lp_ethical .flex-cont.important .flex-right {
+    width: 50%;
+    padding-left: 5%;
+    display: block;
+  }
+  .lp_ethical .flex-cont.important .h3-ttl {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .lp_ethical .flex-cont.important .img-01 {
+    width: 80px;
+    margin: 0 auto;
+  }
+  .lp_ethical .flex-cont.important .img-01 img {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+  .lp_ethical .flex-cont.important .txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 21px;
+    text-align: left;
+    color: #393c41;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+  .lp_ethical .flex-cont.recycling .flex-left {
+    width: 50%;
+    padding-right: 5%;
+  }
+  .lp_ethical .flex-cont.recycling .flex-right {
+    width: 50%;
+    padding-left: 5%;
+  }
+  .lp_ethical .banner-block {
+    margin: 50px 0 0;
+    text-align: center;
+  }
+  .lp_ethical .links {
+    width: 950px;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  .lp_ethical .links:hover {
+    opacity: 0.5;
+  }
+  #modal {
+    z-index: 102;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+  }
+  #modal .modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #modal.ov {
+    opacity: 1;
+    pointer-events: visible;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #modal.ov .modal_bg {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  #modal.ov::-webkit-scrollbar {
+    display:none;
+  }
+  #modal .center {
+    position: relative;
+    width: auto;
+    max-width: none;
+    margin: 60px 105px;
+    padding: 0 65px;
+    background: rgba(238, 238, 238, 1);
+    border-radius:5px;
+  }
+  #modal .center .inner {
+    margin: 0 auto;
+    max-width: none;
+  }
+  #modal .mv_box {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #modal .modal-set .kinds {
+    padding: 80px 0 0;
+    text-align: center;
+  }
+  #modal .modal-set .kinds .icons {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 3px;
+    background: #f4f5db;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    line-height: 13px;
+    text-align: center;
+    color: #383b40;
+  }
+  #modal .modal_h2 {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    text-align: center;
+    color: #000;
+    padding: 30px 0 0;
+  }
+  #modal .txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    line-height: 20px;
+    text-align: center;
+    color: #000;
+    margin: 30px 0 0;
+  }
+  #modal .txt .ico {
+    display: inline-block;
+    width: 12px;
+    height: auto;
+    margin: -2px 0 0 5px;
+  }
+  #modal .messege {
+    font-family: "Noto Sans CJK JP";
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 24px;
+    text-align: center;
+    color: #000;
+    margin: 35px 0 0;
+  }
+  #modal .modal_close {
+    text-align: center;
+    display: inline-block;
+    margin: 0 0 0;
+    cursor: pointer;
+    opacity: 1.0;
+    transition: opacity .3s;
+    position: absolute;
+    top: 19px;
+    right: 19px;
+  }
+  #modal .modal_close:hover {
+    text-decoration: none;
+    opacity: 0.5;
+  }
+  #modal .modal_close .ico {
+    width: 26px;
+    height: auto;
+  }
+
+  #modal .modal-set .item-box {
+    margin: 50px 0 0;
+    padding: 0 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  #modal .modal-set .item-box .item {
+    width: 21.4%;
+    margin: 0 1.8%;
+    border-radius: 6px;
+    background: #FAFAFA;
+    overflow: hidden;
+    text-decoration: none;
+    transition: opacity .5s ease;
+    position: relative;
+  }
+  #modal .modal-set .item-box .item:hover {
+    text-decoration: none;
+    opacity: .6;
+  }
+  #modal .modal-set .item-box .name {
+    margin: 12px 15px 0;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    line-height: 20px;
+    text-align: left;
+    color: #000021;
+  }
+  #modal .modal-set .item-box .price {
+    margin: 7px 15px 12px;
+    font-family: futura-pt, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    line-height: 20px;
+    text-align: left;
+    color: #000021;
+  }
+  #modal .modal-set .item-box .price::after {
+    content: "円(税込)";
+    display: inline-block;
+    margin-left: 3px;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    line-height: 20px;
+    text-align: left;
+    color: #000021;
+  }
+  #modal .modal-set .item-box .co2 {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: auto;
+    height: 40px;
+    text-align: center;
+  }
+  #modal .modal-set .item-box .co2 .icon {
+    text-align: center;
+  }
+  #modal .modal-set .item-box .co2 .icon img {
+    width: 100%;
+    max-width: 32px;
+  }
+  #modal .modal-set .item-box .co2 .amount {
+    font-family: "TTCommons-light";
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    color: #383b40;
+  }
+  #set01,#set02,#set03,#set04,#set05,#set06,#set07 {
+    display: none;
+  }
+  #set01.active,#set02.active,#set03.active,#set04.active,#set05.active,#set06.active,#set07.active {
+    display: block;
+  }
+
+  .lp_ethical .inner.timeline-block {
+    padding-bottom: 0;
+  }
+  .lp_ethical .timeline {
+    padding-left: 0;
+    position: relative;
+    margin: 70px 0 0;
+  }
+  .lp_ethical .timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    /*height: calc(100% - 180px);*/
+    height: calc(100% - 60px);
+    background: #CCCCCC;
+  }
+  .lp_ethical .timeline-flex {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 65px;
+  }
+  .lp_ethical .section {
+    margin: 0;
+    width:50%;
+  }
+  .lp_ethical .set-box {
+    display: block;
+    flex-wrap: wrap;
+    margin-top: -7px;
+    position: relative;
+  }
+  .lp_ethical .set1.set-box, .lp_ethical .set3.set-box, .lp_ethical .set5.set-box, .lp_ethical .set7.set-box {
+    padding-left: 30px;
+  }
+  .lp_ethical .set7.set-box {
+    padding-left: 30px;
+    margin-top: -135px;
+  }
+  .lp_ethical .set1.set-box:before, .lp_ethical .set3.set-box:before, .lp_ethical .set5.set-box:before, .lp_ethical .set7.set-box:before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: -0.3%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #393C41;
+  }
+  .lp_ethical .set1.set-box:after, .lp_ethical .set3.set-box:after, .lp_ethical .set5.set-box:after, .lp_ethical .set7.set-box:after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 5%;
+    height: 1px;
+    background: #393C41;
+  }
+  .lp_ethical .set2.set-box, .lp_ethical .set4.set-box, .lp_ethical .set6.set-box {
+    padding-right: 25px;
+  }
+  .lp_ethical .set2.set-box:before, .lp_ethical .set4.set-box:before, .lp_ethical .set6.set-box:before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: -0.5%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #393C41;
+  }
+  .lp_ethical .set2.set-box:after, .lp_ethical .set4.set-box:after, .lp_ethical .set6.set-box:after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: -0.3%;
+    width: 86%;
+    height: 1px;
+    background: #393C41;
+  }
+  .lp_ethical .set2.set-box {
+    margin-top: 190px;
+  }
+  .lp_ethical .set3.set-box {
+    margin-top: -210px;
+  }
+  .lp_ethical .set4.set-box {
+    margin-top: 40px;
+  }
+  .lp_ethical .set5.set-box {
+  margin-top: -200px;
+  }
+  .lp_ethical .set6.set-box {
+    margin-top: 350px;
+  }
+  .lp_ethical .set-box .line {
+    font-family: "TTCommons-light";
+    font-weight: normal;
+    font-size: 28px;
+    letter-spacing: 0.03em;
+    line-height: 21px;
+    text-align: left;
+    color: #393c41;
+    position: relative;
+  }
+  .lp_ethical .timeline .txt {
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
+  .lp_ethical .timeline-non .txt {
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
+  .lp_ethical .set-box .img {
+    width: 326px;
+  }
+  .lp_ethical .set-box .img.mb50 {
+    margin-bottom: 50px;
+  }
+  .lp_ethical .set-box .sub-txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    line-height: 15px;
+    text-align: left;
+    color: #999;
+    margin-top: -28px;
+    margin-bottom: 35px;
+  }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+  
+}
+@media (max-width: 767px) {
+  .pc-only {
+    display: none !important;
+  }
+  .sp-only {
+    display: inline-block;
+  }
+  .lp_ethical {
+    
+  }
+   .lp_ethical .kv .lead-text {
+    margin: 0 auto 25px;
+    padding: 20px 0 30px;
+    background: #fff;
+  }
+  .wrap.brand .lp_ethical .lead-text .text {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    padding: 0 15px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 25px;
+    text-align: left !important;
+    color: #000;
+  }
+  .Rte .lp_ethical .bg-block {
+    width: 100%;
+    background: #fff;
+    padding: 70px 15px 90px;
+    margin-bottom: 25px; 
+  }
+  .Rte .lp_ethical .numbering {
+    font-family: "TTCommons-light";
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.07em;
+    line-height: 21px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 12px;
+  }
+  .Rte .lp_ethical .h2-ttl {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    line-height: 30px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 42px;
+  }
+  .Rte .lp_ethical .h3-ttl {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    line-height: 22px;
+    text-align: center;
+    color: #000;
+    margin-top: 0px;
+    margin-bottom: 21px;
+  }
+  .Rte .lp_ethical .txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    line-height: 20px;
+    text-align: left;
+    color: #393c41;
+    margin-bottom: 15px;
+  }
+  .lp_ethical .bg-block .sub-txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #999;
+  }
+  .lp_ethical .small-txt {
+    display: flex;
+  }
+  .lp_ethical .small-txt .icon-co2 {
+    width: 48px;
+    display: block;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  .lp_ethical .co2 .icon-co2 img {
+    width: 100%;
+  }
+  .lp_ethical .small-txt p {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: left;
+    letter-spacing: 0;
+    color: #393c41;
+    margin-bottom: 60px;
+  }
+  .lp_ethical .nature .txt {
+    margin-bottom: 30px;
+  }
+  .lp_ethical .img-01.package-img {
+    margin-bottom: 5px;
+  }
+  .lp_ethical .flex-right.column {
+    padding-bottom: 42px;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 45px;
+  }
+  .lp_ethical .flex-right .img-01.sp-only {
+    margin-bottom: 15px;
+  } 
+  .lp_ethical .banner-block  {
+    padding: 0 15px;
+  }
+  .lp_ethical .banner-block .links {
+    display: block;
+  }
+  .lp_ethical .bg-block .sozai-list-block {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-bottom: 70px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .lp_ethical .bg-block .sozai-list-block ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .lp_ethical .bg-block .sozai-list-block li:nth-child(even) {
+    width: 50%;
+    padding-left: 3%;
+  }
+  .lp_ethical .bg-block .sozai-list-block li:nth-child(odd) {
+    width: 50%;
+    padding-right: 3%;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 li:nth-child(even) {
+    width: 50%;
+    padding-left: 3%;
+  }
+  .lp_ethical .bg-block .sozai-list-block2 li:nth-child(odd) {
+    width: 50%;
+    padding-right: 3%;
+  }
+  .lp_ethical .bg-block .sozai-name {
+    position: relative;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    line-height: 40px;
+    color: #000;
+    padding-left: 3px;
+    padding-bottom: 18px;
+  }
+  .lp_ethical .bg-block .sozai-name::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background-image: url(https://cdn.shopify.com/s/files/1/0564/4438/7370/files/ethical_modal_arow.svg);
+    background-size: cover;
+    transform: translateY(0%) translateX(-50%);
+  }
+
+  .lp_ethical .bg-block .flex-cont.muda {
+    padding-bottom: 54px;
+    margin-bottom: 70px;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .lp_ethical .bg-block .flex-cont.long {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .lp_ethical .bg-block .flex-cont.long .flex-left {
+    width: 100%;
+    order: 2;
+    padding-bottom: 70px;
+    margin-bottom: 70px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .lp_ethical .bg-block .flex-cont.long .flex-right {
+    order: 1;
+    width: 100%;
+  }
+
+  .lp_ethical .bg-block .flex-cont.ecosystem {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .lp_ethical .bg-block .flex-cont.ecosystem .flex-left {
+    width: 100%;
+    order: 2;
+    margin-top: 60px;
+  }
+  .lp_ethical .bg-block .flex-cont.ecosystem .flex-right {
+    order: 1;
+    width: 100%;
+  }
+
+  .lp_ethical .flex-cont.important .flex-left {
+    margin-bottom: 80px;
+  }
+  .lp_ethical .flex-cont.important.im-set2 {
+    margin: 80px 0 0;
+  }
+  .lp_ethical .flex-cont.important .img-01 {
+    width: 80px;
+    margin: 0 auto 21px;
+  }
+  .lp_ethical .flex-cont.important .img-01 img {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+  #modal {
+    z-index: 102;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+  }
+  #modal .modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #modal.ov {
+    opacity: 1;
+    pointer-events: visible;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #modal.ov .modal_bg {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  #modal.ov::-webkit-scrollbar {
+    display:none;
+  }
+  #modal .center {
+    position: relative;
+    width: auto;
+    max-width: 732px;
+    margin: 25px 20px 125px;
+    padding: 0 15px;
+    background: rgba(238, 238, 238, 1);
+    border-radius:5px;
+  }
+  #modal .mv_box {
+    position: relative;
+    width: 100%;
+    margin: 26px auto 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: inline-block;
+  }
+  #modal .modal-set .kinds {
+    padding: 40px 0 0;
+    text-align: center;
+  }
+  #modal .modal-set .kinds .icons {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 3px;
+    background: #f4f5db;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    line-height: 13px;
+    text-align: center;
+    color: #383b40;
+  }
+  #modal .modal_h2 {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    text-align: center;
+    color: #000;
+    padding: 12px 0 0;
+  }
+  #modal .txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    line-height: 20px;
+    text-align: center;
+    color: #000;
+    margin: 14px 0 0;
+  }
+  #modal .txt .ico {
+    display: inline-block;
+    width: 12px;
+    height: auto;
+    margin: -2px 0 0 5px;
+  }
+  #modal .messege {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    line-height: 24px;
+    text-align: left;
+    color: #000;
+    margin: 30px 0 0;
+  }
+  #modal .messege br {
+    display: none;
+  }
+  #modal .modal_close {
+    text-align: center;
+    display: inline-block;
+    margin: 0 0 0;
+    cursor: pointer;
+    opacity: 1.0;
+    transition: opacity .3s;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  #modal .modal_close:hover {
+    text-decoration: none;
+    opacity: 0.5;
+  }
+  #modal .modal_close .ico {
+    width: 26px;
+    height: auto;
+  }
+
+  #modal .modal-set .item-box {
+    margin: 50px 0 0;
+    padding: 0 0 28px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  #modal .modal-set .item-box .item {
+    width: 48%;
+    margin: 0 4% 0 0;
+    border-radius: 4px;
+    background: #FAFAFA;
+    overflow: hidden;
+    text-decoration: none;
+    transition: opacity .5s ease;
+    position: relative;
+  }
+  #modal .modal-set .item-box .item:nth-child(even) {
+    margin: 0 0;
+  }
+  #modal .modal-set .item-box .item:nth-child(n+3) {
+    margin-top: 4%;
+  }
+  #modal .modal-set .item-box .item:hover {
+    text-decoration: none;
+    opacity: .6;
+  }
+  #modal .modal-set .item-box .name {
+    margin: 12px 15px 0;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0em;
+    line-height: 19px;
+    text-align: left;
+    color: #000021;
+  }
+  #modal .modal-set .item-box .price {
+    margin: 7px 15px 12px;
+    font-family: futura-pt, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    line-height: 20px;
+    text-align: left;
+    color: #000021;
+  }
+  #modal .modal-set .item-box .price::after {
+    content: "円(税込)";
+    display: inline-block;
+    margin-left: 3px;
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    line-height: 20px;
+    text-align: left;
+    color: #000021;
+  }
+  #modal .modal-set .item-box .co2 {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: auto;
+    height: 40px;
+    text-align: center;
+  }
+  #modal .modal-set .item-box .co2 .icon {
+    text-align: center;
+  }
+  #modal .modal-set .item-box .co2 .icon img {
+    width: 100%;
+    max-width: 18px;
+  }
+  #modal .modal-set .item-box .co2 .amount {
+    font-family: "TTCommons-light";
+    font-weight: normal;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    color: #383b40;
+  }
+  #set01,#set02,#set03,#set04,#set05,#set06,#set07 {
+    display: none;
+  }
+  #set01.active,#set02.active,#set03.active,#set04.active,#set05.active,#set06.active,#set07.active {
+    display: block;
+  }
+  .lp_ethical .inner.timeline-block {
+    padding-bottom: 0;
+  }
+  .lp_ethical .timeline {
+    padding-left: 0;
+    position: relative;
+  }
+  .lp_ethical .timeline::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 16px;
+    width: 1px;
+    height: calc(100% + 60px );
+    background: #CCCCCC;
+  }
+  .lp_ethical .timeline .section {
+    margin-bottom: 60px;
+    padding: 0 0 0 20px;
+    overflow: hidden;
+  }
+  .lp_ethical .timeline.timeline-non .section {
+    margin-bottom: 60px;
+    padding: 0 0 0 20px;
+    overflow: hidden;
+  }
+  .lp_ethical .timeline .txt {
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
+  .lp_ethical .timeline .txt.btm_non {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .lp_ethical .timeline-non .txt {
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
+  .lp_ethical .timeline .txt {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    line-height: 23px;
+  }
+  .lp_ethical .timeline-non .txt {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    line-height: 23px;
+  }
+  .lp_ethical .set-box .line {
+    margin: 0 0 5px;
+  }
+  .lp_ethical .year{
+    font-family: "TTCommons-light";
+    font-weight: normal;
+    font-size: 28px;
+    letter-spacing: 0.03em;
+    line-height: 28px;
+    margin: 0;
+    text-align: left;
+    color: #393C41;
+    position: relative;
+  }
+  .lp_ethical .year::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: -19.5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #393C41;
+  }
+  .lp_ethical .history-line-non {
+    padding-left: 0;
+    position: relative;
+  }
+  .lp_ethical .timeline-non .section {
+    margin-bottom: 0;
+    padding: 0 0 0 20px;
+    overflow: hidden;
+  }
+  .lp_ethical .set-box .img.mb50 {
+    margin-bottom: 50px;
+  }
+  .lp_ethical .set-box .sub-txt {
+    font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    line-height: 15px;
+    text-align: left;
+    color: #999;
+    margin-top: 0;
+    margin-bottom: 35px;
+  }
+}

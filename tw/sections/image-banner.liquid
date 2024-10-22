@@ -1,0 +1,94 @@
+<section class="Section Section--spacingNormal"  id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="image_banner" style="background-color: {{ section.settings.color_bg }};">
+
+  <div class="Container">
+    <div class="Container--center">
+      {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+        <header class="SectionHeader SectionHeader--center">
+          {%- if section.settings.subheading != blank -%}
+            <h3 class="SectionHeader__SubHeading Heading u-h6" style="color: {{ section.settings.color_text }};">{{ section.settings.subheading | escape }}</h3>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <h2 class="SectionHeader__Heading Heading u-h1" style="color: {{ section.settings.color_text }};">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- if section.settings.image != blank -%}
+
+      {%- if section.settings.link_url != blank -%}
+      <a href="{{ section.settings.link_url }}">
+      {%- endif -%}
+        <picture>
+          {%- if section.settings.image_mobile != blank -%}
+            <source  class="ImageBanner__Image-Wrapper" media="(max-width: 640px)" srcset="{{ section.settings.image_mobile | img_url: '750x'}}">
+          {%- endif -%}
+          <img class="ImageBanner__Image-Wrapper" src="{{ section.settings.image | img_url: '1280x' }}">
+        </picture>
+      {%- if section.settings.link_url != blank -%}
+      </a>
+      {%- endif -%}
+
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'PlaceholderBackground__Svg PlaceholderSvg--dark' }}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image banner",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background color",
+      "default": "#000021"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Texr color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-heading",
+      "default": "Sub-heading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1800 x 1200px .jpg recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "750 x 1100px .jpg recommended. If none is set, desktop image will be cropped."
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Image link URL"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Image Banner",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

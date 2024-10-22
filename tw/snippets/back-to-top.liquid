@@ -1,0 +1,60 @@
+
+  <!--   トップに戻るボタン -->
+
+  <div class="gototop back-to-top js-to-top" style="display: block;">
+    <a href="#" class="round-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="svg-image-back" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"></path></svg>
+    </a>
+    </div>
+    
+  <!-- <a href="#" class="back-to-top js-to-top">TOP</a> -->
+  
+<style>
+.round-button {
+    display: none;
+    transition: all .25s ease-in-out;
+    position: fixed;
+    bottom: 65px;
+    right: 0;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5em 1.5em 0;
+    border-radius: 50%;
+    padding: 0.25em;
+    width: 50px;
+    height: 50px;
+    background-color: #F8F8F8;
+    z-index: 99999;
+}
+.svg-image-back {
+    color: #393C41;
+    width: 20px;
+    height: 8px;
+}
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+
+<script>
+  $(function () {
+  // スクロールしたら「トップに戻る」ボタンが表示される
+  const toTopButton = $(".js-to-top");
+  const scrollHeight = 50;
+  toTopButton.hide();
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      toTopButton.fadeIn();
+    } else {
+      toTopButton.fadeOut();
+    }
+  });
+
+  // 「トップに戻る」ボタンをクリックしたらスクロールで戻る
+  toTopButton.click(function () {
+    $("body,html").animate({ scrollTop: 0 }, 400);
+    return false;
+  });
+});
+</script>

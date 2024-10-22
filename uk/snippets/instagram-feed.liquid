@@ -1,0 +1,57 @@
+<section id="Instagram-feed" class="Section Section--spacingNormal" data-section-id="{{ section.id }}" data-section-type="instagram">
+  <section class="SectionHeader SectionHeader--center">
+    <div class="Container">
+      <h2 class="SectionHeader__Heading Heading u-h1">INSTAGRAM</h2>
+    </div>
+  </section>
+
+
+    <div class="Instafeed Carousel Carousel--fixed" data-access-token="1393179704.6a7999e.d0d5dbdd83bd4db28679248903655b2f" data-image-count="5" data-flickity-config='{
+  "wrapAround": true,
+  "pageDots": false,
+  "setGallerySize": false,
+  "prevNextButtons": true,
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}'></div>
+</section>
+
+<style>
+  #Instagram-feed {
+  	background: #fff;
+    padding: 80px 0;
+    margin-bottom: 0;
+  }
+  #Instagram-feed .SectionHeader__Heading.SectionHeader__Heading {
+    text-align: left;
+  }
+  #Instagram-feed .flickity-prev-next-button {
+    position: relative;
+    width: 45px;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background: #0b0b1f;
+    opacity: 60%;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(54,54,54,0.15);
+    vertical-align: middle;
+    line-height: 0;
+    transform: scale(1.001);
+    transition: background 0.15s ease-in-out, opacity 0.15s ease-in-out, transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    overflow: hidden;
+  }
+  #Instagram-feed .flickity-prev-next-button {
+  	position: absolute;
+  }
+  #Instagram-feed .Instafeed .flickity-prev-next-button.previous {
+    top: 0;
+    left: 0;
+  }
+  #Instagram-feed .Instafeed .flickity-prev-next-button.next {
+    top: 0;
+    right: 0;
+  }
+</style>

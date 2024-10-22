@@ -1,0 +1,522 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css">
+<script src="https://kit.fontawesome.com/102f6672b9.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://use.fontawesome.com/826a7e3dce.js"></script>
+
+
+<style>
+    .carousel-wrap {
+        margin: 50px auto;
+        padding: 0 5%;
+        width: 80%;
+        position: relative;
+    }
+
+    /* fix blank or flashing items on carousel */
+    .owl-carousel .item {
+        position: relative;
+        z-index: 100;
+        -webkit-backface-visibility: hidden;
+    }
+
+    /* end fix */
+    .owl-nav>div {
+        margin-top: -26px;
+        position: absolute;
+        top: 50%;
+        color: #999;
+    }
+
+    .owl-nav i {
+        font-size: 52px;
+    }
+
+    .owl-nav .owl-prev {
+        left: -30px;
+    }
+
+    .owl-nav .owl-next {
+        right: -30px;
+    }
+</style>
+<!-- 20220809新增 css 香氛系列輪播圖END-->
+
+<!-- 20221107新增 css 頁籤-->
+<style>
+    /**
+* Tabs
+*/
+    .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tabs label {
+        order: 1;
+        display: block;
+        padding: 1rem 2rem 0.6rem 2rem;
+        margin-right: 0.2rem;
+        cursor: pointer;
+        background: #ccc;
+        color: #333;
+        /* font-weight: 500; */
+        transition: background ease 0.2s;
+        border-radius: 6px 6px 0 0;
+
+    }
+
+    .tabs label:hover {
+        background: #999;
+        color: #fff;
+    }
+
+    .tabs .tab {
+        order: 99;
+        flex-grow: 1;
+        width: 100%;
+        display: none;
+        background: #eeeeee;
+    }
+
+    .tabs input[type="radio"] {
+        display: none;
+    }
+
+    .tabs input[type="radio"]:checked+label {
+        background: #000021;
+        color: #fff;
+        /* font-weight: 500; */
+        border-radius: 6px 6px 0 0;
+    }
+
+    .tabs input[type="radio"]:checked+label+.tab {
+        display: block;
+    }
+</style>
+<!-- 20221107新增 css 頁籤END-->
+
+<script src="https://kit.fontawesome.com/102f6672b9.js" crossorigin="anonymous"></script>
+
+<body style="background:#000021; " id="Samples">
+
+
+
+    <div class="content-inner" id="apply-for-samples_container">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/38c73a400be1b272574e2b5c4498d3ecba893ab2.jpg?v=1708296694" class="only-pc BN1">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/0bdcbe8ea00b5720449fe8ca9e9da4d330fe8236.jpg?v=1708296694" class="only-sp BN1">
+        <div class="col" style="background:#eeeeee;padding-bottom:10px;">
+            <div class="title">SHIRO試香申請</div>
+            <p class="only-sp paragraph">
+                目前SHIRO開放【香氛系列】及【香水系列】共 13 種香氣的試香紙申請，<br>
+                為避免香味間互相干擾、維持寄送品質，至多僅可申請 3 種。<br><br>
+
+                【SHIRO FRAGRANCE香氛系列】<br>
+                經典香氣:
+                <a href="/products/savon-eau-de-parfum_1" target="_blank"><span>*</span>皂香</a>、
+                <a href="/products/white-lily-eau-de-parfum" target="_blank"><span>*</span>白百合</a>、
+                <a href="/products/white-tea-eau-de-parfum" target="_blank"><span>*</span>白茶</a>、
+                <a href="/products/earl-grey-eau-de-parfum_2" target="_blank">伯爵茶</a>、
+                <a href="/products/kinmokusei-eau-de-parfum_1" target="_blank">金木樨</a><br>
+
+                <br>
+                <span>*</span><span>為香料更新後之香氣，<br>香料更新後香氣相關內容<a style="text-decoration: underline;" href="/pages/savon-whitelily-renewal" target="_blank">請點擊此處</a>。</span><br><br>
+
+                【SHIRO PERFUME香水系列】<br>
+                <a href="/products/freesia-mist-eau-de-parfum" target="_blank">花店清香</a>、
+                <a href="/products/introduction-eau-de-parfum" target="_blank">溫柔清晨</a>、
+                <a href="/products/parisienne-favourite-eau-de-parfum" target="_blank">巴黎女人香</a>、
+                <a href="/products/spice-of-life-eau-de-parfum" target="_blank">勇敢的心</a>、
+                <a href="/products/bon-wood-eau-de-parfum" target="_blank">森林深處</a>、
+                <a href="/products/parisian-shirt-eau-de-parfum" target="_blank">巴黎襯衫</a>、
+                <a href="/products/smoked-leather-eau-de-parfum" target="_blank">薰香皮革</a>、
+                <a href="/products/pomegranate-eau-de-parfum" target="_blank">紅石榴</a>
+
+                <br><br>
+
+                如欲申請試香紙之香氣少於3種，請在選單中選取 無其他欲索取香氣<br>
+                試香紙將以掛號的方式寄出，受理申請後到寄出<u>約需3-5個工作天</u>，<br>
+                謝謝您的耐心等候。
+
+            </p>
+
+            <p class="only-pc paragraph">
+                目前SHIRO開放【香氛系列】及【香水系列】共 13 種香氣的試香紙申請，<br>
+                為避免香味間互相干擾、維持寄送品質，至多僅可申請 3 種。<br><br>
+                【SHIRO FRAGRANCE香氛系列】<br>
+                經典香氣:
+                <a href="/products/savon-eau-de-parfum_1" target="_blank"><span>*</span>皂香</a>、
+                <a href="/products/white-lily-eau-de-parfum" target="_blank"><span>*</span>白百合</a>、
+                <a href="/products/white-tea-eau-de-parfum" target="_blank"><span>*</span>白茶</a>、
+                <a href="/products/earl-grey-eau-de-parfum_2" target="_blank">伯爵茶</a>、
+                <a href="/products/kinmokusei-eau-de-parfum_1" target="_blank">金木樨</a><br>
+
+
+                【SHIRO PERFUME香水系列】<br>
+                <a href="/products/freesia-mist-eau-de-parfum" target="_blank">花店清香</a>、
+                <a href="/products/introduction-eau-de-parfum" target="_blank">溫柔清晨</a>、
+                <a href="/products/parisienne-favourite-eau-de-parfum" target="_blank">巴黎女人香</a>、
+                <a href="/products/spice-of-life-eau-de-parfum" target="_blank">勇敢的心</a>、
+                <a href="/products/bon-wood-eau-de-parfum" target="_blank">森林深處</a>、
+                <a href="/products/parisian-shirt-eau-de-parfum" target="_blank">巴黎襯衫</a>、
+                <a href="/products/smoked-leather-eau-de-parfum/" target="_blank">薰香皮革</a>、
+                <a href="/products/pomegranate-eau-de-parfum" target="_blank">紅石榴</a>
+
+                <br><br>
+
+                如欲申請試香紙之香氣少於3種，請在選單中選取 無其他欲索取香氣<br>
+                試香紙將以掛號的方式寄出，受理申請後到寄出<u>約需3-5個工作天</u>，<br>
+                謝謝您的耐心等候。
+
+            </p>
+            <!--頁籤-->
+            <div class="tabs">
+
+                <input type="radio" name="tabs" id="tabone" checked="checked">
+                <label for="tabone" class="tab1">香氛系列</label>
+                <div class="tab">
+                    <!--香調圖片輪播-->
+                    <div class="carousel-wrap">
+                        <div class="owl-carousel owl-carousel-3">
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/slider01.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/slider02.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/slider03.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/slider04.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/slider05.jpg?v=1708296694"></div>
+                        </div>
+                    </div>
+                    <!--香調圖片輪播 END-->
+                    <div class="cross_pic">
+                        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/fragrance_chart_240306.jpg?v=1711429954" style="margin: 0 auto;">
+                    </div>
+                </div>
+
+                <input type="radio" name="tabs" id="tabtwo">
+                <label for="tabtwo">香水系列</label>
+                <div class="tab">
+                    <!--香調圖片輪播-->
+                    <div class="carousel-wrap">
+                        <div class="owl-carousel owl-carousel-3">
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/fe25e6d6c2d52c2d0807b0c2aeb646387c8d3524.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/e0ceedc6e3f8c6f2c4f61a0c4d55777e33ab00da.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/6e9b8f1b0e5d0baf373a8d445c009940aac58af3.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/f9dced5faa0bd66f81dd7d20b63d0ee5dab85438.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/d01a193827141cd8ffbf3535242baa87a9ee7237.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/3ae232017b03244a6e3ff7f3d8025b887b2dade0.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/09735d864f2b35fc4710d08af41062a373f3cb4c.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/cd22c0d65e1ecd241c80dfbaf261f585d8c971d5.jpg?v=1708296694"></div>
+                            <div class="item"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/92ddbeff6e02888874e6ecd421adb84a71485674.jpg?v=1708296694"></div>
+                        </div>
+                    </div>
+                    <!--香調圖片輪播 END-->
+                    <div class="cross_pic">
+                        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/perfume_chart_2400306.jpg?v=1711429954" style="margin: 0 auto;">
+                    </div>
+                </div>
+            </div>
+            <!--頁籤 END-->
+            <!-- 20220809新增 JavaScript 輪播圖-->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/owl.carousel.min.js"></script>
+            <script type="text/javascript" src="https://use.fontawesome.com/826a7e3dce.js"></script>
+            <script>
+                $('.owl-carousel-3').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    navText: [
+                        "<i class='fa fa-caret-left'></i>",
+                        "<i class='fa fa-caret-right'></i>"
+                    ],
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        }
+                    }
+                }) 
+            </script>
+
+            <!-- 20220809新增 JavaScript 輪播圖END-->
+
+            <div id="form">
+                <div class="globo-formbuilder" data-id="MjQ4ODg="></div>
+
+                <!-- 20240115新增  -->
+                <style>
+                    #lp-btn .btn-toggle {
+                        border: 1.5px solid #333;
+                        padding: 10px 20px 12px 20px;
+                        font-size: 16px;
+                        /* font-weight: 500; */
+                        letter-spacing: 5px;
+                        display: inline;
+                        cursor: pointer;
+                        background: rgb(238, 238, 238);
+                        color: #333;
+                        outline: none;
+                    }
+
+                    #lp-btn a {
+                        text-decoration: inherit;
+                    }
+
+                    .form-overlay-box {
+                        background: #fff !important;
+                    }
+                </style>
+
+            </div>
+        </div><!-- /.content-inner -->
+
+        <style>
+            .form-overlay-box {
+                background-color: unset;
+            }
+
+            .form-container-overlayboxs {
+                margin-top: -50px;
+            }
+
+            .g-container {
+                width: 600px;
+                margin: auto;
+                padding-bottom: 50px;
+                max-width: 90vw;
+            }
+
+            .panels .panel .globo-form-control {
+                display: flex;
+                text-align: center;
+            }
+
+            input[type="select"] {
+                width: 80%;
+                margin: 0 30px 0 30px !important;
+            }
+
+            label[for="24562-select-1"],
+            label[for="24562-select-2"],
+            label[for="24562-select-3"] {
+                width: 20%;
+                padding-top: 10px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .globo-form-input {
+                width: 70%;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            .globo-form-input .flex-wrap {
+                margin: auto;
+            }
+
+            .wizard__footer button {
+                margin-bottom: 50px;
+                height: 64px;
+                border-radius: 10px !important;
+                font-size: 1.5em !important;
+                /* font-weight: bold !important; */
+            }
+
+            .wizard__footer button span {}
+
+            /* label[for="24562-select-1"] span ,label[for="24562-select-2"] span ,label[for="24562-select-3"] span {
+   padding: 30px 0 !important;
+ } */
+            /* .globo-form-input{
+   margin: auto;
+ } */
+            .globo-form-app .header h3 {
+                background-color: #000021;
+                color: #fff !important;
+                padding: 12px 0 5px 0;
+                text-align: center;
+                font-size: 1.2em;
+                margin-top: 100px;
+            }
+
+            .btn-toggle:hover {
+                background-color: #000 !important;
+                color: #eee !important;
+                /* font-weight: bold; */
+                border: none !important;
+
+            }
+
+            .btn-toggle {
+                background-color: #eee !important;
+                color: #000 !important;
+                border: 1px solid #ccc !important;
+                /* font-weight: bold!important; */
+                transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+            }
+
+            #apply-for-samples_container .paragraph {
+                text-align: center;
+                font-weight: 400;
+            }
+
+            @media only screen and (max-width: 1024px) {
+                #apply-for-samples_container .paragraph {
+                    width: 90%;
+                    margin: 0 auto 50px auto;
+                    text-align: center;
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                .form-overlay-box {
+                    width: 100%;
+                }
+
+                #apply-for-samples_container .paragraph {
+                    text-align: start;
+                }
+            }
+
+            @media only screen and (max-width: 640px) {
+                #apply-for-samples_container .paragraph {
+                    width: 90%;
+
+                }
+            }
+        </style>
+
+        <!-- hitobito -->
+        <!-- {% if app.request.get('aid') is not empty %}
+{{ app.session.set('tagKey', app.request.get('aid')) }}
+{% endif %} -->
+        <!-- End hitobito -->
+
+        <style>
+            .NavLists_Wrap a:hover {
+                text-decoration: none !important;
+            }
+
+
+            .mod-search-form {
+                display: none;
+            }
+
+            .content-inner {
+                margin-top: -1.3%;
+            }
+
+            .only-pc {
+                display: block !important;
+            }
+
+            .only-sp {
+                display: none !important;
+            }
+
+            .top {
+                max-width: 140px;
+                margin: 2% 0;
+            }
+
+            .BN1 {
+                width: 100%;
+            }
+
+            .BN2 {
+                width: 53.5%;
+            }
+
+            .BN11fragrance {
+                width: 40%;
+                margin-bottom: 55px;
+            }
+
+            .title {
+                text-align: center;
+                padding: 60px 0 60px 0;
+                font-size: 30px;
+                /* font-weight: 400; */
+                letter-spacing: 2px;
+                color: #393c3f;
+                /* font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important; */
+            }
+
+            .paragraph {
+                font-size: 16px;
+                line-height: 32px;
+                margin-bottom: 50px;
+                letter-spacing: 1px;
+                color: #393c3f;
+                /* font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important; */
+            }
+
+            body {
+                /* font-family: "Noto Sans JP", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", "YuGothic", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important; */
+            }
+
+            .cross_pic {
+                width: 40%;
+                margin: 0 auto 40px auto;
+            }
+
+
+            @media only screen and (max-width: 768px) {
+                .content-inner {
+                    margin-top: -5%;
+                }
+
+                .top {
+                    max-width: 130px;
+                    margin: 5% 0;
+                }
+
+                .only-pc {
+                    display: none !important;
+                }
+
+                .only-sp {
+                    display: block !important;
+                }
+
+                .BN1 {
+                    width: 100%;
+                    margin-bottom: -1px;
+                }
+
+                .BN2 {
+                    width: 98%;
+                }
+
+                .BN11fragrance {
+                    width: 80%;
+                }
+
+
+                .cross_pic {
+                    width: 90%;
+                    margin: 0 auto 55px auto;
+                }
+
+                .pageContent {
+                    width: 100% !important;
+                }
+
+                .pageContent .payForm select {
+                    width: 100%;
+                }
+
+                .carousel-wrap {
+                    margin: 30px auto 50px auto;
+                    padding: 0 15%;
+                    width: 100%;
+                }
+            }
+        </style>

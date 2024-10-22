@@ -1,0 +1,111 @@
+<div class="Product__Tabs">
+  {%- if product.metafields["global"]["how_to_use"] != blank -%}
+    <div class="Collapsible Collapsible--large">
+      <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        使用方法 <span class="Collapsible__Plus"></span>
+      </button>
+
+      <div class="Collapsible__Inner">
+        <div class="Collapsible__Content">
+          <div class="Rte">
+            {{ product.metafields["global"]["how_to_use"] | replace: '##comma##', '&#44;' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if product.metafields["global"]["key_ingredients"] != blank or product.metafields["global"]["ingredients"] != blank -%}
+    <div class="Collapsible Collapsible--large">
+      <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        商品成分 <span class="Collapsible__Plus"></span>
+      </button>
+
+      <div class="Collapsible__Inner">
+        <div class="Collapsible__Content">
+          <div class="Rte">
+            {%- if product.metafields["global"]["key_ingredients"] != blank -%}
+            {% comment %}<div class="tab-subtitle">Key Ingredients</div>{% endcomment %}
+              {{ product.metafields["global"]["key_ingredients"] | replace: '##comma##', '&#44;' }}
+            {%- endif -%}
+            {% comment %}<div class="blank"></div>{% endcomment %}
+            {%- if product.metafields["global"]["ingredients"] != blank -%}
+            {% comment %}<div class="tab-subtitle">Ingredients</div>{% endcomment %}
+              {{ product.metafields["global"]["ingredients"] | replace: '##comma##', '&#44;' }}
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if product.metafields["global"]["shelf_life"] != blank -%}
+  <div class="Collapsible Collapsible--large">
+    <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+      保存期限 <span class="Collapsible__Plus"></span>
+    </button>
+
+    <div class="Collapsible__Inner">
+      <div class="Collapsible__Content">
+        <div class="Rte">
+          {{ product.metafields["global"]["shelf_life"] | replace: '##comma##', '&#44;' }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+  {%- if product.metafields["global"]["colours"] != blank -%}
+  <div class="Collapsible Collapsible--large">
+    <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+      色號說明 <span class="Collapsible__Plus"></span>
+    </button>
+
+    <div class="Collapsible__Inner">
+      <div class="Collapsible__Content">
+        <div class="Rte">
+          {{ product.metafields["global"]["colours"] | replace: '##comma##', '&#44;' }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+  {%- if product.metafields["global"]["fragrance_details"] != blank -%}
+  <div class="Collapsible Collapsible--large">
+    <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+      香調詳細 <span class="Collapsible__Plus"></span>
+    </button>
+
+    <div class="Collapsible__Inner">
+      <div class="Collapsible__Content">
+        <div class="Rte">
+          {{ product.metafields["global"]["fragrance_details"] | replace: '##comma##', '&#44;' }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{%- if product.metafields["global"]["frequently_asked_questions"] != blank -%}
+<div class="Collapsible Collapsible--large">
+  <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+    常見問答 <span class="Collapsible__Plus"></span>
+  </button>
+
+  <div class="Collapsible__Inner">
+    <div class="Collapsible__Content">
+      <div class="Rte">
+        {{ product.metafields["global"]["frequently_asked_questions"] | replace: '##comma##', '&#44;' }}
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+</div>
+
+<style>
+  .Product__Tabs .Collapsible .Collapsible__Content {
+    font-weight: initial ;
+  }
+</style>

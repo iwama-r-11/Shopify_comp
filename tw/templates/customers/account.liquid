@@ -1,0 +1,259 @@
+{% capture  gender_birthday_form %}
+      <div class="Grid Grid--l">
+          <div class="Grid__Cell">
+            <div class="Segment">
+                <button class="Segment__ActionItem Link Link--underline" data-action="open-modal" aria-controls="modal-gender_birthday_form">填寫 出生日期/性別</button>
+            </div>
+          </div>
+      </div>
+
+<div id="modal-gender_birthday_form" class="Modal Modal--gender_birthday" aria-hidden="true"  data-scrollable>
+  <button class="Modal__Close Modal__Close--outside" data-action="close-modal">{%- include 'icon' with 'close' -%}</button>
+  <div class="globo-formbuilder" data-id="MjQ1Nzg="></div>
+</div>
+{% endcapture %}
+
+<style>
+  .Modal--gender_birthday .layout-3-column h3{
+    font-size: 14px; line-height:20px;
+  }
+  .Modal--gender_birthday .globo-form-control.layout-2-column{
+  width: 60% ;
+}
+  .globo-form-input select{
+    cursor:pointer;
+  }
+  .Modal--gender_birthday .layout-3-column{
+    width: 100%;
+    text-align: start!important;
+  }
+.globo-form-control .globo-list-control.option-3-column{
+  width: 25%;
+}
+  .globo-form-input select{
+    cursor:pointer;
+  }
+  .globo-form-input .flex-wrap{
+    width: 100%;
+  }
+  .globo-form-control .globo-list-control.option-2-column{
+    width: 40% ;
+  }
+  #modal-gender_birthday_form{
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .Modal--gender_birthday .globo-form-control.layout-1-column {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .Modal--gender_birthday .globo-form-control{
+    padding:initial;
+    align-items: center;
+    text-align: center;
+  }
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(2){
+    width: 11%;
+  }
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(3),
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(5),
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(7){
+    width: 25.1%;
+    padding-right:2px;
+  }
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(4),
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(6),
+  .Modal--gender_birthday .globo-form-control.layout-1-column:nth-child(8){
+    text-align: center;
+    width: 4.5%;
+  }
+  
+  .Modal--gender_birthday .globo-paragraph p{
+    font-size: 12px !important;
+    margin-bottom: 0;
+}
+.globo-form-control .globo-form-input {
+    width: 100%;
+}
+  .Modal--gender_birthday .block-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .Modal--gender_birthday .panels .block-container{
+    display: flex;
+    justify-content: space-between;
+  }
+
+.layout-3-column{
+  position: relative;
+}
+.globo-description {
+	position: absolute;
+	bottom: 0;
+  right: 10%;
+}
+  @media screen and (max-width: 640px){
+    .Modal--gender_birthday {
+        height: unset;
+        width: 95%;
+        max-width: none;
+        max-height: none;
+    }
+  }
+  @media only screen and (max-width: 640px){
+  .globo-form-control .globo-list-control.option-3-column{
+    width: 33.3%;
+  }
+  }
+  .globo-form-app .panel:nth-child(1):last-child{
+    visibility: inherit;
+  }
+  .customer_name{
+    margin-bottom: 0;
+  }
+</style>
+
+
+<div class="Container Container--narrow" style="padding-bottom:80px;">
+  <header class="PageHeader">
+    <a href="{{ routes.account_logout_url }}" class="PageHeader__Back Heading Text--subdued Link Link--primary u-h7">{{ 'customer.account.logout' | t }}</a>
+
+    <div class="SectionHeader">
+      <h1 class="SectionHeader__Heading Heading u-h1">{{ 'customer.account.title' | t }}</h1>
+      <p class="SectionHeader__Description">{{ 'customer.account.welcome' | t: first_name: customer.first_name }}</p>
+    </div>
+  </header>
+
+  <div class="PageLayout PageLayout--breakLap">
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    ORDER HISTORY
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+    <div class="PageLayout__Section">
+      {%- if customer.orders.size == 0 -%}
+        <div class="Segment">
+          <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.no_orders_title' | t }}</h2>
+
+          <div class="Segment__Content">
+            <p>{{ 'customer.account.no_orders_content' | t }}</p>
+          </div>
+        </div>
+      {%- else -%}
+        {%- paginate customer.orders by 25 -%}
+          <div class="TableWrapper">
+            <table class="AccountTable Table Table--large">
+              <thead class="Text--subdued">
+                <tr>
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th class="Text--alignRight">{{ 'customer.orders.total' | t }}</th>
+                </tr>
+              </thead>
+
+              <tbody class="Heading u-h7">
+                {%- for order in customer.orders -%}
+                  {% if order.metafields.custom.oldorder_true != true %}
+                  <tr>
+                    <td><a href="{{ order.customer_url }}" class="Link Link--underline">{{ order.name }}</a></td>
+                    <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td>{{ order.financial_status_label }}</td>
+                    <td>{{ order.fulfillment_status_label }}</td>
+                    <td class="Text--alignRight">{{ order.total_price | money_without_trailing_zeros }}</td>
+                  </tr>
+                  {% endif %}
+                {%- endfor -%}
+
+                {%- for order in customer.orders -%}
+                  {% if order.metafields.custom.oldorder_true == true %}
+                  <tr>
+                    <td><a href="{{ order.customer_url }}" class="Link Link--underline">{{ order.name }}</a></td>
+                    <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td>{{ order.financial_status_label }}</td>
+                    <td>{{ order.fulfillment_status_label }}</td>
+                    <td class="Text--alignRight">{{ order.total_price | money_without_trailing_zeros }}</td>
+                  </tr>
+                  {% endif %}
+                {%- endfor -%}
+
+
+
+              </tbody>
+            </table>
+          </div>
+
+          {%- include 'pagination' -%}
+        {%- endpaginate -%}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    ADDRESS
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+    <div class="PageLayout__Section PageLayout__Section--secondary">
+      <div class="Segment">
+        {%- if customer.addresses_count == 0 -%}
+          <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.no_addresses_title' | t }}</h2>
+
+          <div class="Segment__Content">
+            <p>{{ 'customer.account.no_addresses_content' | t }}</p>
+
+            <div class="Segment__ButtonWrapper">
+              <a href="{{ routes.account_addresses_url }}" class="Button Button--primary">{{ 'customer.account.manage_addresses' | t }}</a>
+            </div>
+          </div>
+        {%- else -%}
+          <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.default_address' | t }}</h2>
+
+          <div class="Segment__Content">
+            <p class="customer_name">
+              姓名：{{customer.default_address.last_name}} {{customer.default_address.first_name}}<br>
+              {% if customer.metafields.facts.birth_date != blank and customer.metafields.customer.gender != blank %}
+              生年月日：{{customer.metafields.facts.birth_date | date: '%Y年%m月%d日' }}<br>
+              性別：{{ customer.metafields.customer.gender }} </p>
+              {% else %}
+            </p>
+              {{gender_birthday_form}}
+              {% endif %}
+              <p>
+              {% if customer.default_address.zip != blank %} 郵遞區號：{{ customer.default_address.zip }}<br> {% endif %}
+              {% if customer.default_address.province != blank %} {{ customer.default_address.province }} {% endif %}
+              {% if customer.default_address.city != blank %}縣市鄉鎮村：{{ customer.default_address.city }}<br> {% endif %}
+              {% if customer.default_address.address1 != blank %} 地址：{{ customer.default_address.address1 }} <br> {% endif %} 
+              {% if customer.default_address.phone != blank %} 手機號碼：{{ customer.default_address.phone }} {% endif %} 
+            </p>
+            <!-- {{ customer.default_address | format_address | replace: '<p>', '<p class="AccountAddress"><span>' | replace_first: '<br>', '</span><br>' }} -->
+
+            <div class="Segment__ButtonWrapper">
+              <a href="{{ routes.account_addresses_url }}" class="Button Button--primary">{{ 'customer.account.edit_addresses' | t }}</a>
+            </div>
+          </div>
+
+          <!-- <div class="visually-hidden globo-custom">
+            {% for address in customer.addresses %}
+            <div class="globo-zip"> {{ address.zip }}</div>
+            <div class="globo-province"> {{ address.province }}</div>
+            <div class="globo-city"> {{ address.city }}</div>
+                <div class="globo-address1"> {{ address.address1 }}</div>
+                <div class="globo-address2"> {{ address.address2 }}</div>
+            {% endfor %}
+          </div> -->
+
+
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>

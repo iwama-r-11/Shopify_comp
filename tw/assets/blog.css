@@ -1,0 +1,792 @@
+@charset "UTF-8";
+
+/* =======================================================================
+CSS Name：blog.css
+Final update date：2023/2/22
+--------------------------------------------------------------------------
+blog css
+======================================================================= */
+
+[id="blog"] .boxContainer {
+	padding: 1.6em 0;
+}
+
+[id="blog"] .boxContainer:not(:last-child) {
+	margin-bottom: 1.6em;
+}
+
+[id="blog"] .boxContainer:last-child {
+	margin-bottom: 0;
+}
+
+[id="blog"] .u-btnContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	max-width: 680px;
+	margin: auto;
+
+	gap: 24px 0;
+}
+
+@media screen and (min-width: 768px) {
+	[id="blog"] .u-btnContainer {
+		flex-direction: row;
+
+		gap: 0 24px;
+	}
+}
+
+[id="blog"] .u-btn {
+	display: inline-block;
+
+	width: 100%;
+	min-width: 200px;
+	padding: 16px 32px;
+
+	cursor: pointer;
+	text-align: center;
+
+	border-radius: 4px;
+}
+
+[id="blog"] .u-btn--black {
+	transition: 0.5s;
+
+	color: #ffffff !important;
+	background: #2b2f33;
+}
+
+[id="blog"] .u-btn--black:hover {
+	transition: 0.5s;
+
+	opacity: 0.8;
+	color: #ffffff !important;
+	background: #2b2f33;
+}
+
+[id="blog"] .u-btn--white {
+	transition: 0.5s;
+
+	color: #000000 !important;
+	background: #ffffff;
+}
+
+[id="blog"] .u-btn--white:hover {
+	transition: 0.5s;
+
+	opacity: 0.8;
+	color: #000000 !important;
+	background: #ffffff;
+}
+
+[id="blog"] .u-btn__border {
+	border: 1px solid #ffffff;
+}
+
+[id="blog"] .u-btn__border--black {
+	border: 1px solid #2b2f33;
+}
+
+[id="blog"] .u-btn__arrow {
+	position: relative;
+
+	display: inline-block;
+}
+
+[id="blog"] .u-btn__arrow::before {
+	position: absolute;
+	top: 50%;
+	right: 16px;
+
+	width: 12px;
+	height: 12px;
+	margin-top: -6px;
+
+	content: "";
+	-webkit-transform: rotate(0deg) translate(-50%, -50%);
+	transform: rotate(0deg) translate(-50%, -50%);
+
+	border-top: solid 1px #ffffff;
+	border-right: solid 1px #ffffff;
+}
+
+[id="blog"] .u-btn__arrow--top::before {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+[id="blog"] .u-btn__arrow--right::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+[id="blog"] .u-btn__arrow--bottom::before {
+	margin-top: -12px;
+
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+[id="blog"] .u-btn__arrow--left::before {
+	right: initial;
+	left: 16px;
+
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+[id="blog"] .u-btn__arrow--black::before {
+	border-top: solid 1px #2b2f33;
+	border-right: solid 1px #2b2f33;
+}
+
+[id="blog"] .u-btn__arrow {
+	position: relative;
+
+	display: inline-block;
+}
+
+[id="blog"] .u-btn__arrow::before {
+	position: absolute;
+	top: 50%;
+	right: 16px;
+
+	width: 12px;
+	height: 12px;
+	margin-top: -6px;
+
+	content: "";
+	-webkit-transform: rotate(0deg) translate(-50%, -50%);
+	transform: rotate(0deg) translate(-50%, -50%);
+
+	border-top: solid 1px #ffffff;
+	border-right: solid 1px #ffffff;
+}
+
+[id="blog"] .u-btn__arrow--top::before {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+[id="blog"] .u-btn__arrow--right::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+[id="blog"] .u-btn__arrow--bottom::before {
+	margin-top: -12px;
+
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+[id="blog"] .u-btn__arrow--left::before {
+	right: initial;
+	left: 16px;
+
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+[id="blog"] .u-btn__arrow--black::before {
+	border-top: solid 1px #2b2f33;
+	border-right: solid 1px #2b2f33;
+}
+
+[id="blog"] .u-flexRow {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	margin-top: -24px;
+	margin-left: -24px;
+}
+
+@media screen and (max-width: 767px) {
+	[id="blog"] .u-flexRow {
+		flex-direction: column;
+
+		margin-left: 0;
+	}
+}
+
+[id="blog"] .u-flexCol-2 {
+	display: flex;
+	flex-direction: column;
+
+	width: calc((100% - 48px) / 2);
+	margin-top: 24px;
+	margin-left: 24px;
+	padding: initial;
+
+	border: 1px solid #f1f1f1;
+}
+
+@media screen and (max-width: 767px) {
+	[id="blog"] .u-flexCol-2 {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+[id="blog"] .u-flexThumb__img {
+	width: 100%;
+	height: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+[id="blog"] .u-flexBody {
+	align-items: center;
+
+	height: 100%;
+	padding: 24px;
+
+	background: #f4f4f4;
+}
+
+[id="blog"] .small {
+	font-size: 80%;
+}
+
+
+/* スケジュール */
+[id="blog"] .td-info {
+	border: 0px none !important;
+	font-size: 16px;
+}
+
+[id="blog"] .scroll-none {
+	white-space: normal !important;
+}
+
+[id="blog"] .info-hr-margin {
+	margin: 48px auto 0px;
+}
+
+/* スケジュールここまで */
+
+/* サブタイトル部分 */
+[id="blog"] .topics__container {
+	padding-top: 46px;
+}
+
+[id="blog"] .topics-title__box {
+	text-align: center;
+	align-items: baseline;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #393c41;
+	margin-bottom: 2rem;
+}
+
+[id="blog"] .sec-title {
+	font-weight: 700;
+}
+
+/* サブタイトル部分ここまで */
+
+/* ボタン */
+.btn-info {
+	color: #fff !important;
+	background: #2c2e33;
+	display: block;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 4px;
+	margin: 6% auto;
+	padding: 12px 50px;
+	position: relative;
+	width: 100%;
+}
+
+[id="blog"] .btn-info:hover {
+	color: #fff;
+	transition: .5s;
+	opacity: .8;
+}
+
+/* ボタンここまで */
+
+/* 注釈 */
+[id="blog"] .maroon {
+	font-size: 12px;
+}
+
+/* 注釈ここまで */
+
+/* 製品画像文字横並びレイアウト */
+[id="blog"] .product-mbmt {
+	margin: 0px auto !important;
+}
+
+[id="blog"] .limited-lineup-mb {
+	margin-bottom: 40px !important;
+}
+
+[id="blog"] .item-media-list {
+	margin-bottom: 46px;
+}
+
+[id="blog"] .item-media-list>.item-media:not(:last-child) {
+	margin-bottom: 46px;
+}
+
+[id="blog"] .item-media-list-2 {
+	margin-bottom: 0px;
+}
+
+[id="blog"] .item-media-list-2>.item-media:not(:last-child) {
+	margin-bottom: 0px;
+}
+
+[id="blog"] .product-mbmt {
+	margin: 0px auto !important;
+}
+
+[id="blog"] .limited-lineup-mb {
+	margin-bottom: 40px !important;
+}
+
+[id="blog"] .item-media-list {
+	margin-bottom: 46px;
+}
+
+[id="blog"] .item-media-list>.item-media:not(:last-child) {
+	margin-bottom: 46px;
+}
+
+[id="blog"] .item-media-list-2 {
+	margin-bottom: 0px;
+}
+
+[id="blog"] .item-media-list-2>.item-media:not(:last-child) {
+	margin-bottom: 0px;
+}
+
+/* .item-media .item-media-title:hover::before {
+   background: #fff;
+	opacity: 0.3;
+} */
+
+[id="blog"] .item-media-inner {
+	display: flex;
+	position: relative;
+	margin: -10px;
+}
+
+[id="blog"] .item-media-inner>* {
+	padding: 10px;
+}
+
+[id="blog"] .item-media .item-media-image {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 40%;
+	flex: 0 0 40%;
+	max-width: 40%;
+}
+
+[id="blog"] .item-media .item-media-text {
+	margin-top: 8px;
+}
+
+[id="blog"] .item-media .item-media-content {
+	-webkit-box-flex: 0;
+	flex: 0 0 60%;
+	max-width: 60%;
+}
+
+[id="blog"] .item-media .item-media-title {
+	margin-bottom: 5px;
+	display: block;
+	color: #393c41;
+	font-weight: 700;
+	text-decoration: underline;
+}
+
+[id="blog"] .item-media .item-media-title::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	display: block;
+	content: "";
+	opacity: 1;
+	transition: opacity 0.3s, background 0.3s;
+}
+
+[id="blog"] .item-media-body {
+	position: relative;
+}
+
+/* 製品画像文字横並びレイアウトここまで */
+
+
+/* 通常製品レイアウト */
+[id="blog"] .pic img {
+	margin: 0 !important;
+}
+
+[id="blog"] .name {
+	margin: 0 !important;
+}
+
+[id="blog"] .pic {
+	margin: 5% auto;
+}
+
+[id="blog"] .wrap .topics_detail .item-holder .base {
+	width: 280px;
+	border: 2px solid #f9f9f9;
+	background-color: #f9f9f9;
+}
+
+[id="blog"] .wrap .topics_detail .item-holder {
+	margin: 50px auto;
+	max-width: 600px;
+}
+
+[id="blog"] .item-holder .item-holder-inner {
+	justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	margin: -1.5625%;
+	padding: 0;
+}
+
+[id="blog"] .item-holder .item {
+	position: relative;
+	display: block;
+	padding: 1.5625%;
+	width: 49%;
+	vertical-align: top;
+}
+
+[id="blog"] .item-holder .text-area {
+	display: block;
+	padding: 20px;
+	text-align: left;
+}
+
+[id="blog"] .item-holder .base.base--link {
+	transition: opacity 0.3s;
+}
+
+[id="blog"] .item-holder .base.base--link:active,
+[id="blog"] .item-holder .base.base--link:focus-visible {
+	opacity: 0.5;
+}
+
+[id="blog"] .price {
+	text-align: left;
+	font-size: 13px;
+}
+
+[id="blog"] .item-holder .text-area {
+	font-size: 14px;
+}
+
+[id="blog"] .text-area--bg {
+    padding: 30px 20px;
+    background: #f4f4f4;
+  }
+
+/* 通常製品レイアウトここまで */
+
+/* INGREDIENTSここから */
+
+[id="blog"] .product-mbmt {
+	margin: 0px auto !important;
+}
+
+[id="blog"] .limited-lineup-mb {
+	margin-bottom: 40px !important;
+}
+
+[id="blog"] .media-list-ingredient {
+	margin-bottom: 46px;
+}
+
+[id="blog"] .media-list-ingredient>.media-ingredient:not(:last-child) {
+	margin-bottom: 46px;
+}
+
+[id="blog"] .media-ingredient-inner {
+	display: flex;
+	position: relative;
+	margin: -10px;
+	flex-direction: row;
+}
+
+[id="blog"] .media-ingredient-inner>* {
+	padding: 10px;
+}
+
+[id="blog"] .media-ingredient .media-ingredient-image {
+	-webkit-box-flex: 0;
+	flex: 0 0 40%;
+}
+
+[id="blog"] .media-ingredient .media-ingredient-text {
+	margin-top: 0px;
+}
+
+[id="blog"] .media-ingredient .media-ingredient-content {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 60%;
+	flex: 0 0 60%;
+	max-width: 60%;
+}
+
+[id="blog"] .media-ingredient .media-ingredient-title {
+	margin-bottom: 5px;
+	display: block;
+	color: #393c41;
+	font-weight: 700;
+	text-decoration: underline;
+}
+
+[id="blog"] .media-ingredient .media-ingredient-title::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	display: block;
+	content: "";
+	opacity: 1;
+	transition: opacity 0.3s, background 0.3s;
+}
+
+[id="blog"] .media-ingredient-body {
+	position: relative;
+}
+
+/* INGREDIENTSここまで */
+
+@media screen and (max-width: 767px) {
+
+	/* スケジュールここから */
+	[id="blog"] .info-hr-margin {
+		margin: 40px auto 0px;
+	}
+
+	/* スケジュールここまで */
+
+	/* サブタイトル部分 */
+	[id="blog"] .sec-title {
+		font-weight: 700;
+	}
+
+	/* サブタイトル部分ここまで */
+
+	/* ボタン */
+	[id="blog"] .buttonarea {
+		display: block;
+		width: 100%;
+	}
+
+	[id="blog"] .btn-info {
+		margin: 12% auto;
+		font-size: 14px;
+	}
+
+	/* ボタンここまで */
+
+	/* 製品画像文字横並びレイアウト */
+	[id="blog"] .limited-lineup-mb {
+		margin-bottom: 38px !important;
+	}
+
+	[id="blog"] .item-media-list {
+		margin-bottom: 56px;
+	}
+
+	[id="blog"] .item-media-list>.item-media:not(:last-child) {
+		margin-bottom: 40px;
+	}
+
+	[id="blog"] .item-media-inner {
+		display: flex;
+		position: relative;
+		margin: -10px;
+		flex-direction: column;
+		margin: 0;
+	}
+
+	[id="blog"] .item-media-inner>* {
+		padding: 0;
+	}
+
+	[id="blog"] .item-media .item-media-image {
+		flex: auto;
+		max-width: 100%;
+		margin: 20px auto 20px;
+	}
+
+	[id="blog"] .item-media .item-media-content {
+		flex: auto;
+		max-width: 100%;
+	}
+
+	[id="blog"] .item-media .item-media-title {
+		margin-bottom: 5px;
+		display: block;
+		color: #393c41;
+		font-weight: 700;
+		text-decoration: underline;
+	}
+
+	[id="blog"] .item-media .item-media-title::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		display: block;
+		content: "";
+		opacity: 1;
+		transition: opacity 0.3s, background 0.3s;
+	}
+
+	[id="blog"] .item-media .item-media-body {
+		position: relative;
+		z-index: 1;
+	}
+
+	[id="blog"] .item-media .item-media-text {
+		margin-top: 8px;
+	}
+
+	/* 製品画像文字横並びレイアウトここまで */
+
+	/* 通常製品レイアウト */
+	[id="blog"] .item-holder .item-holder-inner {
+		justify-content: space-between;
+		display: flex;
+		flex-wrap: wrap;
+		margin: -1.5625%;
+		padding: 0;
+	}
+
+	[id="blog"] .item-holder .text-area .price-box {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: start;
+		-webkit-justify-content: flex-start;
+		justify-content: flex-start;
+		-webkit-box-align: baseline;
+		-webkit-align-items: baseline;
+		align-items: baseline;
+	}
+
+	[id="blog"] .item-holder .text-area {
+		padding: 12px 10px;
+		text-align: left;
+		display: block;
+	}
+
+	[id="blog"] .text-area--bg {
+		padding: 12px 10px;
+	}
+
+	@media (pointer: fine) {
+		[id="blog"] .item-holder .base.base--link:hover {
+			opacity: 0.5;
+		}
+	}
+}
+
+/* 通常製品レイアウトここまで */
+
+@media screen and (max-width: 767px) {
+
+	/* INGREDIENTSここから */
+	[id="blog"] .limited-lineup-mb {
+		margin-bottom: 38px !important;
+	}
+
+	[id="blog"] .media-list-ingredient {
+		margin-bottom: 56px;
+	}
+
+	[id="blog"] .media-list-ingredient>.media-ingredient:not(:last-child) {
+		margin-bottom: 40px;
+	}
+
+	[id="blog"] .media-ingredient-inner {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		margin: 0px;
+		align-items: center;
+	}
+
+	[id="blog"] .media-ingredient-inner>* {
+		padding: 0;
+	}
+
+	[id="blog"] .media-ingredient .media-ingredient-image {
+		max-width: 100%;
+		margin: 20px auto 20px;
+		width: 280px;
+		height: auto;
+	}
+
+	[id="blog"] .media-ingredient .media-ingredient-content {
+		flex: auto;
+		max-width: 100%;
+	}
+
+	[id="blog"] .media-ingredient .media-ingredient-title {
+		margin-bottom: 5px;
+		display: block;
+		color: #393c41;
+		font-weight: 700;
+		text-decoration: underline;
+	}
+
+	[id="blog"] .media-ingredient .media-ingredient-title::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		display: block;
+		content: "";
+		opacity: 1;
+		transition: opacity 0.3s, background 0.3s;
+	}
+
+	[id="blog"] .media-ingredient .media-ingredient-body {
+		position: relative;
+		z-index: 1;
+	}
+
+	[id="blog"] .media-ingredient .media-ingredient-text {
+		margin-top: 8px;
+	}
+
+	/* INGREDIENTSここまで */
+}
+
+
+[id="blog"] .top-img {
+	display: block;
+	width: 100%;
+	max-width: 480px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+[id="blog"] .u-text-center {
+	text-align: center;
+}

@@ -1,0 +1,176 @@
+<div class="recommend_gift_slideshow">
+  {% section 'slideshow' %}
+</div>
+
+<div class="recommend_gift_container">
+  <div class="recommend_gift_inner">
+
+    <div class="recommend_gift_paragraph">
+      <p><a href="/pages/gift-wrapping">禮物包裝相關</a></p>
+      <p>SHIRO提供禮物包裝服務。送禮給重要的人或紀念日等各個場合皆歡迎多加利用。</p>
+    </div>
+
+    <div id="recommend-gift-1">
+      {% section 'slider-collections' %}
+    </div>
+    <div id="recommend-gift-2">
+      {% section 'slider-collections-02' %}
+    </div>
+    <div id="recommend-gift-3">
+      {% section 'slider-collections-03' %}
+    </div>
+    <header class="SectionHeader SectionHeader--center" style="margin-top:100px;"><h3 class="SectionHeader__SubHeading Heading u-h6">推薦內容</h3></header>
+    {% section 'blog-posts' %}
+  </div>
+</div>
+
+
+{% style %}
+.recommend_gift_slideshow image {
+  height: 400px;
+}
+@media (max-width: 800px) {
+  .recommend_gift_slideshow image {
+    height: 200px; 
+  }
+}
+.recommend_gift_slideshow .flickity-viewport,
+.recommend_gift_container .recommend_gift_inner .flickity-viewport {
+  min-height:initial;
+}
+.ProductCard__product_en {
+height: auto !important;
+  font-weight:300;
+}
+.Carousel__Cell{
+padding-bottom: 0px !important;
+}
+.ProductItem{
+padding-bottom:0;
+}
+.flickity-slider {
+position: absolute;
+width: 100%;
+height: 100%;
+display: flex;
+align-items: stretch;
+justify-content: center;
+}
+.ProductList {
+width: 100%;
+margin:auto;
+}
+.Button{
+padding: 14px 0px;
+max-width: 343px;
+width: 100%;
+text-align:center;
+}
+.spOnly{
+display:none;
+}
+
+.recommend_gift_paragraph p a{
+  text-decoration: underline;
+}
+.recommend_gift_paragraph p {
+  text-align:center;
+  margin-bottom:30px;
+}
+.recommend_gift_container .SectionHeader__SubHeading {
+  font-weight:600;
+} 
+@media screen and (min-width: 641px) {
+  .recommend_gift_container .SectionHeader__Heading--emphasize {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .recommend_gift_container .SectionHeader__SubHeading {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .recommend_gift_container .SectionHeader__Heading--emphasize {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .recommend_gift_container .SectionHeader__SubHeading {
+    font-size: 16px;
+  }
+  .recommend_gift_paragraph{
+    width:90%;
+    margin:auto;
+  }
+}
+.slider_collection .Carousel__Cell{
+  min-height: 320px;
+}
+@media(max-width: 700px){
+  .slider_collection .Carousel__Cell{
+    min-height: 411px;
+  }
+}
+@media(max-width: 640px){
+  .recommend_gift_container .ProductItem__Info{
+    padding: 0 10px;
+  }
+  .recommend_gift_container .slider_collection .ProductItem_variantImgList{
+    padding-bottom: 0 !important;
+  }
+  .slider_collection .Carousel__Cell{
+    min-height: 400px;
+  }
+}
+@media screen and (max-width: 640px) {
+.ProductList {
+flex-wrap: wrap;
+}
+
+.pcOnly{
+display:none;
+}
+.spOnly{
+display:block;
+}
+}
+#recommend-gift-1 ,#recommend-gift-2,#recommend-gift-3{
+  max-width: 1000px;
+  margin: 80px auto 100px auto;
+  }
+
+
+.recommend_gift_container{
+  padding-bottom:80px;
+}
+
+
+.recommend_gift_inner{
+margin-top:50px;
+}
+#recommend-gift-1 ,#recommend-gift-2,#recommend-gift-3{
+max-width: 1000px;
+margin: 80px auto 100px auto;
+}
+
+.product_card_height_container{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.product_card_height_container .Grid__Cell{
+width: 25%;
+}
+@media screen and (max-width: 1239px) {
+.product_card_height_container{
+justify-content: center;
+}
+.product_card_height_container .Grid__Cell{
+width: 45%;
+}
+}
+
+.shopify-section--bordered>.Section--spacingNormal{
+padding: initial ;
+}
+
+{% endstyle %}

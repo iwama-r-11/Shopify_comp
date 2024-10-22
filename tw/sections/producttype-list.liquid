@@ -1,0 +1,103 @@
+<section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="collection-list" class="mobile">
+  <div class="Container a">
+    {%- capture collection_items -%}
+      {%- for block in section.blocks -%}
+        {%- assign collection = collections[block.settings.collection] -%}
+        {%- include 'collection-item', collection: collection, apply_overlay: block.settings.apply_overlay -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    
+      <div class="CollectionList CollectionList--grid {% if section.settings.add_spacing %}CollectionList--spaced{% endif %}">
+        {{ collection_items }}
+      </div>
+  </div>
+</section>
+
+<style>
+
+  #section-{{ section.id }} {
+    padding: 20px 0;
+  }
+  #section-{{ section.id }} header h2.u-h1 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: 0;
+  }
+  #section-{{ section.id }} > .Container > header h2.u-h1 {
+    font-size: 34px;
+  }
+  #section-{{ section.id }} .CollectionItem {
+    width: 48%;
+    margin: 0 0 4%;
+    padding: 0;
+  }
+  .CollectionItem__Content--bottomLeft {
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+  }
+  #section-{{ section.id }} .CollectionItem__Wrapper {
+    height: 30vw !important;
+  }
+  #section-{{ section.id }} .CollectionItem .Heading,
+  #section-{{ section.id }} .flickity-page-dots {
+    color: #FFFFFF;
+    /* font-weight: bold; */
+    text-align: center;
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "Product type list",
+  "max_blocks": 14,
+  "settings": [
+    
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Collection name"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link",
+          "info": "If none is set, collection URL is used."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Collection",
+      "name": "Product type list",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

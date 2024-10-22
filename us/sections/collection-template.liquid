@@ -1,0 +1,1715 @@
+{%- if section.settings.show_layout_switch -%}
+{%- assign desktop_items_per_row = cart.attributes.collection_desktop_items_per_row | default: section.settings.grid_desktop_items_per_row | times: 1 -%}
+{%- assign mobile_items_per_row = cart.attributes.collection_mobile_items_per_row | default: section.settings.grid_mobile_items_per_row | times: 1 -%}
+
+{%- if desktop_items_per_row >= 3 and desktop_items_per_row != section.settings.grid_desktop_items_per_row -%}
+{%- assign desktop_items_per_row = section.settings.grid_desktop_items_per_row -%}
+{%- endif -%}
+{%- else -%}
+{%- assign desktop_items_per_row = section.settings.grid_desktop_items_per_row | times: 1 -%}
+{%- assign mobile_items_per_row = section.settings.grid_mobile_items_per_row | times: 1 -%}
+{%- endif -%}
+
+{%- if desktop_items_per_row == 4 -%}
+{%- assign tablet_items_per_row = 3 -%}
+{%- else -%}
+{%- assign tablet_items_per_row = 2 -%}
+{%- endif -%}
+
+{%- capture collection_inner -%}
+{%- comment -%}This is the common part to both template{%- endcomment -%}
+
+{%- if collection.products_count > 0 -%}
+{%- paginate collection.products by section.settings.grid_items_per_page -%}
+<div class="ProductListWrapper">
+    <div class="ProductList ProductList--grid {% if paginate.pages > 1 %}ProductList--removeMargin{% endif %} Grid" data-mobile-count="{{ mobile_items_per_row }}" data-desktop-count="{{ desktop_items_per_row }}">
+        {%- for product in collection.products -%}
+        <div class="Grid__Cell 1/{{ mobile_items_per_row }}--phone 1/{{ tablet_items_per_row }}--tablet-and-up 1/{{ desktop_items_per_row }}--{% if section.settings.filter_position == 'drawer' %}lap-and-up{% else %}desk{% endif %}">
+            {%- include 'product-item', show_product_info: true, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true -%}
+        </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+{%- include 'pagination' -%}
+{%- endpaginate -%}
+{%- else -%}
+<div class="EmptyState">
+    <div class="Container">
+        <h1 class="EmptyState__Title Heading u-h5">{{ 'collection.general.no_products' | t }}</h1>
+        <button class="EmptyState__Action Button Button--primary" data-action="reset-tags">{{ 'collection.general.reset' | t }}</button>
+    </div>
+</div>
+{%- endif -%}
+{%- endcapture -%}
+
+{%- if template == 'collection.ajax' -%}
+{%- comment -%}
+--------------------------------------------------------------------------------------------------------------------
+CONTENT FOR AJAX ALTERNATE TEMPLATE
+--------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{{- collection_inner -}}
+
+{%- else -%}
+{%- comment -%}
+--------------------------------------------------------------------------------------------------------------------
+CONTENT FOR NORMAL TEMPLATE
+--------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign active_tags = '' -%}
+
+{%- for tag in current_tags -%}
+{%- assign tag_as_handle = tag | replace: '&#39;', '' | replace: '&#34;', '' | handle -%}
+{%- assign active_tags = active_tags | append: tag_as_handle -%}
+
+{%- unless forloop.last -%}
+{%- assign active_tags = active_tags | append: '+' -%}
+{%- endunless -%}
+{%- endfor -%}
+
+{%- capture section_settings -%}
+{
+"collectionUrl": {{ collection.url | default: '/collections/all' | json }},
+"currentTags": {% if active_tags != blank %}{{ active_tags | split: '+' | json }}{% else %}[]{% endif %},
+"sortBy": {{ collection.sort_by | default: collection.default_sort_by | json }},
+"filterPosition": {{ section.settings.filter_position | json }}
+}
+{%- endcapture -%}
+
+<section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    COLLECTION INFO
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+    {%- if section.settings.show_collection_info and collection.all_products_count > 0 -%}
+    {%- if section.settings.show_collection_image and collection.image and collection.template_suffix != 'no-image' -%}
+    <div class="FlexboxIeFix">
+        <header class="PageHeader PageHeader--withBackground {% if section.settings.collection_image_size != 'normal' %}PageHeader--{{ section.settings.collection_image_size }}{% endif %}" style="background: url({{ collection.image | img_url: '1x1', format: 'jpg' }})">
+            <div class="PageHeader__ImageWrapper Image--lazyLoad Image--fadeIn {% if section.settings.apply_overlay %}Image--contrast{% endif %}" data-optimumx="1.2" data-bgset="{{ collection.image | img_url: 'x600' }} 600w, {{ collection.image | img_url: '800x' }} 800w, {{ collection.image | img_url: '1200x' }} 1200w, {{ collection.image | img_url: '1400x' }} 1400w, {{ collection.image | img_url: '1600x' }} 1600w">
+            </div>
+
+            <noscript>
+                <div class="PageHeader__ImageWrapper {% if section.settings.apply_overlay %}Image--contrast{% endif %}" style="background-image: url({{ collection.image | img_url: '800x' }})"></div>
+            </noscript>
+
+            <div class="Container full">
+                <div class="SectionHeader SectionHeader--left">
+                    <h1 class="SectionHeader__Heading Heading u-h1">{{ collection.title }}</h1>
+
+                    {%- if collection.description != blank -%}
+                    <div class="SectionHeader__Description Rte">
+                        {{- collection.description -}}
+                    </div>
+                    {%- endif -%}
+                </div>
+            </div>
+        </header>
+    </div>
+    {%- else -%}
+    <header class="PageHeader">
+        <div class="Container">
+            <div class="SectionHeader SectionHeader--center">
+                <h1 class="SectionHeader__Heading Heading u-h1">{{ collection.title }}</h1>
+
+                {%- if collection.description != blank -%}
+                <div class="SectionHeader__Description Rte">
+                    {{- collection.description -}}
+                </div>
+                {%- endif -%}
+            </div>
+        </div>
+    </header>
+    {%- endif -%}
+    {%- endif -%}
+
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    COLLECTION TOOLBAR
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+    {%- if collection.all_products_count > 0 -%}
+    {%- comment -%}
+    In order to provide more predictable results (for instance not showing filters by tag even if the option is checked in settings,
+    but that there are no tags for the given collection to show), we are doing some more logic here. Basically, we try to check if there
+    are tags to show by stripping internal tags (those that start by "__")
+    {%- endcomment -%}
+
+    {%- assign has_visible_tags = false -%}
+
+    {%- case section.settings.filter_mode -%}
+    {%- when 'tag' -%}
+    {%- for tag in collection.all_tags -%}
+    {%- unless tag contains '__' -%}
+    {%- assign has_visible_tags = true -%}
+    {%- break -%}
+    {%- endunless -%}
+    {%- endfor -%}
+
+    {%- when 'group' -%}
+    {%- for tag in collection.all_tags -%}
+    {%- assign tag_parts = tag | split: '_' -%}
+
+    {%- if tag_parts.size == 2 -%}
+    {%- assign has_visible_tags = true -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endcase -%}
+
+    {%- assign show_filters = false -%}
+    {%- assign quick_links = linklists[section.settings.filter_menu] -%}
+
+    {%- if quick_links != blank or has_visible_tags -%}
+    {%- assign show_filters = true -%}
+    {%- endif -%}
+
+    {%- capture collection_toolbar -%}
+    {%- if show_filters or section.settings.show_sort_by or section.settings.show_layout_switch -%}
+    <div class="CollectionToolbar CollectionToolbar--{{ section.settings.toolbar_position }} {% unless section.settings.show_layout_switch and show_filters == false and section.settings.show_sort_by == false %}CollectionToolbar--reverse{% endunless %}">
+        {%- if show_filters or section.settings.show_sort_by -%}
+        <div class="CollectionToolbar__Group">
+            {%- if show_filters -%}
+            <button class="CollectionToolbar__Item CollectionToolbar__Item--filter Heading {% unless current_tags %}Text--subdued{% endunless %} u-h6 {% if section.settings.filter_position != 'drawer' %}hidden-lap-and-up{% endif %}" data-action="open-drawer" data-drawer-id="collection-filter-drawer" aria-label="{{ 'collection.filter.show_filter' | t }}">
+                {{ 'collection.filter.title' | t }} {% if current_tags %}<span class="Text--subdued">({{ current_tags.size }})</span>{% endif %}
+            </button>
+            {%- endif -%}
+
+            {%- if section.settings.show_sort_by -%}
+            <button class="CollectionToolbar__Item CollectionToolbar__Item--sort Heading Text--subdued u-h6" aria-label="{{ 'collection.sorting.show_sort' | t }}" aria-haspopup="true" aria-expanded="false" aria-controls="collection-sort-popover">
+                {{ 'collection.sorting.title' | t }} {% include 'icon' with 'select-arrow' %}
+            </button>
+            {%- endif -%}
+        </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_layout_switch -%}
+        <div class="CollectionToolbar__Item CollectionToolbar__Item--layout">
+            <div class="CollectionToolbar__LayoutSwitch hidden-tablet-and-up">
+                <button aria-label="{{ 'collection.layout.show_one_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 1 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="1">{% include 'icon' with 'wall-1' %}</button>
+                <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if mobile_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="mobile" data-count="2">{% include 'icon' with 'wall-2' %}</button>
+            </div>
+
+            <div class="CollectionToolbar__LayoutSwitch hidden-phone">
+                <button aria-label="{{ 'collection.layout.show_two_per_row' | t }}" class="CollectionToolbar__LayoutType {% if desktop_items_per_row == 2 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="desktop" data-count="2">{% include 'icon' with 'wall-2' %}</button>
+                <button aria-label="{{ 'collection.layout.show_four_per_row' | t }}" class="CollectionToolbar__LayoutType {% if desktop_items_per_row >= 3 %}is-active{% endif %}" data-action="change-layout-mode" data-grid-type="desktop" data-count="{{ section.settings.grid_desktop_items_per_row }}">{% include 'icon' with 'wall-4' %}</button>
+            </div>
+        </div>
+        {%- endif -%}
+    </div>
+    {%- endif -%}
+    {%- endcapture -%}
+
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    FILTERS AND SORT BY POPOVER
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+    {%- if show_filters -%}
+    {%- comment -%}
+    Implementation note: the filters can be displayed in two different ways: in a sidebar menu, always visible, or in a drawer. Due to that, we are
+    setting the general code here, and then we will output it twice.
+    {%- endcomment -%}
+
+    {%- assign quick_links = linklists[section.settings.filter_menu] -%}
+
+    {%- capture filters_content -%}
+    {%- if quick_links != empty -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+            {{- quick_links.title | escape -}} <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist">
+                    {%- for link in quick_links.links -%}
+                    <li class="Linklist__Item {% if link.active %}is-selected{% endif %}">
+                        <a href="{{ link.url }}" class="Link Link--primary Text--subdued {% if link.active %}is-active{% endif %}">{{ link.title | escape }}</a>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- endif -%}
+    {%- if has_visible_tags -%}
+    {%- if section.settings.filter_mode == 'tag' -%}
+    <div class="filter_title">FILTER BY:</div>
+    {%- if collection.handle == 'makeup' or collection.handle == 'lip' or collection.handle == 'face' or collection.handle == 'eyes' or collection.handle == 'nails' or collection.handle == 'tools' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 skinconcern_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type<span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist skinconcern-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Lip' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Lip' %}is-active{% endif %}" data-tag="Lip" data-action="toggle-tag">
+                            Lip
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Face' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Face' %}is-active{% endif %}" data-tag="Face" data-action="toggle-tag">
+                            Face
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Eyes' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Eyes' %}is-active{% endif %}" data-tag="Eyes" data-action="toggle-tag">
+                            Eyes
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Nails' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Nails' %}is-active{% endif %}" data-tag="Nails" data-action="toggle-tag">
+                            Nails
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Tools' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Tools' %}is-active{% endif %}" data-tag="Tools" data-action="toggle-tag">
+                            Tools
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Ingredients <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'komenuka' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'komenuka' %}is-active{% endif %}" data-tag="komenuka" data-action="toggle-tag">
+                            Komenuka
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sakekasu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sakekasu' %}is-active{% endif %}" data-tag="Sakekasu" data-action="toggle-tag">
+                            Sake Kasu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
+                            Gagome Kombu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Flaxseed ' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Flaxseed' %}is-active{% endif %}" data-tag="Flaxseed" data-action="toggle-tag">
+                            Flaxseed
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Ginger' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Ginger' %}is-active{% endif %}" data-tag="Ginger" data-action="toggle-tag">
+                            Ginger
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
+                            Shea Butter
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sesame' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sesame' %}is-active{% endif %}" data-tag="Sesame" data-action="toggle-tag">
+                            Sesame
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'skin-care' or collection.handle == 'cleansers-_face_wash' or collection.handle == 'creams-_oils' or collection.handle == 'serums' or collection.handle == 'lotions-_face' or collection.handle == 'eye_care' or collection.handle == 'masks' or collection.handle == 'suncare' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 type_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist type-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Cleansers-facewash' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Cleansers-facewash' %}is-active{% endif %}" data-tag="Cleansers-facewash" data-action="toggle-tag">
+                            Cleanser/Face Wash
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Creams-oils' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Creams-oils' %}is-active{% endif %}" data-tag="Creams-oils" data-action="toggle-tag">
+                            Cream/Oil
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Serums' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Serums' %}is-active{% endif %}" data-tag="Serums" data-action="toggle-tag">
+                            Serum
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Lotions-facemists' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Lotions-facemists' %}is-active{% endif %}" data-tag="Lotions-facemists" data-action="toggle-tag">
+                            Lotion/Face Mist
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Eyecare' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Eyecare' %}is-active{% endif %}" data-tag="Eyecare" data-action="toggle-tag">
+                            Eye Care
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Masks ' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Masks' %}is-active{% endif %}" data-tag="Masks" data-action="toggle-tag">
+                            Face Mask
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Suncare' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Suncare' %}is-active{% endif %}" data-tag="Suncare" data-action="toggle-tag">
+                            Sun Care
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Ingredients <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Komenuka' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Komenuka' %}is-active{% endif %}" data-tag="Komenuka" data-action="toggle-tag">
+                            Komenuka
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sakekasu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sakekasu' %}is-active{% endif %}" data-tag="Sakekasu" data-action="toggle-tag">
+                            Sake Kasu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
+                            Gagome Kombu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Tamanu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Tamanu' %}is-active{% endif %}" data-tag="Tamanu" data-action="toggle-tag">
+                            Tamanu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Flaxseed' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Flaxseed' %}is-active{% endif %}" data-tag="Flaxseed" data-action="toggle-tag">
+                            Flaxseed
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Calendula' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Calendula' %}is-active{% endif %}" data-tag="Calendula" data-action="toggle-tag">
+                            Calendula
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Aloe' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Aloe' %}is-active{% endif %}" data-tag="Aloe" data-action="toggle-tag">
+                            Aloe
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Butterbur' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Butterbur' %}is-active{% endif %}" data-tag="Butterbur" data-action="toggle-tag">
+                            Butterbur
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Yuzu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Yuzu' %}is-active{% endif %}" data-tag="Yuzu" data-action="toggle-tag">
+                            Yuzu
+                        </button>
+                    </li>
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'Ginger' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Ginger' %}is-active{% endif %}" data-tag="Ginger" data-action="toggle-tag">
+                            Ginger
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'Rhubarb' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Rhubarb' %}is-active{% endif %}" data-tag="Rhubarb" data-action="toggle-tag">
+                            Rhubarb
+                        </button>
+                    </li>
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'Neem' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Neem' %}is-active{% endif %}" data-tag="Neem" data-action="toggle-tag">
+                            Neem
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'Rugosarose' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Rugosarose' %}is-active{% endif %}" data-tag="Rugosarose" data-action="toggle-tag">
+                            Rugosa Rose
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
+                            Shea Butter
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Licorice' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Licorice' %}is-active{% endif %}" data-tag="Licorice" data-action="toggle-tag">
+                            Licorice
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sesame' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sesame' %}is-active{% endif %}" data-tag="Sesame" data-action="toggle-tag">
+                            Sesame
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 skinconcern_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Skin Concern <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist skinconcern-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Drynessanddehydration' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Drynessanddehydration' %}is-active{% endif %}" data-tag="Drynessanddehydration" data-action="toggle-tag">
+                            Dryness & Dehydration
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Dullness' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Dullness' %}is-active{% endif %}" data-tag="Dullness" data-action="toggle-tag">
+                            Dullness
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Skintexture' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Skintexture' %}is-active{% endif %}" data-tag="Skintexture" data-action="toggle-tag">
+                            Skin Texture
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Skinfirmness' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Skinfirmness' %}is-active{% endif %}" data-tag="Skinfirmness" data-action="toggle-tag">
+                            Skin Firmness
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Skinconditioning' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Skinconditioning' %}is-active{% endif %}" data-tag="Skinconditioning" data-action="toggle-tag">
+                            Skin Conditioning
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Skinprotection' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Skinprotection' %}is-active{% endif %}" data-tag="Skinprotection" data-action="toggle-tag">
+                            Skin Protection
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sensitiveskin' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sensitiveskin' %}is-active{% endif %}" data-tag="Sensitiveskin" data-action="toggle-tag">
+                            Sensitive Skin
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Roughness ' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Roughness ' %}is-active{% endif %}" data-tag="Roughness " data-action="toggle-tag">
+                            Roughness
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Agingskin' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Agingskin' %}is-active{% endif %}" data-tag="Agingskin" data-action="toggle-tag">
+                            Aging Skin
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'hair-care' or collection.handle == 'shampoo' or collection.handle == 'conditioner' or collection.handle == 'serums' or collection.handle == 'hair_oil' or collection.handle == 'hair_mist' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 type_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist type-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Shampoo' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Shampoo' %}is-active{% endif %}" data-tag="Shampoo" data-action="toggle-tag">
+                            Shampoo
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Conditioner' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Conditioner' %}is-active{% endif %}" data-tag="Conditioner" data-action="toggle-tag">
+                            Conditioner
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Hairoil' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Hairoil' %}is-active{% endif %}" data-tag="Hairoil" data-action="toggle-tag">
+                            Hair Oil
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Hairmist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Hairmist' %}is-active{% endif %}" data-tag="Hairmist" data-action="toggle-tag">
+                            Hair Mist
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 fragrance_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Fragrance <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist fragrance-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Savon' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Savon' %}is-active{% endif %}" data-tag="Savon" data-action="toggle-tag">
+                            Savon
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitelily' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitelily' %}is-active{% endif %}" data-tag="Whitelily" data-action="toggle-tag">
+                            White Lily
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitetea' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitetea' %}is-active{% endif %}" data-tag="Whitetea" data-action="toggle-tag">
+                            White Tea
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'EARLGREY' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'EARLGREY' %}is-active{% endif %}" data-tag="EARLGREY" data-action="toggle-tag">
+                            Earl Grey
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Kinmokusei' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Kinmokusei' %}is-active{% endif %}" data-tag="Kinmokusei" data-action="toggle-tag">
+                            Kinmokusei
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Ingredients <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Sakekasu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sakekasu' %}is-active{% endif %}" data-tag="Sakekasu" data-action="toggle-tag">
+                            Sake Kasu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
+                            Gagome Kombu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
+                            Shea Butter
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'body-care' or collection.handle == 'body-soap' or collection.handle == 'body-milk' or collection.handle == 'body-oil' or collection.handle == 'hand-serum' or collection.handle == 'hand-soap' or collection.handle == 'body-mist-five-fragrances' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 type_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist type-toggle" style="display: none;">
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'Bodysoap' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodysoap' %}is-active{% endif %}" data-tag="Bodysoap" data-action="toggle-tag">
+                            Body Soap
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'Bodymilk' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodymilk' %}is-active{% endif %}" data-tag="Bodymilk" data-action="toggle-tag">
+                            Body Milk
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Bodyoil' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodyoil' %}is-active{% endif %}" data-tag="Bodyoil" data-action="toggle-tag">
+                            Body Oil
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'bodymist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bodymist' %}is-active{% endif %}" data-tag="bodymist" data-action="toggle-tag">
+                            Body Mist
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'bath' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bath' %}is-active{% endif %}" data-tag="bath" data-action="toggle-tag">
+                            Bath
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Handserum' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Handserum' %}is-active{% endif %}" data-tag="Handserum" data-action="toggle-tag">
+                            Hand Serum
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Handsoap' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Handsoap' %}is-active{% endif %}" data-tag="Handsoap" data-action="toggle-tag">
+                            Hand Soap
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 fragrance_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Fragrance <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist fragrance-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Savon' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Savon' %}is-active{% endif %}" data-tag="Savon" data-action="toggle-tag">
+                            Savon
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitelily' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitelily' %}is-active{% endif %}" data-tag="Whitelily" data-action="toggle-tag">
+                            White Lily
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitetea' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitetea' %}is-active{% endif %}" data-tag="Whitetea" data-action="toggle-tag">
+                            White Tea
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'EARLGREY' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'EARLGREY' %}is-active{% endif %}" data-tag="EARLGREY" data-action="toggle-tag">
+                            Earl Grey
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Kinmokusei' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Kinmokusei' %}is-active{% endif %}" data-tag="Kinmokusei" data-action="toggle-tag">
+                            Kinmokusei
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Ingredients <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Sakekasu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sakekasu' %}is-active{% endif %}" data-tag="Sakekasu" data-action="toggle-tag">
+                            Sake Kasu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
+                            Gagome Kombu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Flaxseed ' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Flaxseed' %}is-active{% endif %}" data-tag="Flaxseed" data-action="toggle-tag">
+                            Flaxseed
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Olive' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Olive' %}is-active{% endif %}" data-tag="Olive" data-action="toggle-tag">
+                            Olive
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
+                            Shea Butter
+                        </button>
+                    </li>
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'Arnica' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Arnica' %}is-active{% endif %}" data-tag="Arnica" data-action="toggle-tag">
+                            Arnica
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'Himashi' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Himashi' %}is-active{% endif %}" data-tag="Himashi" data-action="toggle-tag">
+                            Himashi
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'shiro-fragrance' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type<span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Eaudeparfum-bodycologne' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Eaudeparfum-bodycologne' %}is-active{% endif %}" data-tag="Eaudeparfum-bodycologne" data-action="toggle-tag">
+                            Eau de Parfum/Body Cologne
+                        </button>
+                    </li>
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'Solidperfume' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Solidperfume' %}is-active{% endif %}" data-tag="Solidperfume" data-action="toggle-tag">
+                            Solid Perfume
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'bodymist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bodymist' %}is-active{% endif %}" data-tag="bodymist" data-action="toggle-tag">
+                            Body Mist
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Bodymilk' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodymilk' %}is-active{% endif %}" data-tag="Bodymilk" data-action="toggle-tag">
+                            Body Milk
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Bodyoil' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodyoil' %}is-active{% endif %}" data-tag="Bodyoil" data-action="toggle-tag">
+                            Body Oil
+                        </button>
+                    </li>
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'Bodysoap' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodysoap' %}is-active{% endif %}" data-tag="Bodysoap" data-action="toggle-tag">
+                            Body Soap
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'Handserum' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Handserum' %}is-active{% endif %}" data-tag="Handserum" data-action="toggle-tag">
+                            Hand Serum
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Handsoap' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Handsoap' %}is-active{% endif %}" data-tag="Handsoap" data-action="toggle-tag">
+                            Hand Soap
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Hairoil' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Hairoil' %}is-active{% endif %}" data-tag="Hairoil" data-action="toggle-tag">
+                            Hair Oil
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Hairmist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Hairmist' %}is-active{% endif %}" data-tag="Hairmist" data-action="toggle-tag">
+                            Hair Mist
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Diffuser' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Diffuser' %}is-active{% endif %}" data-tag="Diffuser" data-action="toggle-tag">
+                            Diffuser
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'bath' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bath' %}is-active{% endif %}" data-tag="bath" data-action="toggle-tag">
+                            Bath
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'laundry' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'laundry' %}is-active{% endif %}" data-tag="laundry" data-action="toggle-tag">
+                            Laundry
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'aromaoil' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'aromaoil' %}is-active{% endif %}" data-tag="aromaoil" data-action="toggle-tag">
+                            Aroma Oil
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 fragrance_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Fragrance <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist fragrance-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Savon' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Savon' %}is-active{% endif %}" data-tag="Savon" data-action="toggle-tag">
+                            Savon
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitelily' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitelily' %}is-active{% endif %}" data-tag="Whitelily" data-action="toggle-tag">
+                            White Lily
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitetea' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitetea' %}is-active{% endif %}" data-tag="Whitetea" data-action="toggle-tag">
+                            White Tea
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'EARLGREY' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'EARLGREY' %}is-active{% endif %}" data-tag="EARLGREY" data-action="toggle-tag">
+                            Earl Grey
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Kinmokusei' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Kinmokusei' %}is-active{% endif %}" data-tag="Kinmokusei" data-action="toggle-tag">
+                            Kinmokusei
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Ingredients <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
+                            Gagome Kombu
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
+                            Shea Butter
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'home-care' or collection.handle == 'fabric_softner' or collection.handle == 'detergent' or collection.handle == 'diffuser' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 type_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist type-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Fabricsoftener' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Fabricsoftener' %}is-active{% endif %}" data-tag="Fabricsoftener" data-action="toggle-tag">
+                            Fabric Softener
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Detergent' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Detergent' %}is-active{% endif %}" data-tag="Detergent" data-action="toggle-tag">
+                            Laundry Detergent
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Diffuser' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Diffuser' %}is-active{% endif %}" data-tag="Diffuser" data-action="toggle-tag">
+                            Diffuser
+                        </button>
+                    </li>
+                    <!--
+                    <li class="Linklist__Item {% if current_tags contains 'aromaoil' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'aromaoil' %}is-active{% endif %}" data-tag="aromaoil" data-action="toggle-tag">
+                            Aroma Oil
+                        </button>
+                    </li>
+                    -->
+                    <li class="Linklist__Item {% if current_tags contains 'Handsoap' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Handsoap' %}is-active{% endif %}" data-tag="Handsoap" data-action="toggle-tag">
+                            Hand Soap
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'bath' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bath' %}is-active{% endif %}" data-tag="bath" data-action="toggle-tag">
+                            Bath
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 fragrance_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Fragrance <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist fragrance-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Savon' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Savon' %}is-active{% endif %}" data-tag="Savon" data-action="toggle-tag">
+                            Savon
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitelily' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitelily' %}is-active{% endif %}" data-tag="Whitelily" data-action="toggle-tag">
+                            White Lily
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitetea' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitetea' %}is-active{% endif %}" data-tag="Whitetea" data-action="toggle-tag">
+                            White Tea
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'EARLGREY' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'EARLGREY' %}is-active{% endif %}" data-tag="EARLGREY" data-action="toggle-tag">
+                            Earl Grey
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Kinmokusei' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Kinmokusei' %}is-active{% endif %}" data-tag="Kinmokusei" data-action="toggle-tag">
+                            Kinmokusei
+                        </button>
+                    </li>
+                    {% comment %} 
+                    <li class="Linklist__Item {% if current_tags contains 'Limited' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Limited' %}is-active{% endif %}" data-tag="Limited" data-action="toggle-tag">
+                            Limited
+                        </button>
+                    </li> {% endcomment %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'shiro-perfume' or collection.handle == 'Perfume' or collection.handle == 'Diffuser' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 type_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type <span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist type-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Perfume' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Perfume' %}is-active{% endif %}" data-tag="Perfume" data-action="toggle-tag">
+                            Eau de Parfum
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Diffuser' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Diffuser' %}is-active{% endif %}" data-tag="Diffuser" data-action="toggle-tag">
+                            Diffuser
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 fragrance_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Fragrance<span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist fragrance-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'freesiamist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'freesiamist' %}is-active{% endif %}" data-tag="freesiamist" data-action="toggle-tag">
+                            Freesia Mist
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'pomegranate' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'pomegranate' %}is-active{% endif %}" data-tag="pomegranate" data-action="toggle-tag">
+                            Pomegranate
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'parisiennefavourite' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'parisiennefavourite' %}is-active{% endif %}" data-tag="parisiennefavourite" data-action="toggle-tag">
+                            Parisienne Favourite
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'marvellousstar' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'marvellousstar' %}is-active{% endif %}" data-tag="marvellousstar" data-action="toggle-tag">
+                            Marvellous Star
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'takeiteasy' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'takeiteasy' %}is-active{% endif %}" data-tag="takeiteasy" data-action="toggle-tag">
+                            Take It Easy
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'spiceoflife' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'spiceoflife' %}is-active{% endif %}" data-tag="spiceoflife" data-action="toggle-tag">
+                            Spice Of Life
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'bonwood' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bonwood' %}is-active{% endif %}" data-tag="bonwood" data-action="toggle-tag">
+                            Bon Wood
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'spicesandtease' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'spicesandtease' %}is-active{% endif %}" data-tag="spicesandtease" data-action="toggle-tag">
+                            Spices And Tease
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'introduction' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'introduction' %}is-active{% endif %}" data-tag="introduction" data-action="toggle-tag">
+                            Introduction
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'parisianshirt' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'parisianshirt' %}is-active{% endif %}" data-tag="parisianshirt" data-action="toggle-tag">
+                            Parisian Shirt
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'incenseclear' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'incenseclear' %}is-active{% endif %}" data-tag="incenseclear" data-action="toggle-tag">
+                            Incense Clear
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'smokedleather' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'smokedleather' %}is-active{% endif %}" data-tag="smokedleather" data-action="toggle-tag">
+                            Smoked Leather
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- elsif collection.handle == 'archive' -%}
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 type_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Product type<span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist type-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'bodycare-handcare' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'bodycare-handcare' %}is-active{% endif %}" data-tag="bodycare-handcare" data-action="toggle-tag">
+                            Body Care/Hand Care
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'haircare' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'haircare' %}is-active{% endif %}" data-tag="haircare" data-action="toggle-tag">
+                            Hair Care
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'laundry' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'laundry' %}is-active{% endif %}" data-tag="laundry" data-action="toggle-tag">
+                            Laundry
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6 fragrance_btn" data-action="toggle-collapsible" aria-expanded="false">
+            Fragrance<span class="Collapsible__Plus"></span>
+        </button>
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist fragrance-toggle" style="display: none;">
+                    <li class="Linklist__Item {% if current_tags contains 'Savon' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Savon' %}is-active{% endif %}" data-tag="Savon" data-action="toggle-tag">
+                            Savon
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitelily' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitelily' %}is-active{% endif %}" data-tag="Whitelily" data-action="toggle-tag">
+                            White Lily
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Whitetea' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Whitetea' %}is-active{% endif %}" data-tag="Whitetea" data-action="toggle-tag">
+                            White Tea
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'EARLGREY' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'EARLGREY' %}is-active{% endif %}" data-tag="EARLGREY" data-action="toggle-tag">
+                            Earl Grey
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'Kinmokusei' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Kinmokusei' %}is-active{% endif %}" data-tag="Kinmokusei" data-action="toggle-tag">
+                            Kinmokusei
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {%- else -%}
+    {%- comment -%} <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+            {{- 'collection.filter.all' | t -}} <span class="Collapsible__Plus"></span>
+        </button>
+
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="Linklist">
+                    {%- for tag in collection.all_tags -%}
+                    {%- if tag contains '__' -%}
+                    {%- continue -%}
+                    {%- endif -%}
+
+                    <li class="Linklist__Item {% if current_tags contains tag %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains tag %}is-active{% endif %}" data-tag="{{ tag | handle }}" data-action="toggle-tag">
+                            {{- tag -}}
+                        </button>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    </div> {%- endcomment -%}
+    {%- endif -%}
+    {%- else -%}
+    {%- assign groups = '' -%}
+
+    {%- for tag in collection.all_tags -%}
+    {%- assign tag_parts = tag | split: '_' -%}
+
+    {%- if tag_parts.size != 2 -%}
+    {%- continue -%}
+    {%- endif -%}
+
+    {%- assign groups = groups | append: tag_parts.first | append: ',' -%}
+    {% endfor %}
+
+    {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' | split: ',' -%}
+    {%- assign groups = groups | split: ',' | compact | uniq -%}
+
+    {%- for group in groups -%}
+    {%- assign group_downcase = group | downcase -%}
+
+    {%- if color_label contains group_downcase and section.settings.show_filter_color_swatch -%}
+    {%- assign show_color_swatch = true -%}
+    {%- else -%}
+    {%- assign show_color_swatch = false -%}
+    {%- endif -%}
+
+    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+        <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+            {{- group | escape -}} <span class="Collapsible__Plus"></span>
+        </button>
+
+        <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+                <ul class="{% if show_color_swatch %}ColorSwatchList HorizontalList HorizontalList--spacingTight{% else %}Linklist{% endif %}">
+                    {%- for tag in collection.all_tags -%}
+                    {%- assign tag_parts = tag | split: '_' -%}
+
+                    {%- if tag_parts.size != 2 or tag_parts.first != group -%}
+                    {%- continue -%}
+                    {%- endif -%}
+
+                    {%- if show_color_swatch -%}
+                    <li class="HorizontalList__Item">
+                        {%- assign color_swatch_name = tag_parts.last | handle | append: '.png' -%}
+                        {%- assign color_swatch_image = images[color_swatch_name] -%}
+
+                        <button type="button" class="ColorSwatch {% if current_tags contains tag %}is-active{% endif %}" data-tag="{{ tag | handle }}" data-action="toggle-tag" data-tooltip="{{ tag_parts.last | escape }}" style="background-color: {{ tag_parts.last | replace: ' ', '' | downcase }}; {% if color_swatch_image != blank %}background-image: url({{ color_swatch_image | img_url: '64x64' }}){% endif %}">
+                            <span class="u-visually-hidden">{{ tag_parts.last }}</span>
+                        </button>
+                    </li>
+                    {%- else -%}
+                    <li class="Linklist__Item {% if current_tags contains tag %}is-selected{% endif %}">
+                        <button type="button" class="Text--subdued Link Link--primary {% if current_tags contains tag %}is-active{% endif %}" data-tag="{{ tag | handle }}" data-action="toggle-tag">
+                            {{- tag_parts.last -}}
+                        </button>
+                    </li>
+                    {%- endif -%}
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%- endfor -%}
+    {%- endif -%}
+    {%- endif -%}
+    {%- endcapture -%}
+
+    <div id="collection-filter-drawer" class="CollectionFilters Drawer Drawer--secondary Drawer--fromRight" aria-hidden="true">
+        <header class="Drawer__Header Drawer__Header--bordered Drawer__Header--center Drawer__Container">
+            <span class="Drawer__Title Heading u-h4">{{ 'collection.filter.all' | t }}</span>
+
+            <button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="collection-filter-drawer" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
+                {%- include 'icon' with 'close' -%}
+            </button>
+        </header>
+
+        <div class="Drawer__Content">
+            <div class="Drawer__Main" data-scrollable>
+                {{ filters_content }}
+            </div>
+
+            <div class="Drawer__Footer Drawer__Footer--padded" data-drawer-animated-bottom>
+                <div class="ButtonGroup">
+                    <button type="button" class="ButtonGroup__Item Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                    <button type="button" class="ButtonGroup__Item ButtonGroup__Item--expand Button Button--primary" data-action="apply-tags">{{ 'collection.filter.apply' | t }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_sort_by -%}
+    <div id="collection-sort-popover" class="Popover" aria-hidden="true">
+        <header class="Popover__Header">
+            <button class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% include 'icon' with 'close' %}</button>
+            <span class="Popover__Title Heading u-h4">{{ 'collection.sorting.title' | t }}</span>
+        </header>
+
+        <div class="Popover__Content">
+            <div class="Popover__ValueList" data-scrollable>
+                {% assign collection_sort_by = collection.sort_by | default: collection.default_sort_by %}
+
+                {%- for option in collection.sort_options -%}
+                <button class="Popover__Value {% if option.value == collection_sort_by %}is-selected{% endif %} Heading Link Link--primary u-h6" data-value="{{ option.value }}" data-action="select-value">
+                    {{ option.name }}
+                </button>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+    {%- endif -%}
+
+    {%- comment -%}
+<!-- Collection設定 -->
+    --------------------------------------------------------------------------------------------------------------------
+    COLLECTION PRODUCTS
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+    <div class="CollectionMain">
+        <!-- グロナビに下記タグがあった場合の反応するフィルター設定 -->
+        {%- if section.settings.toolbar_position == 'top' -%}
+
+        {%- if section.settings.makeup_filter == true -%}
+        {%- if collection.handle == 'makeup' or collection.handle == 'lip' or collection.handle == 'face' or collection.handle == 'eyes' or collection.handle == 'nails' or collection.handle == 'tools' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.skin_filter == true -%}
+        {%- if collection.handle == 'skin-care' or collection.handle == 'cleansers-_face_wash' or collection.handle == 'creams-_oils' or collection.handle == 'serums' or collection.handle == 'lotions-_face' or collection.handle == 'eye_care' or collection.handle == 'masks' or collection.handle == 'suncare' or collection.handle == 'body_soap' or collection.handle == 'body_milk' or collection.handle == 'body_oil' or collection.handle == 'hand_serum' or collection.handle == 'hand_soap' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.hair_filter == true -%}
+        {%- if collection.handle == 'hair-care' or collection.handle == 'shampoo' or collection.handle == 'conditioner' or collection.handle == 'serums' or collection.handle == 'hair_oil' or collection.handle == 'hair_mist' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.fragrance_filter == true -%}
+        {%- if collection.handle == 'fragrance' or collection.handle == 'eau-de-perfume' or collection.handle == 'solid-perfume' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.home_filter == true -%}
+        {%- if collection.handle == 'home-care' or collection.handle == 'fabric_softner' or collection.handle == 'detergent' or collection.handle == 'diffuser' or collection.handle == 'shiro-fragrance' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.body_filter == true -%}
+        {%- if collection.handle == 'body-care' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.perfume_filter == true -%}
+        {%- if collection.handle == 'shiro-perfume' or collection.handle == 'Perfume' or collection.handle == 'Diffuser' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.archive_filter == true -%}
+        {%- if collection.handle == 'archive' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- endif -%}
+
+        <!-- Collectionページに掲載するサイドバー設定 おそらくPC版 -->
+        <div class="CollectionInner">
+            {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
+            {%- if section.settings.makeup_filter == true -%}
+            {%- if collection.handle == 'makeup' or collection.handle == 'lip' or collection.handle == 'face' or collection.handle == 'eyes' or collection.handle == 'nails' or collection.handle == 'tools' -%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.skin_filter == true -%}
+            {%- if collection.handle == 'skin-care' or collection.handle == 'cleansers-_face_wash' or collection.handle == 'creams-_oils' or collection.handle == 'serums' or collection.handle == 'lotions-_face' or collection.handle == 'eye_care' or collection.handle == 'masks' or collection.handle == 'suncare' or collection.handle == 'body_soap' or collection.handle == 'body_milk' or collection.handle == 'body_oil' or collection.handle == 'hand_serum' or collection.handle == 'hand_soap' -%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.hair_filter == true -%}
+            {%- if collection.handle == 'hair-care' or collection.handle == 'shampoo' or collection.handle == 'conditioner' or collection.handle == 'serums' or collection.handle == 'hair_oil' or collection.handle == 'hair_mist' -%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.fragrance_filter == true -%}
+            {%- if collection.handle == 'fragrance' or collection.handle == 'eau-de-perfume' or collection.handle == 'solid-perfume' -%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.home_filter == true -%}
+            {%- if collection.handle == 'home-care' or collection.handle == 'fabric_softner' or collection.handle == 'detergent' or collection.handle == 'diffuser' or collection.handle == 'shiro-fragrance' -%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.body_filter == true -%}
+            {%- if collection.handle == 'body-care' -%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.perfume_filter == true -%}
+            {%- if collection.handle == 'shiro-perfume' or collection.handle == 'Perfume' or collection.handle == 'Diffuser'-%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.archive_filter == true -%}
+            {%- if collection.handle == 'archive'-%}
+            <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                    {{ filters_content }}
+                    <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags==blank %}style="display: none" {% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+            </div>
+            {%- endif -%}
+            {%- endif -%}
+            {%- endif -%}
+
+            <div class="CollectionInner__Products">
+                {{ collection_inner }}
+            </div>
+        </div>
+        <!-- Collectionページに掲載するサイドバー設定　おそらくSP版 -->
+        {%- if section.settings.toolbar_position == 'bottom' -%}
+        {%- if section.settings.makeup_filter == true -%}
+        {%- if collection.handle == 'makeup' or collection.handle == 'lip' or collection.handle == 'face' or collection.handle == 'eyes' or collection.handle == 'nails' or collection.handle == 'tools' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.skin_filter == true -%}
+        {%- if collection.handle == 'skin-care' or collection.handle == 'cleansers-_face_wash' or collection.handle == 'creams-_oils' or collection.handle == 'serums' or collection.handle == 'lotions-_face' or collection.handle == 'eye_care' or collection.handle == 'masks' or collection.handle == 'suncare' or collection.handle == 'body_soap' or collection.handle == 'body_milk' or collection.handle == 'body_oil' or collection.handle == 'hand_serum' or collection.handle == 'hand_soap' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.hair_filter == true -%}
+        {%- if collection.handle == 'hair-care' or collection.handle == 'shampoo' or collection.handle == 'conditioner' or collection.handle == 'serums' or collection.handle == 'hair_oil' or collection.handle == 'hair_mist' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.fragrance_filter == true -%}
+        {%- if collection.handle == 'fragrance' or collection.handle == 'eau-de-perfume' or collection.handle == 'solid-perfume' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.home_filter == true -%}
+        {%- if collection.handle == 'home-care' or collection.handle == 'fabric_softner' or collection.handle == 'detergent' or collection.handle == 'diffuser' or collection.handle == 'shiro-fragrance' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.body_filter == true -%}
+        {%- if collection.handle == 'body-care' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.perfume_filter == true -%}
+        {%- if collection.handle == 'shiro-perfume' or collection.handle == 'Perfume' or collection.handle == 'Diffuser' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.archive_filter == true -%}
+        {%- if collection.handle == 'archive' -%}
+        {{- collection_toolbar -}}
+        {%- endif -%}
+        {%- endif -%}
+        {%- endif -%}
+
+    </div>
+
+    {%- else -%}
+    <div class="EmptyState">
+        <div class="Container">
+            <h3 class="EmptyState__Title Heading u-h5">{{ 'collection.general.empty' | t: collection_title: collection.title }}</h3>
+            <a href="{{ routes.root_url }}" class="EmptyState__Action Button Button--primary">{{ 'collection.general.empty_button' | t }}</a>
+        </div>
+    </div>
+    {%- endif -%}
+</section>
+{%- endif -%}
+
+{%- capture hack -%}
+{%- comment -%}This is just an ugly hack to make those variables appear as part of the theme editor in the General Settings{%- endcomment -%}
+{{ settings.product_list_horizontal_spacing }},{{ settings.product_list_vertical_spacing }}
+{%- endcapture -%}
+
+{% schema %}
+{
+"name": "Collection page",
+"class": "shopify-section--bordered",
+"settings": [
+{
+"type": "checkbox",
+"id": "show_collection_info",
+"label": "Show collection info",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_collection_image",
+"label": "Show collection image",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "apply_overlay",
+"label": "Apply overlay on image",
+"info": "This can improve text visibility.",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_color_swatch",
+"label": "Show color swatch",
+"info": "Some colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch).",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_vendor",
+"label": "Show vendor",
+"default": false
+},
+{
+"type": "select",
+"id": "collection_image_size",
+"label": "Collection image size",
+"options": [
+{
+"value": "small",
+"label": "Small"
+},
+{
+"value": "normal",
+"label": "Normal"
+},
+{
+"value": "large",
+"label": "Large"
+}
+],
+"default": "normal"
+},
+{
+"type": "header",
+"content": "Toolbar"
+},
+{
+"type": "checkbox",
+"id": "show_sort_by",
+"label": "Show sort by",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_layout_switch",
+"label": "Show layout switch"
+},
+{
+"type": "select",
+"id": "toolbar_position",
+"label": "Position",
+"options": [
+{
+"value": "top",
+"label": "Top"
+},
+{
+"value": "bottom",
+"label": "Bottom"
+}
+],
+"default": "top"
+},
+{
+"type": "header",
+"content": "Filters"
+},
+{
+"type": "select",
+"id": "filter_position",
+"label": "Desktop position",
+"options": [
+{
+"value": "sidebar",
+"label": "Sidebar"
+},
+{
+"value": "drawer",
+"label": "Drawer"
+}
+],
+"default": "sidebar"
+},
+{
+"type": "select",
+"id": "filter_mode",
+"label": "Mode",
+"info": "Filters by group requires specific tag formatting. [Learn more](https://help.shopify.com/manual/using-themes/themes-by-shopify/supply#product-tips-tips-specific)",
+"options": [
+{
+"value": "hidden",
+"label": "Hidden"
+},
+{
+"value": "tag",
+"label": "By tag"
+},
+{
+"value": "group",
+"label": "By group"
+}
+],
+"default": "tag"
+},
+{
+"type": "checkbox",
+"id": "show_filter_color_swatch",
+"label": "Show filter color swatch",
+"info": "This is only used if filters by group is enabled.",
+"default": true
+},
+{
+"type": "link_list",
+"id": "filter_menu",
+"label": "Quick links",
+"info": "This menu won't show dropdown items."
+},
+{
+"type": "header",
+"content": "Grid"
+},
+{
+"type": "range",
+"id": "grid_items_per_page",
+"label": "Products per page",
+"min": 4,
+"max": 48,
+"step": 4,
+"default": 16
+},
+{
+"type": "select",
+"id": "grid_mobile_items_per_row",
+"label": "Products per row (mobile)",
+"options": [
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+}
+],
+"default": "2"
+},
+{
+"type": "range",
+"min": 2,
+"max": 4,
+"id": "grid_desktop_items_per_row",
+"label": "Products per row (desktop)",
+"default": 4
+},
+{
+"type": "header",
+"content": "Filter On/Off"
+},
+{
+"type": "checkbox",
+"id": "makeup_filter",
+"label": "Makeup",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "skin_filter",
+"label": "Skin care",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "hair_filter",
+"label": "Hair care",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "body_filter",
+"label": "Body care",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "fragrance_filter",
+"label": "Fragrance",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "home_filter",
+"label": "Home",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "perfume_filter",
+"label": "Perfume",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "archive_filter",
+"label": "Archive",
+"default": false
+}
+]
+}
+{% endschema %}

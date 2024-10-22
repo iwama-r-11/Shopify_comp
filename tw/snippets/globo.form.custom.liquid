@@ -1,0 +1,73 @@
+{% comment %}
+  This file is to assign customer email to hidden field in globo form
+  So please DO NOT MODIFY OR DELETE ANYTHINGS. If you want to make changes, contact us!
+{% endcomment %}
+
+
+<div class="visually-hidden globo-custom">
+  {% for address in customer.addresses %}
+      <div class="globo-address1"> {{ address.address1 }}</div>
+      <div class="globo-city"> {{ address.city }}</div>
+      <div class="globo-zip"> {{ address.zip }}</div>
+  {% endfor %}
+</div>
+
+
+<style>
+  .visually-hidden{
+    display:none;
+  }
+  </style>
+{% raw %}
+<script>
+  document.addEventListener("globo.formbuilder.form.loaded",function(e){
+    //form gender
+    let genderInput = document.querySelector('#globo-formbuilder-24581 #hidden-1')
+    if (genderInput) {
+      genderInput.value = {% endraw %}"{{ customer.email }}"{% raw %}
+    }
+
+    //form birthday
+    let birthDayInput = document.querySelector('#globo-formbuilder-24578 #hidden-1')
+    if (birthDayInput) {
+      birthDayInput.value = {% endraw %}"{{ customer.email }}"{% raw %}
+    }
+
+      //form apply-for-samples
+    let firstName = document.querySelector('#globo-formbuilder-24888 #hidden-8')
+    let lastNumber = document.querySelector('#globo-formbuilder-24888 #hidden-9')
+    let phoneNumber = document.querySelector('#globo-formbuilder-24888 #hidden-2')
+    let email = document.querySelector('#globo-formbuilder-24888 #hidden-1')
+    let address1Input = document.querySelector('#globo-formbuilder-24888 #hidden-3')
+    let cityInput = document.querySelector('input[value="city"]')
+    let zipInput = document.querySelector('input[value="zip"]')
+
+    //value
+    const address1 = document.querySelector('.globo-address1').innerText
+    const city = document.querySelector('.globo-city').innerText
+    const zip = document.querySelector('.globo-zip').innerText
+
+    
+    if (firstName) {
+      firstName.value = {% endraw %}"{{ customer.first_name }}"{% raw %}
+    }
+    if (lastNumber) {
+      lastNumber.value = {% endraw %}"{{ customer.last_name }}"{% raw %}
+    }
+    if (phoneNumber) {
+      phoneNumber.value = {% endraw %}"{{ customer.phone }}"{% raw %}
+    }
+    if (email) {
+      email.value = {% endraw %}"{{customer.email}}"{% raw %}
+    }
+    if (address1Input) {
+      address1Input.value = address1
+    }
+
+    cityInput.value = city
+    zipInput.value = zip
+   
+  });
+</script>
+{% endraw %}
+

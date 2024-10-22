@@ -1,0 +1,1432 @@
+<div id="shiro-fragrance">
+  <div class="hello_banner">
+    <div class="select_area">
+      <div class="select_1">
+        <select onchange="location = this.options[this.selectedIndex].value;">
+          <option value="#">從香味搜尋</option>
+          <option value="/collections/renewal_savon">皂香SAVON</option>
+          <option value="/collections/renewal_whitelily">白百合WHITE LILY</option>
+          <option value="/collections/renewal_whitetea">白茶WHITE TEA</option>
+          <option value="/collections/fragrance-earlgrey">伯爵茶EARL GREY</option>
+          <option value="/collections/fragrance-kinmokusei">金木樨KINMOKUSEI</option>
+        </select>
+      </div>
+
+      <div class="select_2">
+        <select onchange="location = this.options[this.selectedIndex].value;">
+          <option value="#">從產品搜尋</option>
+          <option value="/pages/fragrance">香氛</option>
+          <option value="/collections/body-care">美體</option>
+          <option value="/collections/hair-care">美髮</option>
+          <option value="/collections/home-care">居家</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAVON -->
+  <div class="savon">
+  <div class="fragrance_infoarea">
+    <div class="fragrance_main savon_color">
+      <div class="title">
+        <div>
+          <h1>SAVON</h1>
+          <h2>帶有透明感的清甜香氣。<br>由柑橘與香皂交織出<br>令人難忘的悸動。</h2>
+        </div>
+      </div>
+      <div class="triangle_pic pc">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/845a27b6eac1c91b2ca7e2aed25f1f5c852ea8c4.jpg?v=1708293771">
+      </div>
+    </div>
+    <p class="fragrance_main_2 savon_color">
+      如水果般清新香甜的前調，以香皂為意象，潔淨具有透明感的自然「皂香」香氣。更新後的皂香香氣將柑橘清新的果香與後調的甜味契合，能舒適縈繞身邊。即便未曾邂逅過，卻能讓相遇的每個人都感受到幸福的皂香香氣。
+    </p>
+    <div class="mobile">
+      <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/845a27b6eac1c91b2ca7e2aed25f1f5c852ea8c4.jpg?v=1708293771">
+    </div>
+  </div>
+  <div class="fragrance_sliderarea">
+    <div class="slider_content_box">
+      <div class="product_slider_container slider">
+        {% for product in collections["renewal_savon"].products %}
+        <div class="product_slider_card card">
+          <img src="{{ product | image_url }}" alt="">
+          <div class="card-content">
+            <p class="product_slider_cardtitle">{{product.title}}</p>
+            <p class="product_slider_cardtitle_en">{{ product.metafields.productsname._en }}</p>
+            <p class="product_slider_cardprice">{{product.price | money_without_trailing_zeros }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <p class="sliderarea_btn">
+        <a class="sliderarea_btn_a btn-gray_2 savon_color_bg arrow--right-white"
+          href="/collections/renewal_savon" target="_blank">
+          皂香 SAVON 產品一覽
+        </a>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+  <!-- WHITE LILY -->
+  <div class="white_lily">
+  <div class="fragrance_infoarea">
+    <div class="fragrance_main lily_color">
+      <div class="title">
+        <div>
+          <h1>WHITE LILY</h1>
+          <h2>被全白的花束包圍，<br>尋找著心中理想的自己。<br>讓意志更加堅定的白百合香氣。</h2>
+        </div>
+      </div>
+      <div class="triangle_pic pc">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/dbb42676ef0941ce047809c0fa4ee75fac83e1e1.jpg?v=1708293769">
+      </div>
+    </div>
+    <p class="fragrance_main_2 lily_color">
+      被優雅花香調包圍，潔淨洗鍊的「白百合」香氣。更新後的白百合除了加強優雅的百合香氣外，更加入了柔和的玉蘭花香調，使香氣整體印象更添溫潤感。溫柔香氣靜靜地環繞身邊，陪伴您遇見更好的自己。
+    </p>
+    <div class="mobile">
+      <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/dbb42676ef0941ce047809c0fa4ee75fac83e1e1.jpg?v=1708293769">
+    </div>
+  </div>
+  <div class="fragrance_sliderarea">
+    <div class="slider_content_box">
+      <div class="product_slider_container slider">
+        {% for product in collections["renewal_whitelily"].products %}
+        <div class="product_slider_card card">
+          <img src="{{ product | image_url }}" alt="">
+          <div class="card-content">
+            <p class="product_slider_cardtitle">{{product.title}}</p>
+            <p class="product_slider_cardtitle_en">{{ product.metafields.productsname._en }}</p>
+            <p class="product_slider_cardprice">{{product.price | money_without_trailing_zeros }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <p class="sliderarea_btn">
+        <a class="sliderarea_btn_a btn-gray_2 lily_color_bg arrow--right-white"
+          href="/collections/renewal_whitelily" target="_blank">
+          白百合 WHITE LILY 產品一覽
+        </a>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+  <!-- WHITE TEA -->
+  <div class="white_tea">
+  <div class="fragrance_infoarea">
+    <div class="fragrance_main tea_color">
+      <div class="title">
+        <div>
+          <h1>WHITE TEA</h1>
+          <h2>揉合柑橘香與茶香。<br>白茶香氣讓人體悟到，<br>展現真實自我的舒適放鬆。</h2>
+        </div>
+      </div>
+      <div class="triangle_pic pc">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/d647bdb43f7c861831a3a4c88ef0a94e88e0f177.jpg?v=1708293770">
+      </div>
+    </div>
+    <p class="fragrance_main_2 tea_color">
+      揉合活潑的柑橘香與清爽茶香，打造高雅而清新的氛圍感。隨著時間的推移，漸漸感受木質調與琥珀的沉穩甜香，令人心情放鬆。徜徉在沉靜溫和的香氣中，一定能再次找回曾遺忘的真實自我。
+    </p>
+    <div class="mobile">
+      <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/d647bdb43f7c861831a3a4c88ef0a94e88e0f177.jpg?v=1708293770">
+    </div>
+  </div>
+  <div class="fragrance_sliderarea">
+    <div class="slider_content_box">
+      <div class="product_slider_container slider">
+        {% for product in collections["renewal_whitetea"].products %}
+        <div class="product_slider_card card">
+          <img src="{{ product | image_url }}" alt="">
+          <div class="card-content">
+            <p class="product_slider_cardtitle">{{product.title}}</p>
+            <p class="product_slider_cardtitle_en">{{ product.metafields.productsname._en }}</p>
+            <p class="product_slider_cardprice">{{product.price | money_without_trailing_zeros }}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <p class="sliderarea_btn">
+        <a class="sliderarea_btn_a btn-gray_2 tea_color_bg arrow--right-white"
+          href="/collections/renewal_whitetea" target="_blank">
+          白茶 WHITE TEA 產品一覽
+        </a>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+  <!-- EARL GREY -->
+  <div class="earl_gray">
+    <div class="fragrance_infoarea">
+      <div class="fragrance_main earl_gray_color">
+        <div class="title">
+          <div>
+            <h1>EARL GREY</h1>
+            <h2>活潑的甜美果香，<br>交織伯爵茶香的華麗氣息。<br>屬於自己的香氣，迷人且高雅。</h2>
+          </div>
+        </div>
+        <div class="triangle_pic pc">
+          <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/5455aa27f35e0fc26a9e6949887694e178f0acd6.jpg?v=1708293769">
+        </div>
+      </div>
+      <p class="fragrance_main_2 earl_gray_color">
+        由佛手柑沉穩的甜香揭開序幕，散發馥郁果香的華麗伯爵茶香氣。隨著時間的推移，基底的伯爵茶香與玫瑰，交織出成熟穩重的氛圍感。細細沉浸、感受香氣層次變化，將會與真實的自己邂逅。
+      </p>
+      <div class="mobile">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/5455aa27f35e0fc26a9e6949887694e178f0acd6.jpg?v=1708293769">
+      </div>
+    </div>
+    <div class="fragrance_sliderarea">
+      <div class="slider_content_box">
+        <div class="product_slider_container slider">
+          {% for product in collections["fragrance-earlgrey"].products %}
+          <div class="product_slider_card card">
+            <img src="{{ product | image_url }}" alt="">
+            <div class="card-content">
+              <p class="product_slider_cardtitle">{{product.title}}</p>
+              <p class="product_slider_cardtitle_en">{{ product.metafields.productsname._en }}</p>
+              <p class="product_slider_cardprice">{{product.price | money_without_trailing_zeros }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+  
+        <p class="sliderarea_btn">
+          <a class="sliderarea_btn_a btn-gray_2 earl_gray_color_bg arrow--right-white"
+            href="/collections/fragrance-earlgrey" target="_blank">
+            伯爵茶 EARL GREY 產品一覽
+          </a>
+        </p>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- KINMOKUSEI -->
+  <div class="kinmokusei">
+    <div class="fragrance_infoarea">
+      <div class="fragrance_main kinmokusei_color">
+        <div class="title">
+          <div>
+            <h1>KINMOKUSEI</h1>
+            <h2>金木樨甜香溫柔蔓延。<br>那份懷舊復古情懷，<br>讓人不自覺地停下腳步。</h2>
+          </div>
+        </div>
+        <div class="triangle_pic pc">
+          <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/fa5348d1ec63164a8a9abb4aac642d53da4a0ecd.jpg?v=1708293770">
+        </div>
+      </div>
+      <p class="fragrance_main_2 kinmokusei_color">
+        以清新的佛手柑甜香開啟前調，懷舊的金木樨香氣緩緩地溫柔蔓延。獨特的懷舊甜香縈繞身邊，不為他人，請為自己度過美好的一天。
+        以清新的佛手柑甜香開啟前調，懷舊的金木樨香氣緩緩地溫柔蔓延。獨特的懷舊甜香縈繞身邊，不為他人，請為自己度過美好的一天。
+      </p>
+      <div class="mobile">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/fa5348d1ec63164a8a9abb4aac642d53da4a0ecd.jpg?v=1708293770">
+      </div>
+    </div>
+
+
+        <div class="fragrance_sliderarea">
+      <div class="slider_content_box">
+        <div class="product_slider_container slider">
+          {% for product in collections["fragrance-kinmokusei"].products %}
+          <div class="product_slider_card card">
+            <img src="{{ product | image_url }}" alt="">
+            <div class="card-content">
+              <p class="product_slider_cardtitle">{{product.title}}</p>
+              <p class="product_slider_cardtitle_en">{{ product.metafields.productsname._en }}</p>
+              <p class="product_slider_cardprice">{{product.price | money_without_trailing_zeros }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="sliderarea_btn">
+          <a class="sliderarea_btn_a btn-gray_2 kinmokusei_bg arrow--right-white"
+            href="/collections/fragrance-kinmokusei" target="_blank">
+            金木犀 KINMOKUSEI 產品一覽
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="final_area">
+    <div style="text-align:center;">
+        <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/ico_find_fragrance.svg?v=1708293769" style="width: 70px; height:auto; margin: 0 auto 25px auto;">
+        <p>FIND YOUR FRAGRANCE</p>
+        <h2 style="padding: 5px 0 10px 0;">哪款香氣最適合我？</h2>
+        <p>5款SHIRO香氣，為生活增添色彩。<br>今天想怎麼過？想以怎樣的心情度過？<br>以喜愛的香氣，愉快度過專屬自己的每一天。</p>
+        <button type="button" class="btn find-fragrance-btn modal-btn modal-btn2" ontouchstart="">開始香氛測驗</button>
+    </div>
+  </div> -->
+
+</div>
+
+<!-- スライダー部分　CSS -->
+<style>
+  .slick-track {
+    display: flex !important;
+  }
+
+  .slick-slide {
+    height: auto !important;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .product_slider_card {
+    position: relative;
+  }
+
+  .product_slider_cardtitle {
+    line-height: 16px;
+  }
+  .product_slider_cardtitle_en{
+    margin-bottom: 40px;
+    font-family:蘋方-繁, 微軟正黑體, Microsoft JhengHei, Noto Sans Traditional Chinese,sans-serif;
+  }
+  .product_slider_cardprice {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+  }
+
+  .product_slider_container {
+    display: flex;
+    margin: auto;
+    width: 85%;
+    max-width: 880px;
+  }
+
+  .product_slider_card {
+    width: 100%;
+    background-color: #FAFAFA;
+  }
+
+  .product_slider_card p {
+    font-size: 12px;
+    line-height: 18px;
+
+  }
+  .product_slider_card .product_slider_cardtitle_en{
+    font-size: 10px;
+    color: #939393;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: #000;
+  }
+
+  .slick-dots li button:before {
+    color: #000;
+
+  }
+
+  .slick-dots li button:before:hover {
+    color: #000 !important;
+  }
+
+  .slide-arrow {
+    background-color: #333;
+    bottom: 0;
+    height: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+
+  .prev-arrow {
+    width: 15px;
+    height: 15px;
+    border: 3px solid;
+    border-color: transparent transparent #565656 #565656;
+    transform: rotate(45deg);
+    background-color: #EEEEEE;
+    left: -25px;
+  }
+
+  .next-arrow {
+    width: 15px;
+    height: 15px;
+    border: 3px solid;
+    border-color: #565656 #565656 transparent transparent;
+    transform: rotate(45deg);
+    background-color: #EEEEEE;
+    right: -25px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .slider_content_box {
+      padding: 0;
+    }
+    .card-content {
+    padding-bottom: 0px;
+  }
+  .sliderarea_btn{
+    margin-top: 30px;
+  }
+  }
+</style>
+
+<!-- フレグランスページ　CSS -->
+<style>
+  html,
+  body {
+    font-size: 10px;
+  }
+  /* body {
+    font-family: 'NotoSansJP', 'TTCommons', "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important;
+} */
+  @media only screen and (min-width: 769px) {
+    html,
+    body {
+      font-size: 12px;
+    }
+  }
+  /* KV */
+  .hello_banner {
+    width: 100%;
+    height: 42.55vw;
+    background-image: url(//cdn.shopify.com/s/files/1/0834/8965/3022/files/48ccbb1886c470f07284b29e3aa4d2d76b29c8a4.jpg?v=1708293770);
+    background-size: 100% auto;
+    background-position: top center;
+    text-align: center;
+  }
+  .select_area {
+    display: flex;
+    width: 35%;
+    margin: 0 auto;
+    padding-top: 18vw;
+  }
+
+  .select_1 {
+    width: 48%;
+  }
+
+  .select_2 {
+    width: 48%;
+    margin-left: 4%;
+  }
+
+  .select_1 select,
+  .select_2 select {
+    width: 100%;
+    height: 40px;
+    background: #3d5d72;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  select {
+    font-size: 16px;
+    /* font-weight: 700; */
+  }
+
+  @media only screen and (max-width: 786px) {
+    .hello_banner {
+      width: 100%;
+      height: 100vw;
+      background-image: url(//cdn.shopify.com/s/files/1/0834/8965/3022/files/d3efa053e57f73a48540db387ea64e7ed7e57bac.jpg?v=1708294657);
+    }
+
+    .select_area {
+      width: 80%;
+      padding-top: 45vw;
+    }
+
+    select {
+      font-size: 14px;
+      /* font-weight: 700; */
+    }
+  }
+
+  /* fragrance_infoarea */
+  .fragrance_infoarea {
+    width: 100%;
+    padding: 2% 0 80px 0;
+    background-color: #fff;
+  }
+
+  .product_slider_container {
+    width: 100%;
+    padding: 2% 0 3% 0;
+    background-color: #eee;
+    margin-top: 50px;
+  }
+
+  .product_slider_container {
+    width: 60%;
+    margin: auto;
+  }
+
+  .fragrance_main {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .fragrance_infoarea .fragrance_main .title {
+    width: 40%;
+    display: flex;
+    align-items: center;
+  }
+
+  .fragrance_infoarea .fragrance_main .title h1 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    /* font-family: "TTCommons-Regular", "TT Commons", sans-serif !important; */
+    letter-spacing: 0.08em;
+    /* font-weight: 900; */
+  }
+
+  .fragrance_infoarea .fragrance_main .title h2 {
+    font-size: 2.1rem;
+    /* font-weight: normal; */
+    margin-bottom: 15px;
+    line-height: 1.5;
+    /* font-weight: 500; */
+  }
+
+  .triangle_pic {
+    width: 60%;
+  }
+  .pc {
+    display: block;
+  }
+
+  .triangle_pic img {
+    width: 100%;
+    height: auto;
+  }
+
+  .fragrance_main_2 {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 16px;
+    /* font-weight: 500; */
+    line-height: 32px;
+  }
+
+  .fragrance_infoarea .mobile {
+    width: 95%;
+    margin: 0 auto;
+    display: none;
+  }
+
+  .fragrance_infoarea .mobile img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media only screen and (max-width: 1300px) {
+
+    .fragrance_main,
+    .fragrance_main_2,
+    .product_slider_container {
+      width: 75%;
+    }
+  }
+
+  @media only screen and (max-width: 1150px) {
+
+    .fragrance_main,
+    .fragrance_main_2,
+    .product_slider_container {
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    .fragrance_infoarea {
+      width: 100%;
+      padding: 10% 0 10% 0;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    .triangle_pic {
+      width: 100%;
+    }
+
+    .fragrance_infoarea .fragrance_main .title {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 739px) {
+
+    .fragrance_main,
+    .fragrance_main_2,
+    .product_slider_container {
+      width: 95%;
+    }
+
+    .fragrance_infoarea .mobile {
+      display: block;
+    }
+
+    .pc {
+      display: none;
+    }
+  }
+
+  /* fragrance_sliderarea */
+  .savon_color {
+    color: #899ba8;
+  }
+  .savon_color_bg {
+    background-color: #899ba8;
+  }
+  .lily_color {
+    color: #b7a09e;
+  }
+  .lily_color_bg {
+    background-color: #b7a09e;
+  }
+  .tea_color{
+    color: #859382;
+  }
+  .tea_color_bg{
+    background-color: #859382;
+  }
+  .earl_gray_color{
+    color: #818F91;
+  }
+  .earl_gray_color_bg{
+    background-color: #818F91;
+  }
+.kinmokusei{
+  color: #A79180;
+}
+.kinmokusei_bg{
+  background-color: #A79180;
+}
+  .slider_content_box {
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+
+  .sliderarea_btn {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .sliderarea_btn_a {
+    font-size: 14px;
+    max-width: 320px;
+    width: 100%;
+    display: inline-block;
+    line-height: 3.5;
+    color: #fff;
+    border-radius: 5px;
+    /* font-weight: 700; */
+    transition: 0.2s all;
+  }
+
+  .arrow--right-white {
+    position: relative;
+  }
+
+  .arrow--right-white::after {
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 5%;
+    width: 16px;
+    height: 16px;
+    content: '';
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+  .slick-carousel {
+    margin: 0 auto;
+    width: 880px;
+    height: fit-content;
+    margin-bottom: 10rem;
+  }
+
+  .slick-slide {
+    margin: 0 10px;
+  }
+
+  .slick-next::before,
+  .slick-prev::before {
+    opacity: 1;
+    color: #fff;
+  }
+
+  .slick-next::before:hover,
+  .slick-prev::before:hover {
+    opacity: 1;
+    color: #fff;
+  }
+
+  .section_page ul:not(.About_Nav) li::before {
+    opacity: 0;
+    left: 2px;
+    top: -10px;
+  }
+
+  .slick-dots li.slick-active button:before {
+    opacity: 0.75;
+    color: black;
+  }
+
+  .slick-prev:hover:before,
+  .slick-prev:focus:before,
+  .slick-next:hover:before,
+  .slick-next:focus:before {
+    opacity: 0;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 30px;
+    height: 50px;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .slick-carousel {
+      width: 85% !important;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .slick-carousel {
+      margin: 0 auto;
+      width: 85% !important;
+      height: ;
+    }
+    .slick-prev,
+    .slick-next {
+      width: 30px;
+      height: 50px;
+    }
+
+  }
+
+  .slick-dots li {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+  }
+
+  .section_page ul {
+    padding-left: 0;
+  }
+
+  .slick-prev svg {
+    transform: scaleX(-1);
+  }
+
+  .slick-arrow svg {
+    fill: #000;
+    opacity: 0.7;
+  }
+
+  .slick-arrow svg:hover {
+    opacity: 1;
+  }
+
+  .slick-dots li button:before {
+    opacity: .15;
+    line-height: 20px;
+    transform: scale(0.8);
+  }
+
+  /* final area */
+  .final_area {
+    width: 100%;
+    height: 45vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #899BA8;
+    color: white;
+}
+.final_area h2{
+  font-size: 24px;
+  line-height: 32px;
+  /* font-weight: 700; */
+}
+.final_area p{
+  font-size: 18px;
+  line-height: 32px;
+  /* font-weight: 700; */
+}
+.find-fragrance-btn {
+    background-color: white;
+    font-size: 14px;
+    max-width: 200px;
+    width: 100%;
+    display: inline-block;
+    line-height: 3.5;
+    color: #899BA8;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: 0.2s all;
+    /* font-weight: 700; */
+}
+.btn-gray_2:hover ,.find-fragrance-btn:hover{
+    background-color: #797979;
+    color: #fff;
+}
+/* p {
+     font-size: 1.5rem;
+ } */
+@media only screen and (max-width: 850px){
+  .final_area {
+    width: 100%;
+    height: 120vw;
+  }
+  .final_area h2 ,.final_area p{
+    margin-bottom: 0;
+}
+}
+.question-btn{
+  background-color: #335D72;
+}
+</style>
+
+<!-- スライダー部分JS -->
+<script>
+  $(function () {
+    $(".slider").slick({
+      arrows: true,
+      autoplay: false,
+      adaptiveHeight: true,
+      dots: false,
+      slidesToShow: 4,
+      prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+      nextArrow: '<button class="slide-arrow next-arrow"></button>',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 640,
+          settings: {
+            arrows: false,
+            slidesToShow: 2.3,
+          },
+        },
+      ],
+    });
+  });
+</script>
+
+<!-- モーダル部分CSS -->
+<style>
+  /* 全体 */
+  /* body {
+    font-family: 'NotoSansJP', 'TTCommons', "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important;
+} */
+.modal-main-container.slide{
+    background.color:#333;
+  color:#3D5D72;
+}
+  .question_box .is-hidden{
+    display:none !important;
+  }
+    .question_box .is-open{
+      display:block;
+  }
+  /* 質問 */
+  .question_box{
+    text-align:center;
+}
+  .question_box .question{
+  height: 100% ;
+  }
+  .question-num {
+    font-size: 2.1rem;
+    margin-bottom: 0px;
+    /* font-family: "TTCommons-Regular", "TT Commons", sans-serif !important; */
+    letter-spacing: 0.08em;
+    /* font-weight: 500; */
+  }
+  .question-description{
+        font-size: 2.5rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    /* font-weight: 900; */
+  }
+    .question .item a{
+    font-size: 16px;
+    /* font-weight: 900; */
+    line-height: 32px;
+    display: block;
+  }
+
+  .question-modal .question_box ul {
+    display:flex;
+      /* flex-direction: column; */
+    justify-content: space-between;
+    height:50vh;
+    list-style:none;
+}
+  
+.question-modal .question_box li{
+  align-items:center;
+  font-size:16px;
+  height:90%;
+  width:80%;
+  margin:auto;
+  background-color: #5391b9;
+    color: #fff;
+    /* font-weight: 700; */
+  border-radius: 5%;
+  background-color: #fff;
+    color: #333;
+    border: #aaa 1px solid;
+}
+  /* .question-modal .question_box .question1{
+    display:flex;
+align-items:center;
+      flex-direction: column;
+
+  }
+  .question-modal .question_box .question1 .list{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin:  0;
+    width:90%;
+  }
+    .question-modal .question_box .question1 .list .item{
+    width:45%;
+    width: 23%;
+      height:30%;
+    }
+  .question-modal .question_box .question1 a {
+    width:100%;
+    height:100%;
+    margin:auto;
+}
+      .question-modal .question_box .question2 .list{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin:  30px  auto;
+    width:90%;
+  } */
+      /* .question-modal .question_box .question2 .list .item{
+    width:30%;
+      height:45%;
+    } */
+    /* .question-modal .question_box .question2 a {
+    width:100%;
+  height:100%;
+} */
+    /* .question-modal .question_box .question1 li:nth-child(n+2){
+    margin-bottom,:30px;
+  } */
+  .question-modal .question_box .question1 a {
+    width: 23%;
+    height: 100%;
+    margin: auto;
+    margin-top: 10%;
+    height: 30%;
+  }
+  .question-modal .question_box .question2 a {
+    width: 31%;
+    height: 100%;
+    margin: auto;
+    margin-top: 10%;
+    height: 30%;
+  }
+  .question-modal .question_box .question .list .item{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .answer .text-box{
+    text-align: left;
+    margin-left: 10%;
+    width: 40%;
+  }
+  /* 結果 */
+  .answer-box{
+    display:flex;
+    width:100%;
+  }
+  .answer-box .text-box{
+    width:50%;
+}
+    .answer-box .text-box .title_2{
+          font-size: 2.5rem;
+    margin-bottom: 30px;
+    /* font-family: "TTCommons-Regular", "TT Commons", sans-serif !important; */
+    letter-spacing: 0.08em;
+    /* font-weight: 900; */
+    }
+    .answer-box .text-box .sub-title{
+      font-size: 1.4rem;
+      margin-bottom: 30px ;
+}
+      .answer-box .text-box .sample{
+      font-size: 1.4rem;
+}
+  .answer-box .text-box {
+    width:50%;
+  }
+   .img-box{
+    width:50%;
+  }
+  .answer-box2{
+    font-size: 1.4rem;
+    margin-top: 50px;
+    /* font-weight: 500; */
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 50px auto 0 auto;
+  }
+  @media(max-width: 768px){
+    .modal-main-container {
+      max-height: initial ;
+    }
+    .question-modal .answer-box,
+    .question-modal .question_box .question .list{
+      display:block;
+    }
+    .question-modal .question_box .question .list .item {
+    width: 90%;
+    height: 20%;
+}
+.question-modal .question_box .question .list a {
+    width: 90%;
+    height: 20%;
+}
+    .answer-box .text-box {
+    width: 70%;
+      margin:auto;
+}
+       .img-box{
+    width:70%;
+    margin: 30px auto 30px auto;
+  }
+  .question-modal .question_box .question .list .item:nth-child(n+1) {
+    margin-bottom:20px;
+}
+    .question-num {
+    font-size: 2rem;
+    margin-bottom: 0px;
+    /* font-weight: 500; */
+}
+    .question-description {
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+          /* font-weight: 500; */
+}
+    .answer-box .text-box .title_2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    /* font-weight: 900; */
+}
+    .answer-box .text-box .sub-title {
+    font-size: 1.6rem;
+}
+  }
+    @media(max-width: 640px){
+      .modal .modal-main-container{
+        height:90%;
+      }
+      .modal-close-btn__wrapper {
+    height: 50px;
+}
+      .question-modal .question_box .question .list .item {
+        height:15%;
+      }
+      .question-num {
+font-size: 1.6rem;
+    line-height: 1.3rem;
+}
+      .question .question-description {
+        margin-bottom:50px;
+      }
+      .question .item a {
+        font-size: 1.2rem;
+      }
+      .question-description {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+    .answer-box .text-box .title_2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+      .answer-box .text-box .sub-title {
+        margin-bottom:15px;
+      }
+      .answer-box .text-box .sub-title ,.answer-box .text-box .sample {
+    font-size: 1.3rem;
+}
+      .answer-box2{
+        width:70%;
+      }
+    }
+</style>
+
+<!-- モーダルのボタン -->
+  <button type="button" class="modal-btn modal-btn1"><img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/ico_find_fragrance.svg?v=1708293769" style="width: auto; height:60%; margin: 0 auto 0px auto;"></button>
+
+
+  <div class="modal">
+    <div class="modal-bg modal-close"></div>
+    <div class="modal-main-container">
+      <div class="modal-main-contents modal-scroll__container">
+        <div class="modal-close-btn__wrapper">
+          <button class="modal-close-btn modal-close">×</button>
+        </div>
+      <div class="question-modal">
+  <div class="inner">
+
+    <div class="close-btn"></div>
+    <div class="wrap">
+      <div class="question_box">
+        <!-- 質問１ -->
+        <div id="q_01" class="question question1 check">
+          <p class="question-num">Question 01</p>
+          <p class="question-description">你今天有什麼計畫？</p>
+          <ul class="list">
+            <a class="btn" href="#q_02"><li class="item">一個人享受獨處的時間</li></a>
+            <a class="btn" href="#q_03"><li class="item">與人見面，盡情談天說地</li></a>
+            <a class="btn" href="#q_04"><li class="item">外出走走</li></a>
+            <a class="btn" href="#q_05"><li class="item">還沒決定！<br class="pc">想隨心所欲地度過</li></a>
+          </ul>
+        </div>
+
+        <!-- 質問２ -->
+        <div id="q_02" class="question question2 check is-hidden">
+          <p class="question-num">Question 02</p>
+          <p class="question-description">你想如何度過今天？</p>
+          <ul class="list">
+            <a class="btn" href="#answer_earlgrey"><li class="item">自得其樂</li></a>
+            <a class="btn" href="#answer_whitetea"><li class="item">面對自我，向前邁進</li></a>
+            <a class="btn" href="#answer_kinmokusei"><li class="item">提高感受性，豐富心靈</li></a>
+          </ul>
+        </div>
+        <div id="q_03" class="question question2 check is-hidden">
+          <p class="question-num">Question 02</p>
+          <p class="question-description">你想如何度過今天？</p>
+          <ul class="list">
+            <a class="btn" href="#answer_whitetea"><li class="item">積極向上，和他人相處愉快</li></a>
+            <a class="btn" href="#answer_savon"><li class="item">富有魅力的氣氛擔當</li></a>
+            <a class="btn" href="#answer_whitelily"><li class="item">嚴肅認真又不失溫柔</li></a>
+
+          </ul>
+        </div>
+        <div id="q_04" class="question question2 check is-hidden">
+          <p class="question-num">Question 02</p>
+          <p class="question-description">你想如何度過今天？</p>
+          <ul class="list">
+            <a class="btn" href="#answer_whitelily"><li class="item">度過平靜安穩的時光</li></a>
+            <a class="btn" href="#answer_kinmokusei"><li class="item">充分享受大自然的美麗</li></a>
+            <a class="btn" href="#answer_earlgrey"><li class="item">毫不隱瞞地展現自己</li></a>
+
+          </ul>
+        </div>
+        <div id="q_05" class="question question2 check is-hidden">
+          <p class="question-num">Question 02</p>
+          <p class="question-description">你想如何度過今天？</p>
+          <ul class="list">
+            <a class="btn" href="#answer_earlgrey"><li class="item">想變成可愛，<br class="pc">又有自己想法的人</li></a>
+            <a class="btn" href="#answer_whitelily"><li class="item">想成為充滿魅力，<br class="pc">總是從容不迫的人</li></a>
+            <a class="btn" href="#answer_savon"><li class="item">想變得溫柔開朗，<br class="pc">惹人憐愛</li></a>
+          </ul>
+        </div>
+
+        <!-- 結果 -->
+        <div id="answer_savon" class="answer check savon_2 is-hidden">
+          <p class="question-num">Answer</p>
+          <p class="question-description">適合你的香氣是…</p>
+          <div class="answer-box">
+            <div class="text-box">
+              <p class="title_2">皂香 Savon</p>
+              <p class="sub-title">
+                清爽的柑橘香調<br>
+                以及舒適甜香縈繞<br>
+                與令人難忘的悸動相遇
+              </p>
+              <p class="sample">
+                前調：檸檬、甜橙、黑加侖、荔枝<br>
+                中調：玫瑰、茉莉、鈴蘭、李子<br>
+                後調：麝香、琥珀、木質調、甜香
+              </p>
+            </div>
+
+            <div class="img-box">
+              <img style="width: 75%; height: auto;"
+                src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/f0077b00e0c501d5198d968943808eacf934169c.jpg?v=1708293769">
+            </div>
+          </div>
+          <div class="answer-box2">
+            <a href="/collections/renewal_savon" class="link" target="_blank">查看產品一覽</a>
+            <a class="btn" href="#q_01">再測一次</a>
+          </div>
+
+        </div>
+        <div id="answer_whitelily" class="answer check whitelily_2 is-hidden">
+          <p class="question-num">Answer</p>
+          <p class="question-description">適合你的香氣是…</p>
+          <div class="answer-box">
+            <div class="text-box">
+              <p class="title_2">白百合 White Lily</p>
+              <p class="sub-title">
+                輕柔玉蘭花香<br>
+                搭配意志堅定的白百合<br>
+                靜靜陪伴在身邊<br>
+                更靠近理想的自我
+              </p>
+              <p class="sample">
+                前調：佛手柑、黑加侖、嫩葉<br>
+                中調：百合、茉莉、玫瑰、玉蘭<br>
+                後調：琥珀、檀香、麝香<br>
+              </p>
+            </div>
+
+            <div class="img-box">
+              <img style="width: 75%; height: auto;"
+                src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/0471ff4bc8a8ec92e9bf9daa9a32480d3f109c25.jpg?v=1708293769">
+            </div>
+          </div>
+          <div class="answer-box2">
+            <a href="/collections/renewal_whitelily" class="link" target="_blank">查看產品一覽</a>
+            <a class="btn" href="#q_01">再測一次</a>
+          </div>
+        </div>
+        <div id="answer_whitetea" class="answer check whitetea_2 is-hidden">
+          <p class="question-num">Answer</p>
+          <p class="question-description">適合你的香氣是…</p>
+          <div class="answer-box">
+            <div class="text-box">
+              <p class="title_2">白茶 White Tea</p>
+              <p class="sub-title">
+                柑橘的舒爽清香<br>
+                與令人放鬆的茶香融合<br>
+                白茶香氣讓人體悟到<br>
+                展現真實自我的舒適放鬆
+              </p>
+              <p class="sample">
+                前調：葡萄柚、檸檬、嫩葉<br>
+                中調：綠茶、茉莉、玫瑰、百合<br>
+                後調：麝香、木質調、琥珀
+              </p>
+            </div>
+
+            <div class="img-box">
+              <img style="width: 75%; height: auto;"
+                src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/fa2d9f32e1dcbd0a71d1f51d6ffb03a10388dc89.jpg?v=1708293769">
+            </div>
+          </div>
+          <div class="answer-box2">
+            <a href="/collections/renewal_whitetea" class="link" target="_blank">查看產品一覽</a>
+            <a class="btn" href="#q_01">再測一次</a>
+          </div>
+        </div>
+        <div id="answer_earlgrey" class="answer check earlgrey_2 is-hidden">
+          <p class="question-num">Answer</p>
+          <p class="question-description">適合你的香氣是…</p>
+          <div class="answer-box">
+            <div class="text-box">
+              <p class="title_2">伯爵茶 Earl Grey</p>
+              <p class="sub-title">
+                散發佛手柑的奢華果香<br>
+                置身午茶時光般舒適怡人<br>
+                迷人優雅、成熟<br>
+                每個面向都是真實的自我
+              </p>
+              <p class="sample">
+                前調：佛手柑<br>
+                中調：茶、玫瑰<br>
+                後調：麝香、琥珀
+              </p>
+            </div>
+
+            <div class="img-box">
+              <img style="width: 75%; height: auto;"
+                src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/2a903afbdf838280f3987c2ff9df868808794b1e.jpg?v=1708293770">
+            </div>
+          </div>
+          <div class="answer-box2">
+            <a href="/collections/fragrance-earlgrey" class="link" target="_blank">查看產品一覽</a>
+            <a class="btn" href="#q_01">再測一次</a>
+          </div>
+        </div>
+        <div id="answer_kinmokusei" class="answer check kinmokusei_2 is-hidden">
+          <p class="question-num">Answer</p>
+          <p class="question-description">適合你的香氣是…</p>
+          <div class="answer-box">
+            <div class="text-box">
+              <p class="title_2">金木樨 Kinmokusei</p>
+              <p class="sub-title">
+                優雅香氣溫柔蔓延<br>
+                金木樨甜香飄盪在空氣中<br>
+                令人懷舊的香氣<br>
+                讓人不自覺地停下腳步
+              </p>
+              <p class="sample">
+                前調：金木樨、佛手柑<br>
+                中調：金木樨<br>
+                後調：木質調、麝香
+              </p>
+            </div>
+
+            <div class="img-box">
+              <img style="width: 75%; height: auto;"
+                src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/04c73737d044bb7a19b150040e914619a3eff0f9.jpg?v=1708293770">
+            </div>
+          </div>
+          <div class="answer-box2">
+            <a href="/collections/fragrance-kinmokusei" class="link" target="_blank">查看產品一覽</a>
+            <a class="btn" href="#q_01">再測一次</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+      </div>
+    </div>
+</div>
+
+
+  <style>
+/* スクロールロックする時 */
+body.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* モーダルを開くボタン */
+.modal-btn1 {
+    position: fixed;
+    bottom: 65px;
+    right: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5em 1.5em 0;
+    padding: 0.25em;
+    width: 80px;
+    height: 80px;
+    background-color: #3D5D72;
+    z-index: 9;
+    border-radius: 5%;
+  color:#fff;
+  /* font-weight:700; */
+}
+    .modal-btn1:hover {
+      opacity: 0.8;
+    }
+
+/*----------------------------------------------------------*/
+/* モーダルウインドウ Slide In */
+/*----------------------------------------------------------*/
+.modal{
+  display: none;
+}
+/* モーダルウインドウ／背景 */
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: .3s;
+}
+
+/* モーダルウインドウ／コンテンツ */
+.modal-main-container {
+  color: black;
+  z-index: 11;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1032px;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;  
+  max-height: 700px ;
+}
+.modal-main-container.slide{
+  top: 50%;
+  transition: .3s;
+}
+.modal-main-contents {
+  background-color: #fff;
+  max-width: 1032px;
+  max-height: 700px;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px;
+  transition: .3s; 
+  width:100%;
+}
+
+/* モーダルウインドウ／閉じるボタンのwrapper */
+.modal-close-btn__wrapper {
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+/* モーダルウインドウ／閉じるボタン */
+.modal-close-btn {
+  color: black;
+  cursor: pointer;
+  margin-left: 24px;
+  font-size:30px;
+}
+
+/* スクロール用タグ */
+.modal-scroll__container {
+  overflow: scroll;
+}
+
+    /* モーダルボタン非表示 */
+    .modal-btn{
+  display:none;
+}
+  </style>
+              
+    <script src="{{ 'question.js' | asset_url }}" defer></script>

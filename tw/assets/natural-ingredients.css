@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* natural ingredients */
+.wrapper.wrapper--wide {
+  width: 100%;
+  max-width: initial;
+  margin: 0 auto 100px;
+  font-family: "TTCommons-Regular" , "Nunito Sans" ,sans-serif;
+}
+
+.sozai-area-two {
+  background-color: #eee;
+}
+
+.sozai-inner .title-page {
+  font-size: 34px;
+  margin-top: 60px;
+}
+
+.sozai-area-two .sozai-inner .title-page .sub {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.ingredients {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.ingredients .ingredientsList {
+	display: flex;
+	flex-flow: row wrap;
+	margin-top: -16px;
+}
+
+.ingredients .ingredientsList__item {
+	position: relative;
+	overflow: hidden;
+	width: calc((100% - 48px) / 4);
+	margin-top: 16px;
+	margin-left: 16px;
+}
+
+.ingredients .item__link {
+	cursor: pointer;
+}
+
+.ingredients .item__pic {
+	width: 100%;
+	height: auto;
+}
+
+.ingredients .item__desc {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.ingredients .desc__titleJa, .desc__effect {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.ingredients .desc__titleEn {
+	font-size: 12px;
+}
+
+.ingredients .textColor--white {
+	color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+	.ingredients .ingredientsList__item:nth-child(4n + 1) {
+		margin-left: 0;
+	}
+	.ingredients .item__pic {
+		transition-duration: 1s;
+	}
+	.ingredients .item__link:hover .item__pic {
+		transition-duration: 1s;
+		transform: scale(1.1);
+
+		opacity: 0.7;
+	}
+	.ingredients .desc__titleJa, .desc__effect {
+		font-weight: 700;
+	}
+}
+
+@media screen and (max-width: 767px) {
+  .sozai-inner .title-page {
+    font-size: 24px;
+    margin-top: 24px;
+  }
+  .sozai-area-two .sozai-inner .title-page .sub {
+    font-size: 12px;
+  }
+  .ingredients .desc__titleJa {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .ingredients .desc__effect {
+    font-size: 16px;
+  }
+  .ingredients .desc__titleEn {
+    font-size: 12px;
+  }
+	.ingredients {
+		width: 92%;
+	}
+	.ingredients .ingredientsList__item {
+		width: calc((100% - 16px) / 2);
+	}
+	.ingredients .ingredientsList__item:nth-child(2n + 1) {
+		margin-left: 0;
+	}
+}
+

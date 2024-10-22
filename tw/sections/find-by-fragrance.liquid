@@ -1,0 +1,226 @@
+<section class="section_search section_fragrance">
+
+  <header class="SectionHeader ingredient-header">
+    {%- if section.settings.sub_title != blank -%}
+      <h3 class="SectionHeader__SubHeading Heading u-h6">{{ section.settings.sub_title | escape }}</h3>
+    {%- endif -%}
+    {%- if section.settings.main_title != blank -%}
+      <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.main_title | escape }}</h2>
+    {%- endif -%}
+  </header>
+
+  <div class="panel-block">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.fragrance_url }}" class="PanelItem tiny fragrance item-{{ block.settings.fragrance_width }}">
+        <div class="Image_Cover"></div>
+        <div class="info">
+          <h3 class="title">{{ block.settings.title }}</h3>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+  <style>
+      .section_search {
+    background-color: #eee;
+    color: #393C41;
+    padding: 60px 6%;
+}
+.section_search h2.section_title {
+    margin-left: 25px;
+    /* font-weight: 700; */
+}
+
+
+h2.section_title {
+    margin-bottom: 3%;
+}
+.section_search h2.section_title .large {
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    text-align: left;
+}
+
+h2.section_title span.large {
+    font-size: 45px;
+    letter-spacing: 25px;
+}
+h2.section_title span {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 2px;
+    /* font-weight: 300; */
+    text-align: center;
+}
+.section_search h2.section_title .small {
+    /* font-weight: 300; */
+    letter-spacing: 2px;
+    color: #383c3f;
+    text-align: left;
+    padding-left: 5px;
+}
+
+h2.section_title span.small {
+    position: relative;
+    z-index: 10;
+    /* font-weight: 300; */
+}
+.section_search .panel-block {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.PanelItem.tiny {
+    height: 9vw;
+}
+.section_search .PanelItem {
+    width: calc(100% / 2 - 10px);
+    border: 0;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-position: center;
+}
+a {
+    text-decoration: none;
+    -webkit-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s;
+}
+.PanelItem.item-1-3 {
+    width: calc((100% / 3) * 1 - 10px);
+}
+.PanelItem.item-1-4 {
+    width: calc((100% / 4) * 1 - 10px);
+}
+.PanelItem.item-1-5 {
+    width: calc((100% / 5) * 1 - 10px);
+}
+.section_fragrance .PanelItem.fragrance .Image_Cover {
+    background: #000021;
+    background-size: cover;
+}
+
+.section_search .PanelItem .Image_Cover {
+    width: 100%;
+    height: 100%;
+    transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.section_search .info {
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.section_search .info .title {
+    font-size: 16px;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: initial;
+    /* font-weight: 700; */
+}
+.section_search .PanelItem::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(to top, rgba(4,4,4,0.65), rgba(54,54,54,0.2));
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+@media screen and (max-width: 640px){
+  .section_search .PanelItem {
+    width: 100%;
+    height: 25vw;
+  }
+  .section_search {
+    padding: 20% 3% 10% 3%;
+}
+  .section_title span.large {
+  font-size: 24px;
+  letter-spacing: 25px;
+  }
+  .section_search .section_title .large {
+    font-size: 24px;
+    letter-spacing: 25px;
+  }
+  .section_search .section_title .small {
+    font-size: 16px;
+  }
+  .section_search h2.section_title {
+    margin-left: 0;
+  }
+}
+/* body{
+  font-family: 'NotoSansJP', 'TTCommons', "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important;
+} */
+  </style>
+  
+  {% schema %}
+{
+  "name": "Find by fragrance",
+  "settings": [
+  {
+    "type": "text",
+    "id": "main_title",
+    "default": "デフォルトテキスト",
+    "label": "Main title"
+},
+{
+  "type": "text",
+  "id": "sub_title",
+  "default": "デフォルトテキスト",
+  "label": "Sub title"
+}
+  ],
+  "blocks": [
+  {
+    "type": "text",
+    "name": "fragrance name",
+    "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "デフォルトテキスト",
+      "label": "fragrance name"
+ },
+ {
+  "id": "fragrance_url",
+  "type": "url",
+  "label": "URL"
+  },
+  {
+    "type": "select",
+    "id": "fragrance_width",
+    "options":[
+    { "value": "1-5", "label": "20%"},
+    { "value": "1-4", "label": "25%"},
+    { "value": "1-3", "label": "33%"}
+    ],
+    "label": "block width"
+    }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "Find by fragrance",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
