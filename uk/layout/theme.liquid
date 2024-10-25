@@ -49,6 +49,10 @@
       <link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}">
       <script src="{{ 'splide.min.js' | asset_url }}" defer></script>
       <link rel="stylesheet" href="{{ 'fragrance-renewal.css' | asset_url }}">
+    {%- elsif template.suffix == 'shiropaper_issue2' -%}
+      <link href="{{ 'common_pc.css' | asset_url }}" rel="stylesheet" media="print,screen and (min-width: 768px)" class="css-pc" />
+      <link href="{{ 'common_sp.css' | asset_url }}" rel="stylesheet" media="screen and (max-width: 767px)" class="css-sp" />
+      <link rel="stylesheet" href="{{ 'shiropaper_issue2.css' | asset_url }}">
     {%- elsif template.suffix == 'natural-ingredients' -%}
       <link href="{{ 'common_pc.css' | asset_url }}" rel="stylesheet" media="print,screen and (min-width: 768px)" class="css-pc" />
       <link href="{{ 'common_sp.css' | asset_url }}" rel="stylesheet" media="screen and (max-width: 767px)" class="css-sp" />
@@ -56,9 +60,14 @@
     {%- elsif request.page_type == 'article' -%}
       <link rel="stylesheet" href="{{ 'blog.css' | asset_url }}">
     {%- elsif request.page_type == 'page' -%}
-      <link rel="stylesheet" href="{{ 'page.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'page.css' | asset_url }}">
     {%- endif -%}
 
+    <!-- skincarepage_css -->
+    {% if template == 'page.skincare-with-shiro' %}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@latest/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="{{ 'skincare_style.scss' | asset_url }}">
+    {% endif %}
     <script>
       // This allows to expose several variables to the global scope, to be used in scripts
       window.theme = {

@@ -17,9 +17,9 @@ a[href^="tel:"] {
   text-decoration: none;
 }
 
-.wrap {
+/* .wrap {
   min-width: 1200px;
-}
+} */
 
 /*
  例 PSDのフォントサイズを()内に代入 @include fsPC(20);
@@ -10707,4 +10707,9 @@ img.border1 {
 .slider_collection .Carousel__Cell{
   height: 500px !important;
   min-height: 900px !important;
+}
+
+#shopify-pc__banner{
+  font-size: 16px;
+  letter-spacing: 0;
 }

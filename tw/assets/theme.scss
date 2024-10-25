@@ -7,34 +7,42 @@
 /* fonts */
 @font-face {
 font-family: 'commons';
-  src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.otf?2642");
-src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.eot?v=905476747193327211702441667");
-    src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.eot?%23iefix&v=905476747193327211702441667") format('embedded-opentype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.woff?v=18428886761694542231702441667") format('woff'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.ttf?v=90111422516889163191702441668") format('truetype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.svg%23fontset?2642") format('svg');
-    font-weight: normal;
+  src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_regular.otf?17671");
+src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_regular.eot?v=905476747193327211713353220");
+    src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_regular.eot?%23iefix&v=905476747193327211713353220") format('embedded-opentype'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_regular.woff?v=18428886761694542231713353220") format('woff'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_regular.ttf?v=90111422516889163191713353220") format('truetype'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_regular.svg%23fontset?17671") format('svg');
+    /* font-weight: normal; */
     font-style: normal; }
 @font-face {
 font-family: 'commons';
-  src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.otf?2642");
-src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.eot?v=59013478431828255651702441668");
-    src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.eot?%23iefix&v=59013478431828255651702441668") format('embedded-opentype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.woff?v=25566533858152562201702441667") format('woff'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.ttf?v=144924896243009736581702441667") format('truetype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.svg%23fontset?2642") format('svg');
-    font-weight: bold;
+  src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_bold.otf?17671");
+src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_bold.eot?v=59013478431828255651713353220");
+    src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_bold.eot?%23iefix&v=59013478431828255651713353220") format('embedded-opentype'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_bold.woff?v=25566533858152562201713353220") format('woff'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_bold.ttf?v=144924896243009736581713353220") format('truetype'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/tt_commons_bold.svg%23fontset?17671") format('svg');
+    /* font-weight: bold; */
     font-style: normal; }
 @font-face {
 font-family: 'commons';
-src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.eot?v=53493447604702975751702441668");
-    src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.eot?%23iefix&v=53493447604702975751702441668") format('embedded-opentype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.woff?v=172955185291821497551702441668") format('woff'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.ttf?v=2405902508093988921702441669") format('truetype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.svg%23fontset?2642") format('svg');
-    font-weight: 100;
+src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/ttcommons-light.eot?v=53493447604702975751713353220");
+    src: url("//shiro-shiro.tw/cdn/shop/t/44/assets/ttcommons-light.eot?%23iefix&v=53493447604702975751713353220") format('embedded-opentype'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/ttcommons-light.woff?v=172955185291821497551713353220") format('woff'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/ttcommons-light.ttf?v=2405902508093988921713353220") format('truetype'),
+         url("//shiro-shiro.tw/cdn/shop/t/44/assets/ttcommons-light.svg%23fontset?17671") format('svg');
+    /* font-weight: 100; */
     font-style: normal; }
-
+@font-face {
+font-family: "tt-commons-pro",sans-serif;
+}
+@font-face {
+font-family: 'orignFontText';
+  font-family:蘋方-繁, 微軟正黑體, Microsoft JhengHei, Noto Sans Traditional Chinese,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
 /* Colors */
 
 $background      : #eeeeee;
@@ -80,8 +88,8 @@ $product-sale-price-color: #f94c43;
   font-weight: 500;
   font-style: normal;
   font-display: fallback;
-  src: url("//shiro-shiro.uk/cdn/fonts/montserrat/montserrat_n5.e72d00d31ae5399d260a80ec70322c62c1819762.woff2?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=ac3a8d138109c8620f0e70a92c813d341ada1dd19194b8b6f8646152ae1b4d85") format("woff2"),
-       url("//shiro-shiro.uk/cdn/fonts/montserrat/montserrat_n5.18a018b6c83e89030c5d70a6d4c02c969f228500.woff?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=7286172412b458ff50ed40597f2eb12e4917a94412d407634a4b68cbf87b4cb3") format("woff");
+  src: url("//shiro-shiro.tw/cdn/fonts/montserrat/montserrat_n5.e72d00d31ae5399d260a80ec70322c62c1819762.woff2?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=35738795803796abfb6aea61ea89223547c2f891c26153a45ed3f4574037adf4") format("woff2"),
+       url("//shiro-shiro.tw/cdn/fonts/montserrat/montserrat_n5.18a018b6c83e89030c5d70a6d4c02c969f228500.woff?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=dce66a8e30ce52eff49ee9987d0484d277c89ba4d448f782958b12cd417752e7") format("woff");
 }
 
 @font-face {
@@ -89,8 +97,8 @@ $product-sale-price-color: #f94c43;
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
-  src: url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_n4.2b61d9dcf54d8ac8282cfd1ebb6964c79a7efcd1.woff2?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=b2c945c43f4bc82cefbebc354f575adae4a00b749788861a3472e95e2f553736") format("woff2"),
-       url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_n4.420cbf408f643f8ff8fd948b99c10dade8b6af79.woff?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=f12707f2c05c805b571244fec3a37223ee6b75662a85eeb808e451cda752915c") format("woff");
+  src: url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_n4.2b61d9dcf54d8ac8282cfd1ebb6964c79a7efcd1.woff2?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=9cab799268a8ae0a4be281f242030f6da481cf4ac4c4aa5e7f799571a4a8fa6a") format("woff2"),
+       url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_n4.420cbf408f643f8ff8fd948b99c10dade8b6af79.woff?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=7048fe0a898a9954fcec9f6711579cde923cdd9df44e61205b48bc4191ba95fc") format("woff");
 }
 
 @font-face {
@@ -98,8 +106,8 @@ $product-sale-price-color: #f94c43;
   font-weight: 700;
   font-style: normal;
   font-display: fallback;
-  src: url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_n7.5bd4fb9346d13afb61b3d78f8a1e9f31b128b3d9.woff2?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=68ffc0d2311c677d671cdfed6b5b85ff51dcf20cce800653e07abf52b1c4c794") format("woff2"),
-       url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_n7.2bcf0f11aa6af91c784a857ef004bcca8c2d324d.woff?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=326a4c91e2dbb2a20c17303979d98b8952f7b67e5260cd82e3e5ca085a6cbe0f") format("woff");
+  src: url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_n7.5bd4fb9346d13afb61b3d78f8a1e9f31b128b3d9.woff2?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=6ae3aa7ba0ed5c5345011f9732863e119bc5d7bc8b56257357992d8d8d7dc0ff") format("woff2"),
+       url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_n7.2bcf0f11aa6af91c784a857ef004bcca8c2d324d.woff?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=9f821209cf29a6bd1da02021b66caf3d17e91b626484e9d35daecc978b615a00") format("woff");
 }
 
 @font-face {
@@ -107,8 +115,8 @@ $product-sale-price-color: #f94c43;
   font-weight: 400;
   font-style: italic;
   font-display: fallback;
-  src: url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_i4.e88a2041a6cfbeacffb96db0e8efdfaaa38ddc5c.woff2?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=5a06990a35132feaf3800d9bab7202f2088aaf7db5cbbbb5f89c20b3e051c863") format("woff2"),
-       url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_i4.2c3733ccdf579e6e89e929a950e6a93484fdf6b4.woff?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=095347b3b5361ce6731f38c01ed7ca7832e48e1e70dd07017d12bfb3c551c371") format("woff");
+  src: url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_i4.e88a2041a6cfbeacffb96db0e8efdfaaa38ddc5c.woff2?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=77b3ed6867da0c23f14d9a7296db73625076336f7a3437f65e4ef6f745aed57c") format("woff2"),
+       url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_i4.2c3733ccdf579e6e89e929a950e6a93484fdf6b4.woff?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=acbdd96d45adeefc4b9b2b2276a59d23d0a392570e28b3707abf4f9bd8e841e8") format("woff");
 }
 
 @font-face {
@@ -116,18 +124,18 @@ $product-sale-price-color: #f94c43;
   font-weight: 700;
   font-style: italic;
   font-display: fallback;
-  src: url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_i7.975ea93f521412ef99ca1e2e434d8ca6a5cf77e7.woff2?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=6aa7b497d745bf9495eec1611cb7d9aadbef08543f22d986af12d2c3887fabd3") format("woff2"),
-       url("//shiro-shiro.uk/cdn/fonts/nunito_sans/nunitosans_i7.83b70272d04b71e88f25fc6834dc9b88e4ba4e95.woff?h1=c2hpcm8tc2hpcm8udWs&h2=c2hpcm8ta2luZ3Nyb2FkLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=ed788a04c4aebecb2d8f6b636b51a12674dc33a7fca67f3057ed084b283f4d78") format("woff");
+  src: url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_i7.975ea93f521412ef99ca1e2e434d8ca6a5cf77e7.woff2?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=7ed7b9bd07b49968447f4a6f3eed3d672dbaca37a13e246504dfddacd44015d0") format("woff2"),
+       url("//shiro-shiro.tw/cdn/fonts/nunito_sans/nunitosans_i7.83b70272d04b71e88f25fc6834dc9b88e4ba4e95.woff?h1=c2hpcm8tdHctc3RvcmUuYWNjb3VudC5teXNob3BpZnkuY29t&h2=c2hpcm8tc2hpcm8udHc&hmac=e85a7b906ee22320dcdadcc40fdd69ac3d01e057dfce171acf12ac4a6b3d0691") format("woff");
 }
 
 
-$heading-font-family : commons, Montserrat, sans-serif;
-$heading-font-weight : 500;
+$heading-font-family : 蘋方-繁, 微軟正黑體, Microsoft JhengHei, Noto Sans Traditional Chinese,sans-serif;
+/* $heading-font-weight : 500; */
 $heading-font-style  : normal;
 $heading-font-size   : large;
 
-$text-font-family : commons, "Nunito Sans", sans-serif;
-$text-font-weight : 400;
+$text-font-family : 蘋方-繁, 微軟正黑體, Microsoft JhengHei, Noto Sans Traditional Chinese,sans-serif;
+/* $text-font-weight : 400; */
 $text-font-style  : normal;
 
 $uppercase-heading: true;
@@ -142,8 +150,8 @@ $product-show-price-on-hover    : false;
 $product-list-horizontal-spacing: medium;
 $product-list-vertical-spacing  : small;
 
-$cursor-zoom-in-svg    : "//shiro-shiro.uk/cdn/shop/t/38/assets/cursor-zoom-in.svg?v=115184326032947292301702441686";
-$cursor-zoom-in-2x-svg : "//shiro-shiro.uk/cdn/shop/t/38/assets/cursor-zoom-in-2x.svg?v=77209836688371587921702441686";
+$cursor-zoom-in-svg    : "//shiro-shiro.tw/cdn/shop/t/44/assets/cursor-zoom-in.svg?v=115184326032947292301713353220";
+$cursor-zoom-in-2x-svg : "//shiro-shiro.tw/cdn/shop/t/44/assets/cursor-zoom-in-2x.svg?v=77209836688371587921713353220";
 
 /* Animation */
 
@@ -261,7 +269,7 @@ h5,
 h6 {
   margin-top: 0;
   font-size: inherit;
-  font-weight: inherit;
+  /* font-weight: inherit; */
 }
 
 p:last-child,
@@ -426,9 +434,9 @@ textarea {
   overflow: auto;
 }
 
-optgroup {
+/* optgroup {
   font-weight: bold;
-}
+} */
 
 /**
  * Tables
@@ -453,8 +461,6 @@ $lap:              "screen and (min-width: 1008px) and (max-width: 1239px)";
 $lap-and-up:       "screen and (min-width: 1008px)";
 $desk:             "screen and (min-width: 1240px)";
 $widescreen:       "screen and (min-width: 1500px)";
-$fullscreen:       "screen and (min-width: 1760px)";
-$maxscreen:       "screen and (min-width: 1920px)";
 
 @mixin av-mq($alias) {
   @if $alias == "phone" {
@@ -487,14 +493,6 @@ $maxscreen:       "screen and (min-width: 1920px)";
     }
   } @else if $alias == "widescreen" {
     @media #{$widescreen} {
-      @content;
-    }
-  } @else if $alias == "fullscreen" {
-    @media #{$fullscreen} {
-      @content;
-    }
-  } @else if $alias == "maxscreen" {
-    @media #{$maxscreen} {
       @content;
     }
   }
@@ -1573,7 +1571,7 @@ body:not(.is-tabbing) textarea:focus {
 
 .Container {
   margin: 0 auto;
-  padding: 0 24px;
+  /* padding: 0 24px; */
 }
 
 .Container--narrow {
@@ -1602,13 +1600,13 @@ body:not(.is-tabbing) textarea:focus {
 
 @include av-mq('tablet-and-up') {
   .Container {
-    padding: 0 50px;
+    /* padding: 0 50px; */
   }
 }
 
 @include av-mq('desk') {
   .Container {
-    padding: 0 80px;
+    /* padding: 0 80px; */
   }
 }
 /**
@@ -1620,8 +1618,8 @@ html {
 }
 
 body {
-  font-family: $text-font-family;
-  font-weight: $text-font-weight;
+  font-family: $text-font-family !important;
+  /* font-weight: $text-font-weight; */
   font-style: $text-font-style;
   color: $text-color;
   background: $background;
@@ -1681,7 +1679,7 @@ body {
 
 .Heading {
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
   color: $heading-color;
   transition: color 0.2s ease-in-out;
@@ -1907,7 +1905,7 @@ body {
     }
   } @else {
     .u-h1 {
-      font-size: 48px;
+      font-size: 64px;
     }
 
     .u-h2 {
@@ -1981,7 +1979,7 @@ body {
   text-align: center;
   letter-spacing: 0.2em;
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
   background-color: transparent;
   transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -2771,7 +2769,7 @@ body:not(.is-tabbing) .flickity-enabled:focus {
       padding-top: 0;
       padding-bottom: 0;
       margin-bottom: 16px;
-      font-weight: bold;
+      /* font-weight: bold; */
     }
 
     .Collapsible__Inner {
@@ -3179,7 +3177,7 @@ $drawer-header-height : 50px;
   font-size: to-size(11px);
   text-transform: uppercase;
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
   letter-spacing: 0.2em;
   line-height: normal;
@@ -3349,7 +3347,7 @@ select::-ms-expand {
     background: transparent;
     border: none;
     font-family: $heading-font-family;
-    font-weight: $heading-font-weight;
+    /* font-weight: $heading-font-weight; */
     font-style: $heading-font-style;
     font-size: inherit;
     text-transform: uppercase;
@@ -3367,6 +3365,7 @@ select::-ms-expand {
 }
 .HorizontalList {
   list-style: none;
+  margin: -6px -8px;
 }
 
 .HorizontalList__Item {
@@ -3682,7 +3681,6 @@ select::-ms-expand {
   display: block;
   margin-bottom: 12px;
   width: 100%;
-  max-width: 200px;
   line-height: 1.5;
   text-align: left;
   transition: all 0.2s ease-in-out;
@@ -3780,7 +3778,7 @@ select::-ms-expand {
   display: block;
   margin-bottom: 1.2em;
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
 }
 
@@ -4448,7 +4446,7 @@ select::-ms-expand {
   text-align: center;
   letter-spacing: 0.2em;
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
   background: $button-background;
   color: $button-text-color;
@@ -4859,14 +4857,24 @@ select::-ms-expand {
       min-height: calc(410px + var(--header-height) * var(--header-is-transparent, 0));
     }
   }
+}
 
-  .PageHeader--withBackground .SectionHeader.SectionHeader {
-    margin-top: 50px;
-    padding: 40px 0;
-
-    @supports (--css: variables) {
-      margin-top: calc(var(--header-height) * var(--header-is-transparent, 0));
+  @include av-mq('phone') {
+    .PageHeader--withBackground .SectionHeader.SectionHeader {
+       padding: 60px 0 80px 6px;
     }
+  }
+
+  @include av-mq('lap-and-up') {
+      .PageHeader--withBackground .SectionHeader.SectionHeader {
+      margin-top: 50px;
+      padding: 40px 0 40px 24px;
+  }
+}
+
+@include av-mq('tablet-and-up') {
+    .PageHeader--withBackground .SectionHeader.SectionHeader {
+      padding: 40px 0 40px 24px;
   }
 }
 
@@ -4893,6 +4901,15 @@ select::-ms-expand {
     @supports (--css: variables) {
       min-height: calc(520px + var(--header-height) * var(--header-is-transparent, 0));
     }
+  }
+
+    .PageHeader--withBackground .SectionHeader.SectionHeader {
+      margin-top: 50px;
+      padding: 40px 0 40px 50px;
+  
+      @supports (--css: variables) {
+        margin-top: calc(var(--header-height) * var(--header-is-transparent, 0));
+      }
   }
 }
 
@@ -5051,7 +5068,7 @@ select::-ms-expand {
   margin: 60px 0;
   text-align: center;
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
   font-size: to-size(12px);
   line-height: 1;
@@ -5369,7 +5386,7 @@ select::-ms-expand {
   h5,
   h6 {
     font-family: $heading-font-family;
-    font-weight: $heading-font-weight;
+    /* font-weight: $heading-font-weight; */
     font-style: $heading-font-style;
     color: $heading-color;
     transition: color 0.2s ease-in-out;
@@ -5495,11 +5512,6 @@ select::-ms-expand {
   and removing the remaining amount in both direction (0.65 / 2 => 0.325) to have more easier and consistent alignments
 */
 
-.SectionHeader__Heading.SectionHeader__Heading,
-.SectionHeader__SubHeading.SectionHeader__SubHeading {
-
-}
-
 .SectionHeader__SubHeading + .SectionHeader__Heading,
 .SectionHeader__SubHeading + .SectionHeader__TabList,
 .SectionHeader__Description {
@@ -5614,7 +5626,7 @@ select::-ms-expand {
 
   th {
     font-family: $heading-font-family;
-    font-weight: $heading-font-weight;
+    /* font-weight: $heading-font-weight; */
     font-style: $heading-font-style;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -7344,6 +7356,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   width: 62%;
   padding: 0 12px;
   vertical-align: top;
+  height: 100%;
 }
 
 @include av-mq('phone') {
@@ -7433,28 +7446,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 @include av-mq('desk') {
   .ProductList--carousel .Carousel__Cell {
-    width: 24%;
-    margin-left: 1%;
-  }
-}
-
-@include av-mq('widescreen') {
-  .ProductList--carousel .Carousel__Cell {
-    width: 20%;
-    margin-left: 1%;
-  }
-}
-
-@include av-mq('fullscreen') {
-  .ProductList--carousel .Carousel__Cell {
-    width: 18%;
-    margin-left: 1%;
-  }
-}
-
-@include av-mq('maxscreen') {
-  .ProductList--carousel .Carousel__Cell {
-    width: 14%;
+    width: 23%;
     margin-left: 1%;
   }
 }
@@ -7730,7 +7722,8 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 .Footer {
   background-color: #fff;
-  /* padding: 34px 0 0; */
+  /* padding: 34px 0; */
+  /* background: $footer-background; */
   color: $footer-text-color;
 
   @if $footer-background == $background {
@@ -7738,26 +7731,27 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 }
 
-
 .Footer .footerContent {
   background: $footer-background;
   padding: 0px;
   margin : 50px 0px 0px;
 }
+
 @include av-mq('phone') {
   .Footer .footerContent {
   margin : 0px;
 }
 }
+
 /* ---------------footerCategory--------------- */
 
 
 .footerCategory {
   width: 100%;
+  background-color: #eee;
   max-width: 1290px;
   margin: 0 auto;
   /* padding: 0px 25px; */
-  background-color: #eee;
 }
 
 @include av-mq('tablet-and-up') {
@@ -7827,6 +7821,7 @@ justify-content: center;
 
 .categoryList__item .categoryList__item--link:hover {
   opacity: .5;
+  
 }
 
 .categoryList__item .categoryPic {
@@ -7837,11 +7832,10 @@ justify-content: center;
 .categoryList__item .categoryText p {
   color: $text-color !important;
   font-size: 16px;
-  letter-spacing: .1em;
 }
 
 @include av-mq('phone') {
-  .footerCategory {
+  .footerCategory.Container {
     padding: 0px;
   }
 
@@ -7858,10 +7852,6 @@ justify-content: center;
     padding-bottom: 12px;
     text-align: center;
   }
-
-  .categoryList {
-    margin-top: 20px;
-  }
   
   .categoryList__item {
     width: calc(100% / 2);
@@ -7874,6 +7864,7 @@ justify-content: center;
 }
 
 /* ---------------///footerCategory///--------------- */
+
 .Footer__Inner{
   padding: 34px 14px 0px;
 }
@@ -7922,6 +7913,9 @@ justify-content: center;
     margin-top: 0;
   }
 }
+.Footer__Inner .Footer__Block:nth-child(4) {
+  width: 210px;
+}
 
 .Footer__Title {
   margin-bottom: 12px;
@@ -7960,7 +7954,7 @@ justify-content: center;
   width: 9px;
   height: 9px;
   margin-left: 8px;
-  background: url("//shiro-shiro.uk/cdn/shop/t/38/assets/icon-target.svg?v=24279574862179637881702441668") no-repeat center center/contain;
+  background: url("//shiro-shiro.tw/cdn/shop/t/44/assets/icon-target.svg?v=24279574862179637881713353220") no-repeat center center/contain;
 }
 
 .Footer__ThemeAuthor {
@@ -7998,7 +7992,7 @@ justify-content: center;
     margin: 0 auto; 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 50px;
     padding: 75px 50px 0px;
   }
@@ -8061,7 +8055,7 @@ justify-content: center;
   .Footer__Inner {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 75px 80px;
     margin: 0 auto;
   }
@@ -8073,7 +8067,7 @@ justify-content: center;
   .Footer__Block {
     flex: 0 1 auto;
   }
-
+  
   .Footer__Block--links {
     font-size: 16px;
   }
@@ -8188,7 +8182,6 @@ justify-content: center;
 .Header__LogoImage {
   margin: 0 auto;
   transition: opacity 0.3s ease-in-out;
-  width: 140px;
 }
 
 .Header__LogoImage--transparent {
@@ -8340,7 +8333,7 @@ justify-content: center;
   }
 
   .Header:not(.Header--sidebar) .Header__Wrapper {
-    padding: 22px 50px;
+    padding: 28px 50px;
   }
 
   .Header__CurrencySelector {
@@ -8392,11 +8385,6 @@ justify-content: center;
       margin-bottom: 50px;
     }
 
-    /* for yukidaruma logo */
-    Header__FlexItem--fill {
-      margin-top: 5px;
-    }
-
     .Header__FlexItem:last-child .Header__CurrencySelector {
       display: none;
     }
@@ -8405,8 +8393,8 @@ justify-content: center;
   .Header--initialized .Header__Wrapper {
     opacity: 1;
   }
-  
 }
+
 
 /**
  * ----------------------------------------------------------------------------
@@ -8636,7 +8624,7 @@ justify-content: center;
 .MegaMenu__Title {
   display: block;
   margin-bottom: 20px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .MegaMenu__Push {
@@ -10051,7 +10039,7 @@ justify-content: center;
   overflow: hidden;
   max-width: 220px;
   vertical-align: top;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .ProductForm__OptionCount {
@@ -10532,7 +10520,7 @@ justify-content: center;
 
   .spr-review-header-title {
     font-family: $heading-font-family;
-    font-weight: $heading-font-weight;
+    /* font-weight: $heading-font-weight; */
     font-style: $heading-font-style;
     font-size: to-size(11px);
     text-transform: uppercase;
@@ -10548,9 +10536,9 @@ justify-content: center;
     opacity: 1;
     color: $text-color-light;
 
-    strong {
+    /* strong {
       font-weight: normal;
-    }
+    } */
   }
 
   .spr-review-content {
@@ -10866,31 +10854,6 @@ justify-content: center;
     margin-bottom: 48px;
   }
 }
-
-/* 2024/0710_search改修 */
-
-.Search__category {
-  margin-top: 40px;
-
-}
-
-.Search .Search__Inner .Search__category__labels {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 10px;
-}
-
-.Search .Search__Inner .Search__category__labels .c-label {
-  background: #79888b;
-  border-radius: 2px;
-  color: #fff;
-  display: block;
-  font-size: 14px;
-  padding: 6px 10px;
-}
-
-
 @-webkit-keyframes shopTheLookDotKeyframe {
   0% {
     transform: scale(1.0);
@@ -11685,7 +11648,7 @@ justify-content: center;
   position: relative;
   font-size: to-size(11px);
   font-family: $heading-font-family;
-  font-weight: $heading-font-weight;
+  /* font-weight: $heading-font-weight; */
   font-style: $heading-font-style;
   letter-spacing: 0.2em;
   color: $text-color-light;
@@ -11792,7 +11755,7 @@ justify-content: center;
 .ImageHero__TitleWrapper__Title {
   text-align: left;
   font-size: 64px;
-  font-weight: lighter;
+  /* font-weight: lighter; */
 }
 .ImageHero__TitleWrapper__Link {
   text-align: center;
@@ -11825,7 +11788,7 @@ justify-content: center;
   }
 }
 .tab-subtitle{
-	font-weight: bold;
+	/* font-weight: bold; */
     padding: 0px 0 5px;
 }
 .blank{
@@ -11833,7 +11796,10 @@ justify-content: center;
 }
 .storeLocation__block {width: 100%; display: flex; flex-wrap: wrap; height: 100%; vertical-align: bottom;margin-bottom: 100px;}
 .storeLocation__block__left {width: 40%;}
-.storeLocation__block__left h3 {margin-top:0; font-weight:bold;}
+.storeLocation__block__left h3 {
+  margin-top:0;
+  /* font-weight:bold; */
+}
 .storeLocation__block__right {width: 60%;padding-left: 20px;}
 @include av-mq('phone') {
   .storeLocation__block__left {width: 100%; margin-bottom: 50px;}
@@ -11841,6 +11807,8 @@ justify-content: center;
 }
 .shopify-policy__container {margin: 50px auto;}
 .shopify-policy__container h1 {font-size:20px;margin: 50px auto;letter-spacing: 0.2em;}
+.shopify-policy__body  { font-weight:400;}
+.shopify-policy__body  strong {font-weight:700;}
 
 #fragrance {
 	display: block;
@@ -11859,10 +11827,10 @@ justify-content: center;
   background-size: cover;
 }
 .fragrance_wrap_item.perfume {
-  background-image: url("//shiro-shiro.uk/cdn/shop/t/38/assets/perfume_kv.jpg?v=39240043987412038251717738684");
+  background-image: url("//shiro-shiro.tw/cdn/shop/t/44/assets/perfume_kv.jpg?v=39240043987412038251717738430?v=1729735607");
 }
 .fragrance_wrap_item.classic {
-  background-image: url("//shiro-shiro.uk/cdn/shop/t/38/assets/fragrance_kv.jpg?v=178179153519165753291717738691");
+  background-image: url("//shiro-shiro.tw/cdn/shop/t/44/assets/fragrance_kv.jpg?v=178179153519165753291717738420?v=1729735607");
 }
 .fragrance_wrap_item .title {
   position: absolute;
@@ -11937,10 +11905,10 @@ justify-content: center;
     margin-left: 5%;
   }
   .ProductList--carousel .Carousel__Cell:first-child {
-  	margin-left: 14%;
+  	margin-left: 8%;
   }
   .ProductList--carousel .Carousel__Cell:last-child {
-  	margin-right: 14%;
+  	margin-right: 8%;
   }
 }
 // ingredients
@@ -12037,21 +12005,20 @@ justify-content: center;
     max-width: 900px;
 }
 #About .title {
-    padding: 30px 0 20px;
+    padding: 70px 0 20px;
     font-size: 24px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 #About .paragraph {
     font-size: 16px;
     line-height: 1.5;
-    padding-bottom: 30px;
 }
 #About #section-timeline {
 	margin-bottom: 0;
 }
 @media screen and (max-width: 640px) {
   #About .title {
-  	padding: 0 0 20px;
+  	padding:50px 0 20px;
   }
 }
 
@@ -12069,10 +12036,15 @@ justify-content: center;
 .Container.full h1 {
   font-size: 34px;
 }
+@include av-mq('phone') {
+  .Container.full h1 {
+  font-size: 24px;
+}
+}
 .filter_title {
   position: relative;
   font-size: 12px;
-  font-weight: bold;
+  /* font-weight: bold; */
   letter-spacing: 0.2em;
   padding: 20px;
 }
@@ -12128,9 +12100,9 @@ button.ytp-large-play-button.ytp-button::after {
   height: 50px;
 }
 
-.u-h1, .Rte h1{
+/* .u-h1, .Rte h1{
 font-weight: lighter;
-}
+} */
 
 /* collection item */
 .CollectionItem__Link {
@@ -12141,115 +12113,162 @@ font-weight: lighter;
     top: 0;
 }
 
-/* judge me */
-.jdgm-rev-widg {
-  padding: 60px 0 16px!important;
+.ProductItem_variantImgList{
+    display:flex;
+    justify-content: start;
+    align-item: center;
+    list-style :none;
+  gap: 7.5px;
+  width: fit-content;
+  margin: auto;
 }
-
-.Product__Info .jdgm-preview-badge {
-  margin-top: 16px;
-}
-
-.jdgm-row-profile,
-.jdgm-row-extra {
-  display: none;
-}
-
-.jdgm-rev__title,
-.jdgm-write-rev-link {
-  font-size: 18px!important;
-  font-weight: 400!important;
-}
-
-.jdgm-paginate__page.jdgm-curt,
-.jdgm-paginate__first-page,
-.jdgm-paginate__last-page,
-.jdgm-paginate__prev-page,
-.jdgm-paginate__next-page {
-  font-weight: 400!important;
-}
-
-/* cookiefirst */
-#cookiefirst-policy-page h2 {
-  margin-top: 0.83em;
-  font-size: 1.5em;
-}
-
-#cookiefirst-policy-page div div h2 {
-  margin-top: 2.49em;
-}
-
-#cookiefirst-policy-page h3 {
-  font-size: 1.17em;
-}
-
-#cookiefirst-policy-page h4 {
-  margin-top: 1.33em;
-}
-
-#cookiefirst-policy-page p {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-
-#cookiefirst-policy-page .cf2OTb {
-  word-break: break-all;
-  word-wrap: break-word;
-}
-
-#cookiefirst-policy-page .cf2OTb th {
-  white-space: inherit;
-}
-
-#cookiefirst-policy-page .cf1M40 td:nth-child(2),
-#cookiefirst-policy-page .cf1M40 th:nth-child(2) {
-  width: 260px;
-  min-width: 260px;
-}
-
-#cookiefirst-policy-page .cf1M40 td:nth-child(3),
-#cookiefirst-policy-page .cf1M40 th:nth-child(3),
-#cookiefirst-policy-page .cf1M40 td:nth-child(4),
-#cookiefirst-policy-page .cf1M40 th:nth-child(4),
-#cookiefirst-policy-page .cf1M40 td:nth-child(5),
-#cookiefirst-policy-page .cf1M40 th:nth-child(5),
-#cookiefirst-policy-page .cf1M40 td:nth-child(6),
-#cookiefirst-policy-page .cf1M40 th:nth-child(6) {
+.ProductItem_variantImgItem{
+    height: 50px;
   width: 50px;
+  position: relative;
+  overflow:hidden;
+}
+.ProductItem_variantImgListWrap{
+  overflow-x: scroll;
+  width: 100%;
+  /* IE, Edge 対応 */
+ -ms-overflow-style: none;
+ /* Firefox 対応 */
+ scrollbar-width: none;
+  margin-top: 15px;
+}
+.ProductItem_variantImgListWrap::-webkit-scrollbar {
+ display:none;
+}
+@media(max-width: 640px){
+  .ProductItem_variantImgItem{
+    height: 40px;
+  width: 40px;
+}
 }
 
-@media (max-width: 767px) {
-  #cookiefirst-policy-page .cf1M40 td:nth-child(1),
-  #cookiefirst-policy-page .cf1M40 th:nth-child(1) {
-    width: 60px;
-  }
-}
-
-#cookiefirst-policy-page button {
-  margin-top: 14px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #2c2e33;
-  padding: 3px 10px;
-  color: #2c2e33;
-  background-color: transparent;
-}
-@media (max-width: 767px) {
-  #cookiefirst-policy-page button {
-    margin-top: 0;
-  }
-  #cookiefirst-policy-page button:first-child {
-    margin-top: 14px;
-    margin-bottom: 10px;
-  }
-}
-
-.cookiefirst-root .secondary-intro {
-  font-size: 16px!important;
-}
-html body .cookiefirst-root .cfEa3L * {
-  font-size: 16px!important;
+#delivery_time{
+  border-color: #dedede;
+  background:none;
+  width: 194px;
+  margin-left: auto;
+  padding: 10px 10px 7.5px;
+  -webkit-appearance: none;
+  font-size: 14px;
   line-height: 1;
+  appearance: none;
+  margin-top: 5px;
+}
+.delivery_timeWrap{
+   position: relative;
+  margin-bottom: -1rem;
+}
+.delivery_timeWrap::after{
+  position: absolute;
+  top: 40%; /* 矢印の位置 */
+  right: 15px; /* 矢印の位置 */
+  width: 7.5px; /* 矢印の大きさ */
+  height: 7.5px; /* 矢印の大きさ */
+  border-top: 2px solid rgb(112, 112, 112); /* 矢印の線 */
+  border-right: 2px solid rgb(112, 112, 112); /* 矢印の線 */
+  -webkit-transform: rotate(135deg); /* 矢印の傾き */
+  transform: rotate(135deg); /* 矢印の傾き */
+  pointer-events: none; /* 矢印部分もクリック可能にする */
+  content: "";
+}
+.cart-attribute__field{
+  width: 194px;
+  text-align:left;
+  margin-left: auto;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+.Cart__Total{
+  margin-bottom: 0 !important;
+}
+
+.Cart__Note {
+    margin-top: 5px;
+}
+@media(max-width: 640px){
+#delivery_time{
+  width: 100%;
+  padding: 10px 10px 7.5px;
+}
+.cart-attribute__field{
+  width: 100%;
+}
+}
+.ttl-product-en,
+.ProductMeta__Price,
+.ProductCard__product_en,
+.ProductItem__Price,
+.CartItem__Price,
+.notranslate,
+.Cart__Total span,
+.CartItem__Variant{
+  font-family:tt-commons-pro !important;
+}
+.Article__Title{
+  word-break: break-all;
+  overflow: hidden;
+  line-height:1.4;
+}
+body ,.SectionHeader__Heading , .SectionHeader__SubHeading{
+  font-family:蘋方-繁, 微軟正黑體, Microsoft JhengHei, Noto Sans Traditional Chinese,sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+.template_index .SectionHeader__Heading{
+  font-style: normal;
+  /* font-weight: 300; */
+    font-size: 28px;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
+  text-align:center;
+}
+.template_index .SectionHeader__SubHeading{
+  font-style: normal;
+  /* font-weight: 300; */
+  letter-spacing: 2px;
+  color: #383c3f;
+  font-size:18px;
+  text-align:center;
+}
+.template_index .ArticleItem__Content h2{
+  font-size:17px;
+}
+.our-ingredients_container .SectionHeader__Heading{
+  font-size:28px;
+}
+.shopify-email-marketing-confirmation__container{
+    margin:60px auto;
+}
+#shopify-section-article-template .Article__Title{
+  font-size:26px;
+}
+.thankspage_container .thankspage_content{
+  font-size:16px;
+  font-weight: initial;
+}
+.thankspage_container .thankspage_content p{
+    margin-bottom:60px;
+}
+.thankspage_container button{
+  font-size: 12px;
+  padding: 14px 28px;
+}
+html.android body .SectionHeader__SubHeading{
+  font-weight:700;
+}
+.SectionHeader__Heading, .Form__Title{
+  font-size:28px;
+}
+@media screen and (max-width: 640px) {
+  .SectionHeader__Heading, .Form__Title{
+  font-size:24px;
+}
+#shopify-section-article-template .Article__Title{
+  font-size:22px;
+}
 }
