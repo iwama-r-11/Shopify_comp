@@ -419,6 +419,11 @@ CONTENT FOR NORMAL TEMPLATE
                             Flaxseed
                         </button>
                     </li>
+                    <li class="Linklist__Item {% if current_tags contains 'calendula' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'calendula' %}is-active{% endif %}" data-tag="calendula" data-action="toggle-tag">
+                            Calendula
+                        </button>
+                    </li>
                     <li class="Linklist__Item {% if current_tags contains 'Aloe' %}is-selected{% endif %}">
                         <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Aloe' %}is-active{% endif %}" data-tag="Aloe" data-action="toggle-tag">
                             Aloe
@@ -831,14 +836,12 @@ CONTENT FOR NORMAL TEMPLATE
                             Body Oil
                         </button>
                     </li>
-                    <!--
-                    <li class="Linklist__Item {% if current_tags contains 'Bodysoap' %}is-selected{% endif %}">
+                                        <li class="Linklist__Item {% if current_tags contains 'Bodysoap' %}is-selected{% endif %}">
                         <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Bodysoap' %}is-active{% endif %}" data-tag="Bodysoap" data-action="toggle-tag">
                             Body Soap
                         </button>
                     </li>
-                    -->
-                    <li class="Linklist__Item {% if current_tags contains 'Handserum' %}is-selected{% endif %}">
+                                        <li class="Linklist__Item {% if current_tags contains 'Handserum' %}is-selected{% endif %}">
                         <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Handserum' %}is-active{% endif %}" data-tag="Handserum" data-action="toggle-tag">
                             Hand Serum
                         </button>

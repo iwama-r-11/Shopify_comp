@@ -15,31 +15,55 @@
     </div>
   </header>
 
+  {%- assign Default_address_number = 0 -%}
+  {%- assign test_nod = 0 -%}
+
   {%- if customer.addresses_count > 0 -%}
-    {%- paginate customer.addresses by 9 -%}
-      <div class="Grid Grid--l AddressList">
-        {%- for address in customer.addresses -%}
+    <div class="Grid Grid--l AddressList">
+      {%- for address in customer.addresses -%}
+        {% if canonical_url == "https://shiro-shiro.tw/account/addresses" or canonical_url == "https://shiro-shiro.tw/account/addresses?page=1" %}
+          {%- if address == customer.default_address -%}
+            <div class="Grid__Cell 1/2--tablet 1/3--lap-and-up">
+              <div class="Segment">
+                {%- assign position = paginate.current_page | times: forloop.index -%}
+                <h2 class="Segment__Title Heading u-h7">{{ 'customer.addresses.default_address_label' | t }}</h2>
+                <div class="Segment__Content">
+                    <p class="AccountAddress">
+                      {% if address.name != blank %} 姓名：{{ address.name }} <br> {% endif %}
+                      {% if address.zip != blank %} 郵遞區號：{{ address.zip }}<br> {% endif %}
+                      {% if address.city != blank %} 縣市鄉鎮村：{{ address.city }}<br> {% endif %}
+                      {% if address.address1 != blank %} 地址：{{ address.address1 }} <br> {% endif %} 
+                      {% if address.phone != blank %} 手機號碼：{{ address.phone }} {% endif %} 
+                    </p>
+                    <div class="Segment__ActionList">
+                      <button class="Segment__ActionItem Link Link--underline" data-action="open-modal" aria-controls="modal-{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
+                      <button class="Segment__ActionItem Link Link--underline" onclick="Shopify.CustomerAddress.destroy({{ address.id }}); return false">{{ 'customer.addresses.delete' | t }}</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          {%- endif -%} 
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- paginate customer.addresses by 1000 -%}
+      {% assign count = 0 %}          
+      <!-- デフォルト住所以外 -->
+      {%- for address in customer.addresses -%}
+        {%- if address != customer.default_address -%}
           <div class="Grid__Cell 1/2--tablet 1/3--lap-and-up">
             <div class="Segment">
-              {%- if address == customer.default_address -%}
-                <h2 class="Segment__Title Heading u-h7">{{ 'customer.addresses.default_address_label' | t }}</h2>
-              {%- else -%}
-                {%- assign position = paginate.current_page | times: forloop.index -%}
-                <h2 class="Segment__Title Heading u-h7">{{ 'customer.addresses.address_label' | t: position: position }}</h2>
-              {%- endif -%}
-
+              {% assign count = count | plus: 1 %}
+              <h2 class="Segment__Title Heading u-h7">{{ 'customer.addresses.address_label' | t: position:''  }} {{ count }} </h2>
               <div class="Segment__Content">
                 <!-- {{ address | format_address | replace: '<p>', '<p class="AccountAddress"><span>' | replace_first: '<br>', '</span><br>' }} -->
-
-                  <p class="AccountAddress">
-                    {% if address.name != blank %} 姓名：{{ address.name }} <br> {% endif %}
-                    {% if address.zip != blank %} 郵遞區號：{{ address.zip }}<br> {% endif %}
-                    {% if address.city != blank %} 縣市鄉鎮村：{{ address.city }}<br> {% endif %}
-                    {% if address.address1 != blank %} 地址：{{ address.address1 }} <br> {% endif %} 
-                    {% if address.phone != blank %} 手機號碼：{{ address.phone }} {% endif %} 
-
-                  </p>
-
+                <p class="AccountAddress">
+                  {% if address.name != blank %} 姓名：{{ address.name }} <br> {% endif %}
+                  {% if address.zip != blank %} 郵遞區號：{{ address.zip }}<br> {% endif %}
+                  {% if address.city != blank %} 縣市鄉鎮村：{{ address.city }}<br> {% endif %}
+                  {% if address.address1 != blank %} 地址：{{ address.address1 }} <br> {% endif %} 
+                  {% if address.phone != blank %} 手機號碼：{{ address.phone }} {% endif %} 
+                </p>
                 <div class="Segment__ActionList">
                   <button class="Segment__ActionItem Link Link--underline" data-action="open-modal" aria-controls="modal-{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
                   <button class="Segment__ActionItem Link Link--underline" onclick="Shopify.CustomerAddress.destroy({{ address.id }}); return false">{{ 'customer.addresses.delete' | t }}</button>
@@ -47,10 +71,11 @@
               </div>
             </div>
           </div>
-        {%- endfor -%}
-      </div>
+        {%- endif -%}          
+      {%- endfor -%}
+    </div>
 
-      {%- include 'pagination' -%}
+      <!-- {%- include 'pagination' -%} -->
     {%- endpaginate -%}
   {%- endif -%}
 </div>
@@ -136,7 +161,7 @@
 
 {% comment %}FORM FOR EXISTING ADDRESSES{% endcomment %}
 
-{%- paginate customer.addresses by 9 -%}
+{%- paginate customer.addresses by 1000 -%}
   {%- for address in customer.addresses -%}
     <div id="modal-{{ address.id }}" class="Modal Modal--address" aria-hidden="true" role="dialog" data-scrollable>
       <button class="Modal__Close Modal__Close--outside" data-action="close-modal">{%- include 'icon' with 'close' -%}</button>

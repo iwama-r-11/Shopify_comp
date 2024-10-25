@@ -76,12 +76,15 @@
               <p class="cart-attribute__field">
                 <label>送貨時間段</label><br>
                 <div class="delivery_timeWrap">
-                    <select id="delivery_time" name="attributes[delivery_time]" required disabled>
-                    <option value="不指定" selected>不指定</option>
-                  </select>
-                </div>
+                 <select id="delivery_time" name="attributes[delivery_time]" required>
+                  <option value="">選択</option>
+                  <option value="不指定"{% if cart.attributes["delivery_time"] == "不指定" %} selected{% endif %}>不指定</option>
+                  <option value="13:00以前"{% if cart.attributes["delivery_time"] == "13:00以前" %} selected{% endif %}>13:00以前</option>
+                  <option value="14:00-18:00"{% if cart.attributes["delivery_time"] == "14:00-18:00" %} selected{% endif %}>14:00-18:00</option>
+                </select>
+               </div>
               </p>
-              <p class="delivery_note">8/30 10:00～9/17 10:00期間的訂單，無法指定時段到貨。</p>
+              <p class="delivery_note">若您選擇超商取貨，請選擇“不指定”。</p>
               <button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full">{{ 'cart.general.checkout' | t }}</button>
             </div>
           </footer>
@@ -132,7 +135,7 @@
     margin-top: 20px;
   }
   </style>
-        
+   
 {% schema %}
 {
   "name": "Cart page",

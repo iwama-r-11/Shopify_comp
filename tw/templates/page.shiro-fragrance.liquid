@@ -6,7 +6,7 @@
           <option value="#">從香味搜尋</option>
           <option value="/collections/renewal_savon">皂香SAVON</option>
           <option value="/collections/renewal_whitelily">白百合WHITE LILY</option>
-          <option value="/collections/renewal_whitetea">白茶WHITE TEA</option>
+          <option value="/collections/white-tea">白茶WHITE TEA</option>
           <option value="/collections/fragrance-earlgrey">伯爵茶EARL GREY</option>
           <option value="/collections/fragrance-kinmokusei">金木樨KINMOKUSEI</option>
         </select>
@@ -142,7 +142,7 @@
   <div class="fragrance_sliderarea">
     <div class="slider_content_box">
       <div class="product_slider_container slider">
-        {% for product in collections["renewal_whitetea"].products %}
+        {% for product in collections["white-tea"].products %}
         <div class="product_slider_card card">
           <img src="{{ product | image_url }}" alt="">
           <div class="card-content">
@@ -157,7 +157,7 @@
 
       <p class="sliderarea_btn">
         <a class="sliderarea_btn_a btn-gray_2 tea_color_bg arrow--right-white"
-          href="/collections/renewal_whitetea" target="_blank">
+          href="/collections/white-tea" target="_blank">
           白茶 WHITE TEA 產品一覽
         </a>
       </p>
@@ -261,7 +261,7 @@
     </div>
   </div>
 
-  <!-- <div class="final_area">
+  <div class="final_area">
     <div style="text-align:center;">
         <img src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/ico_find_fragrance.svg?v=1708293769" style="width: 70px; height:auto; margin: 0 auto 25px auto;">
         <p>FIND YOUR FRAGRANCE</p>
@@ -269,7 +269,7 @@
         <p>5款SHIRO香氣，為生活增添色彩。<br>今天想怎麼過？想以怎樣的心情度過？<br>以喜愛的香氣，愉快度過專屬自己的每一天。</p>
         <button type="button" class="btn find-fragrance-btn modal-btn modal-btn2" ontouchstart="">開始香氛測驗</button>
     </div>
-  </div> -->
+  </div> 
 
 </div>
 
@@ -372,7 +372,7 @@
     right: -25px;
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     .slider_content_box {
       padding: 0;
     }
@@ -387,19 +387,6 @@
 
 <!-- フレグランスページ　CSS -->
 <style>
-  html,
-  body {
-    font-size: 10px;
-  }
-  /* body {
-    font-family: 'NotoSansJP', 'TTCommons', "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important;
-} */
-  @media only screen and (min-width: 769px) {
-    html,
-    body {
-      font-size: 12px;
-    }
-  }
   /* KV */
   .hello_banner {
     width: 100%;
@@ -493,7 +480,7 @@
   }
 
   .fragrance_infoarea .fragrance_main .title h1 {
-    font-size: 3.5rem;
+    font-size: 42px;
     margin-bottom: 30px;
     /* font-family: "TTCommons-Regular", "TT Commons", sans-serif !important; */
     letter-spacing: 0.08em;
@@ -501,7 +488,7 @@
   }
 
   .fragrance_infoarea .fragrance_main .title h2 {
-    font-size: 2.1rem;
+    font-size: 25px;
     /* font-weight: normal; */
     margin-bottom: 15px;
     line-height: 1.5;
@@ -589,7 +576,13 @@
     .pc {
       display: none;
     }
+    .fragrance_infoarea .fragrance_main .title h1 {
+    font-size: 35px;
   }
+  .fragrance_infoarea .fragrance_main .title h2 {
+    font-size: 21px;
+  }
+}
 
   /* fragrance_sliderarea */
   .savon_color {
@@ -639,7 +632,6 @@
     display: inline-block;
     line-height: 3.5;
     color: #fff;
-    border-radius: 5px;
     /* font-weight: 700; */
     transition: 0.2s all;
   }
@@ -664,7 +656,7 @@
     margin: 0 auto;
     width: 880px;
     height: fit-content;
-    margin-bottom: 10rem;
+    margin-bottom: 100px;
   }
 
   .slick-slide {
@@ -848,7 +840,7 @@
     font-family: 'NotoSansJP', 'TTCommons', "Hiragino Kaku Gothic Pro", "Meiryo", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Roboto, "Droid Sans", sans-serif !important;
 } */
 .modal-main-container.slide{
-    background.color:#333;
+    background-color:#333;
   color:#3D5D72;
 }
   .question_box .is-hidden{
@@ -865,17 +857,24 @@
   height: 100% ;
   }
   .question-num {
-    font-size: 2.1rem;
+    /* font-size: 2.6rem;
     margin-bottom: 0px;
-    /* font-family: "TTCommons-Regular", "TT Commons", sans-serif !important; */
+    font-family: "TTCommons-Regular", "TT Commons", sans-serif !important;
     letter-spacing: 0.08em;
-    /* font-weight: 500; */
+    font-weight: 900; */
+    font-family: "Noto Sans";
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+    color: #445d70;
+    margin-bottom: 19px;
   }
   .question-description{
-        font-size: 2.5rem;
+        font-size: 20px;
     margin-bottom: 30px;
     line-height: 1.5;
-    /* font-weight: 900; */
+    font-weight: 400;
   }
     .question .item a{
     font-size: 16px;
@@ -883,12 +882,11 @@
     line-height: 32px;
     display: block;
   }
-
   .question-modal .question_box ul {
     display:flex;
       /* flex-direction: column; */
-    justify-content: space-between;
-    height:50vh;
+    justify-content: space-around;
+    /* height:30vh; */
     list-style:none;
 }
   
@@ -898,15 +896,13 @@
   height:90%;
   width:80%;
   margin:auto;
-  background-color: #5391b9;
+  background-color: #445D70;
     color: #fff;
-    /* font-weight: 700; */
-  border-radius: 5%;
-  background-color: #fff;
-    color: #333;
+    font-weight: 400;
+  border-radius: 13px;
     border: #aaa 1px solid;
 }
-  /* .question-modal .question_box .question1{
+  .question-modal .question_box .question1{
     display:flex;
 align-items:center;
       flex-direction: column;
@@ -916,26 +912,27 @@ align-items:center;
     display:flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin:  0;
-    width:90%;
+    width:60%;
+    /* margin-bottom: 50px; */
   }
-    .question-modal .question_box .question1 .list .item{
-    width:45%;
-    width: 23%;
-      height:30%;
+    .question-modal .question_box .question1 .list .btn{
+    /* width:40% ; */
+      height:90px ;
+    margin-bottom: 10px;
+
     }
-  .question-modal .question_box .question1 a {
-    width:100%;
-    height:100%;
-    margin:auto;
-}
+    .question-modal .question_box .question1 a {
+    width: 49%;
+    height: 100%;
+    margin: 0;
+  }
       .question-modal .question_box .question2 .list{
     display:flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin:  30px  auto;
+    margin: 8% auto 0 auto;
     width:90%;
-  } */
+  }
       /* .question-modal .question_box .question2 .list .item{
     width:30%;
       height:45%;
@@ -947,23 +944,18 @@ align-items:center;
     /* .question-modal .question_box .question1 li:nth-child(n+2){
     margin-bottom,:30px;
   } */
-  .question-modal .question_box .question1 a {
-    width: 23%;
-    height: 100%;
-    margin: auto;
-    margin-top: 10%;
-    height: 30%;
-  }
+
   .question-modal .question_box .question2 a {
     width: 31%;
     height: 100%;
     margin: auto;
-    margin-top: 10%;
+    /* margin-top: 10%; */
     height: 30%;
   }
   .question-modal .question_box .question .list .item{
+    max-width: 245px;
     width: 100%;
-    height: 100%;
+    height: 81px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -976,24 +968,30 @@ align-items:center;
   /* 結果 */
   .answer-box{
     display:flex;
-    width:100%;
+    width:68%;
+    margin: auto;
   }
   .answer-box .text-box{
     width:50%;
 }
+.answer {
+    margin-top: -30px;
+  }
+.question-description_answer{
+  margin-bottom: 16px;
+}
     .answer-box .text-box .title_2{
-          font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 19px;
     /* font-family: "TTCommons-Regular", "TT Commons", sans-serif !important; */
     letter-spacing: 0.08em;
-    /* font-weight: 900; */
     }
     .answer-box .text-box .sub-title{
-      font-size: 1.4rem;
-      margin-bottom: 30px ;
+      font-size: 12px;
+      margin-bottom: 10px ;
 }
       .answer-box .text-box .sample{
-      font-size: 1.4rem;
+      font-size: 12px;
 }
   .answer-box .text-box {
     width:50%;
@@ -1001,18 +999,40 @@ align-items:center;
    .img-box{
     width:50%;
   }
+  .img-box img{
+    max-width: 207px;
+  }
   .answer-box2{
-    font-size: 1.4rem;
-    margin-top: 50px;
+    font-size: 14px;
     /* font-weight: 500; */
     display: flex;
-    justify-content: space-between;
-    width: 40%;
-    margin: 50px auto 0 auto;
+    justify-content: center;
+    /* width: 37%; */
+    margin: 0 auto 0 auto;
   }
-  @media(max-width: 768px){
+  .answer-box2 a{
+    background-color: #445D70;
+    color: #fff;
+    width: 153px;
+    line-height: 35px;
+    font-size: 13px;
+    font-weight: 900;
+    border-radius: 9px;
+    margin-top: 30px;
+  }
+  .answer-box2 a:nth-child(1) {
+    margin-right: 8px;
+  }
+  .answer-box2 a:nth-child(2) {
+    margin-left: 8px;
+  }
+
+  @media(max-width: 767px){
     .modal-main-container {
       max-height: initial ;
+    }
+    .question-modal{
+      margin-top: 20px;
     }
     .question-modal .answer-box,
     .question-modal .question_box .question .list{
@@ -1026,73 +1046,115 @@ align-items:center;
     width: 90%;
     height: 20%;
 }
+.question-modal .question_box li{
+  font-size: 10px;
+}
     .answer-box .text-box {
-    width: 70%;
-      margin:auto;
+    width: 50%;
+    margin: 0 ;
+
 }
        .img-box{
-    width:70%;
-    margin: 30px auto 30px auto;
+    width:50%;
+    /* margin: 30px auto 30px 0; */
   }
   .question-modal .question_box .question .list .item:nth-child(n+1) {
     margin-bottom:20px;
 }
     .question-num {
-    font-size: 2rem;
+    font-size: 20px;
     margin-bottom: 0px;
     /* font-weight: 500; */
 }
+.question-modal .question_box .question1 .list,
+.question-modal .question_box .question2 .list{
+  display: flex;
+  width: 90%;
+  justify-content: center;
+}
+.question-modal .question_box .question1 .list .btn,
+.question-modal .question_box .question2 .list .btn{
+  width: 47%;
+  height: 52px;
+  max-width:200px;
+}
+.question-modal .question_box .question1 .list .btn:nth-child(1),
+.question-modal .question_box .question1 .list .btn:nth-child(3),
+.question-modal .question_box .question2 .list .btn:nth-child(1){
+  margin-right: 8px;
+}
+.question-modal .question_box .question1 .list .btn:nth-child(2),
+.question-modal .question_box .question1 .list .btn:nth-child(4),
+.question-modal .question_box .question2 .list .btn:nth-child(2){
+  margin-left: 8px;
+}
+.question-modal .question_box .question2 .list .btn:nth-child(3){
+  margin-top: 10px;
+}
+
+.question-modal .question_box .question1 .list .btn li ,
+.question-modal .question_box .question2 .list .btn li{
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
     .question-description {
-    font-size: 2.3rem;
+    font-size: 12px;
     margin-bottom: 30px;
           /* font-weight: 500; */
 }
     .answer-box .text-box .title_2 {
-    font-size: 2rem;
+    font-size: 13px;
     margin-bottom: 20px;
     /* font-weight: 900; */
 }
     .answer-box .text-box .sub-title {
-    font-size: 1.6rem;
+    font-size: 9px;
 }
+  .question-modal .answer-box {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 400px;
   }
-    @media(max-width: 640px){
-      .modal .modal-main-container{
-        height:90%;
-      }
-      .modal-close-btn__wrapper {
-    height: 50px;
+  .answer-box .text-box .sub-title ,.answer-box .text-box .sample {
+    font-size: 9px;
 }
-      .question-modal .question_box .question .list .item {
-        height:15%;
-      }
-      .question-num {
-font-size: 1.6rem;
-    line-height: 1.3rem;
+.answer-box2 a{
+  line-height: 28px;
+  font-size: 11px;
 }
-      .question .question-description {
-        margin-bottom:50px;
-      }
-      .question .item a {
-        font-size: 1.2rem;
+.question .item a {
+        font-size: 12px;
       }
       .question-description {
-    font-size: 1.6rem;
     margin-bottom: 20px;
 }
     .answer-box .text-box .title_2 {
-    font-size: 2rem;
     margin-bottom: 10px;
 }
       .answer-box .text-box .sub-title {
         margin-bottom:15px;
       }
-      .answer-box .text-box .sub-title ,.answer-box .text-box .sample {
-    font-size: 1.3rem;
-}
       .answer-box2{
         width:70%;
       }
+}
+
+    @media(max-width: 767px){
+      /* .modal .modal-main-container{
+        height:90%;
+      } */
+      .modal-close-btn__wrapper {
+    height: 50px;
+}
+      .question-modal .question_box .question .list .item {
+        height:100%;
+      }
+      .question .question-description {
+        margin-bottom:50px;
+      }
+
     }
 </style>
 
@@ -1121,7 +1183,7 @@ font-size: 1.6rem;
             <a class="btn" href="#q_02"><li class="item">一個人享受獨處的時間</li></a>
             <a class="btn" href="#q_03"><li class="item">與人見面，盡情談天說地</li></a>
             <a class="btn" href="#q_04"><li class="item">外出走走</li></a>
-            <a class="btn" href="#q_05"><li class="item">還沒決定！<br class="pc">想隨心所欲地度過</li></a>
+            <a class="btn" href="#q_05"><li class="item">還沒決定！<br>想隨心所欲地度過</li></a>
           </ul>
         </div>
 
@@ -1168,7 +1230,7 @@ font-size: 1.6rem;
         <!-- 結果 -->
         <div id="answer_savon" class="answer check savon_2 is-hidden">
           <p class="question-num">Answer</p>
-          <p class="question-description">適合你的香氣是…</p>
+          <p class="question-description question-description_answer">適合你的香氣是…</p>
           <div class="answer-box">
             <div class="text-box">
               <p class="title_2">皂香 Savon</p>
@@ -1185,7 +1247,7 @@ font-size: 1.6rem;
             </div>
 
             <div class="img-box">
-              <img style="width: 75%; height: auto;"
+              <img style="width: 100%; height: auto;"
                 src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/f0077b00e0c501d5198d968943808eacf934169c.jpg?v=1708293769">
             </div>
           </div>
@@ -1197,7 +1259,7 @@ font-size: 1.6rem;
         </div>
         <div id="answer_whitelily" class="answer check whitelily_2 is-hidden">
           <p class="question-num">Answer</p>
-          <p class="question-description">適合你的香氣是…</p>
+          <p class="question-description question-description_answer">適合你的香氣是…</p>
           <div class="answer-box">
             <div class="text-box">
               <p class="title_2">白百合 White Lily</p>
@@ -1215,7 +1277,7 @@ font-size: 1.6rem;
             </div>
 
             <div class="img-box">
-              <img style="width: 75%; height: auto;"
+              <img style="width: 100%; height: auto;"
                 src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/0471ff4bc8a8ec92e9bf9daa9a32480d3f109c25.jpg?v=1708293769">
             </div>
           </div>
@@ -1226,7 +1288,7 @@ font-size: 1.6rem;
         </div>
         <div id="answer_whitetea" class="answer check whitetea_2 is-hidden">
           <p class="question-num">Answer</p>
-          <p class="question-description">適合你的香氣是…</p>
+          <p class="question-description question-description_answer">適合你的香氣是…</p>
           <div class="answer-box">
             <div class="text-box">
               <p class="title_2">白茶 White Tea</p>
@@ -1244,18 +1306,18 @@ font-size: 1.6rem;
             </div>
 
             <div class="img-box">
-              <img style="width: 75%; height: auto;"
+              <img style="width: 100%; height: auto;"
                 src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/fa2d9f32e1dcbd0a71d1f51d6ffb03a10388dc89.jpg?v=1708293769">
             </div>
           </div>
           <div class="answer-box2">
-            <a href="/collections/renewal_whitetea" class="link" target="_blank">查看產品一覽</a>
+            <a href="/collections/white-tea" class="link" target="_blank">查看產品一覽</a>
             <a class="btn" href="#q_01">再測一次</a>
           </div>
         </div>
         <div id="answer_earlgrey" class="answer check earlgrey_2 is-hidden">
           <p class="question-num">Answer</p>
-          <p class="question-description">適合你的香氣是…</p>
+          <p class="question-description question-description_answer">適合你的香氣是…</p>
           <div class="answer-box">
             <div class="text-box">
               <p class="title_2">伯爵茶 Earl Grey</p>
@@ -1273,7 +1335,7 @@ font-size: 1.6rem;
             </div>
 
             <div class="img-box">
-              <img style="width: 75%; height: auto;"
+              <img style="width: 100%; height: auto;"
                 src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/2a903afbdf838280f3987c2ff9df868808794b1e.jpg?v=1708293770">
             </div>
           </div>
@@ -1284,7 +1346,7 @@ font-size: 1.6rem;
         </div>
         <div id="answer_kinmokusei" class="answer check kinmokusei_2 is-hidden">
           <p class="question-num">Answer</p>
-          <p class="question-description">適合你的香氣是…</p>
+          <p class="question-description question-description_answer">適合你的香氣是…</p>
           <div class="answer-box">
             <div class="text-box">
               <p class="title_2">金木樨 Kinmokusei</p>
@@ -1302,7 +1364,7 @@ font-size: 1.6rem;
             </div>
 
             <div class="img-box">
-              <img style="width: 75%; height: auto;"
+              <img style="width: 100%; height: auto;"
                 src="//cdn.shopify.com/s/files/1/0834/8965/3022/files/04c73737d044bb7a19b150040e914619a3eff0f9.jpg?v=1708293770">
             </div>
           </div>
@@ -1376,15 +1438,17 @@ body.fixed {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 1032px;
-  width: 90%;
-  height: 80%;
+  max-width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   transition: .3s;  
   max-height: 700px ;
+  width: 880px;
+  height: 428px;
+  border-radius: 23px;
+  background: #fff;
 }
 .modal-main-container.slide{
   top: 50%;
@@ -1394,13 +1458,14 @@ body.fixed {
   background-color: #fff;
   max-width: 1032px;
   max-height: 700px;
-  border-radius: 12px;
-  height: 100%;
+  border-radius: 23px;
+  height: 428px;
   display: flex;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px;
   transition: .3s; 
   width:100%;
+  border: 2px solid #445D70;
 }
 
 /* モーダルウインドウ／閉じるボタンのwrapper */
@@ -1415,18 +1480,28 @@ body.fixed {
   color: black;
   cursor: pointer;
   margin-left: 24px;
-  font-size:30px;
+  font-size:54px;
+  font-weight: 100;
+  z-index: 1;
 }
-
-/* スクロール用タグ */
-.modal-scroll__container {
-  overflow: scroll;
+@media(max-width: 767px){
+  .modal-close-btn{
+    font-weight: 500;
+  font-size:36px;
+  }
+  .modal-main-contents,
+  .modal-main-container {
+    height: 364px;
+}
+.answer {
+    margin-top: -40px;
+  }
 }
 
     /* モーダルボタン非表示 */
-    .modal-btn{
+    /* .modal-btn{
   display:none;
-}
+} */
   </style>
               
     <script src="{{ 'question.js' | asset_url }}" defer></script>

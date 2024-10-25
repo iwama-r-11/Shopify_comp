@@ -1,4 +1,10 @@
 <div class="Container">
+  
+<link href="{{ 'common_pc.css' | asset_url }}" rel="stylesheet" media="print,screen and (min-width: 768px)" class="css-pc" />	
+<link href="{{ 'common_sp.css' | asset_url }}" rel="stylesheet" media="screen and (max-width: 767px)" class="css-sp" />	
+{{ 'style.css' | asset_url | stylesheet_tag }}  
+
+
   <div class="PageContent Rte">
     {{ page.content }}
   </div>

@@ -10554,3 +10554,9 @@ body .Rte h1{
 
 body .PageContent { 
   margin-top:0;
+}
+
+#shopify-pc__banner{
+  font-size: 16px;
+  letter-spacing: 0;
+}
