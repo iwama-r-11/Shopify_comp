@@ -62,7 +62,7 @@
         </div>
       </a>
 
-      {%- if show_labels -%}
+      {%- if show_labels and product.template_suffix != 'coming-soon' -%}
       {%- capture product_labels -%}
       {%- for tag in product.tags -%}
       {%- if tag contains '__label' -%}
@@ -168,7 +168,6 @@
     {{- color_swatch_list -}}
     {%- endif -%}
 
-    {%- if product.template_suffix != 'coming-soon' -%}
     <div
       class="ProductItem__PriceList {% if show_price_on_hover %}ProductItem__PriceList--showOnHover{% endif %} Heading">
       {%- if product.compare_at_price > product.price -%}
@@ -188,7 +187,6 @@
         money_without_trailing_zeros }}</span>
       {%- endif -%}
     </div>
-    {%- endif -%}
 
 
     {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' | split: ',' -%}
