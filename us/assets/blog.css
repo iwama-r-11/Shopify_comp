@@ -523,6 +523,7 @@ transform: rotate(45deg);
 
 [id="blog"] .product-media-image {
     width: 223px;
+    max-width: 223px;
 }
 
 @media (pointer: fine) {
@@ -637,6 +638,7 @@ transform: rotate(45deg);
 
     [id="blog"] .product-media-image {
         width: 100%;
+        max-width: 100%;
     }
 
     /* 製品箇所 ここまで */
