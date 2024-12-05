@@ -8492,13 +8492,13 @@ justify-content: center;
  * ----------------------------------------------------------------------------
  */
 
-.NoticeBar {
+ .NoticeBar {
   text-align: center;
   font-size: to-size(14px);
 }
 
 .NoticeBar__Wrapper {
-  padding: 12px 15px;
+  padding: 16px 15px;
 }
 
 .NoticeBar__Content {
@@ -8506,8 +8506,14 @@ justify-content: center;
   margin: 0;
 }
 
-.NoticeBar__link {
-  display: block;
+.NoticeBar__Content .NoticeBar__item {
+  list-style: none;
+}
+
+@include av-mq('phone') {
+  .NoticeBar__Wrapper {
+    padding: 12px 15px;
+  }
 }
 
 /**
