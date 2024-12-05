@@ -76,7 +76,7 @@
               <p class="cart-attribute__field">
                 <label>送貨時間段</label><br>
                 <div class="delivery_timeWrap">
-                 <select id="delivery_time" name="attributes[delivery_time]" required>
+                  <select id="delivery_time" name="attributes[delivery_time]" required>
                   <option value="">選択</option>
                   <option value="不指定"{% if cart.attributes["delivery_time"] == "不指定" %} selected{% endif %}>不指定</option>
                   <option value="13:00以前"{% if cart.attributes["delivery_time"] == "13:00以前" %} selected{% endif %}>13:00以前</option>

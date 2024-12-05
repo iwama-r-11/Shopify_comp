@@ -115,13 +115,35 @@ HEADER CONTENT
 {%- if section.settings.notice_bar -%}
   <div class="NoticeBar">
     <div class="NoticeBar__Wrapper">
-      <p class="NoticeBar__Content Heading">
-        {%- if section.settings.notice_link -%}
-          <a class="NoticeBar__link" href="{{ section.settings.notice_link }}">{{ section.settings.notice_content | escape }}</a>
-        {%- else -%}
-          {{ section.settings.notice_content | escape }}
+      <ul class="NoticeBar__Content Heading">
+        {%- if section.settings.notice_content01 != blank -%}
+          <li class="NoticeBar__item"> 
+            {%- if section.settings.notice_link01 -%}
+              <a class="NoticeBar__link" href="{{ section.settings.notice_link01 }}">{{ section.settings.notice_content01 | escape }}</a><br>
+            {%- else -%}
+              {{ section.settings.notice_content01 | escape }}
+            {%- endif -%}
+          </li>
         {%- endif -%}
-      </p>
+        {%- if section.settings.notice_content02 != blank -%}
+          <li class="NoticeBar__item">
+            {%- if section.settings.notice_link02 -%}
+              <a class="NoticeBar__link" href="{{ section.settings.notice_link02 }}">{{ section.settings.notice_content02 | escape }}</a><br>
+            {%- else -%}
+              {{ section.settings.notice_content02 | escape }}
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+        {%- if section.settings.notice_content03 != blank -%}
+          <li class="NoticeBar__item">
+            {%- if section.settings.notice_link03 -%}
+              <a class="NoticeBar__link" href="{{ section.settings.notice_link03 }}">{{ section.settings.notice_content03 | escape }}</a><br>
+            {%- else -%}
+              {{ section.settings.notice_content03 | escape }}
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      </ul>
     </div>
   </div>
 
@@ -131,6 +153,19 @@ HEADER CONTENT
       color: {{ section.settings.notice_text_color }};
     }
   </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      $(".NoticeBar__Content").slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        fade: true,
+        arrows: false,
+        dots: false,
+        speed: 500,
+      });
+    });
+  </script>
 {%- endif -%}
 
 <header id="section-{{ section.id }}"
@@ -361,9 +396,9 @@ HEADER CONTENT
 
     <div class="Header__FlexItem Header__FlexItem--logo">
       {%- if template == 'index' -%}
-        <h1 class="Header__Logo">{{ header_logo }}</h1>
+        <h1 class="Header__Logo ChrismasLogo">{{ header_logo }}</h1>
       {%- else -%}
-        <div class="Header__Logo">{{ header_logo }}</div>
+        <div class="Header__Logo ChrismasLogo">{{ header_logo }}</div>
       {%- endif -%}
     </div>
 
@@ -622,16 +657,38 @@ HEADER CONTENT
       "label": "Text",
       "default": "#393c3f"
     },
-    {
+   {
       "type": "text",
-      "id": "notice_content",
-      "label": "Text",
+      "id": "notice_content01",
+      "label": "Text01",
       "default": "Notice something here"
     },
     {
       "type": "url",
-      "id": "notice_link",
-      "label": "Link"
+      "id": "notice_link01",
+      "label": "Link01"
+    },
+    {
+      "type": "text",
+      "id": "notice_content02",
+      "label": "Text02",
+      "default": "Notice something here"
+    },
+    {
+      "type": "url",
+      "id": "notice_link02",
+      "label": "Link02"
+    },
+    {
+      "type": "text",
+      "id": "notice_content03",
+      "label": "Text03",
+      "default": "Notice something here"
+    },
+    {
+      "type": "url",
+      "id": "notice_link03",
+      "label": "Link03"
     }
   ],
   "blocks": [

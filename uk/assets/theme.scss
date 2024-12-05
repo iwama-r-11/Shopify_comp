@@ -7,22 +7,22 @@
 /* fonts */
 @font-face {
 font-family: 'commons';
-  src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.otf?2642");
+  src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.otf?2840");
 src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.eot?v=905476747193327211702441667");
     src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.eot?%23iefix&v=905476747193327211702441667") format('embedded-opentype'),
          url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.woff?v=18428886761694542231702441667") format('woff'),
          url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.ttf?v=90111422516889163191702441668") format('truetype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.svg%23fontset?2642") format('svg');
+         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_regular.svg%23fontset?2840") format('svg');
     font-weight: normal;
     font-style: normal; }
 @font-face {
 font-family: 'commons';
-  src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.otf?2642");
+  src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.otf?2840");
 src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.eot?v=59013478431828255651702441668");
     src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.eot?%23iefix&v=59013478431828255651702441668") format('embedded-opentype'),
          url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.woff?v=25566533858152562201702441667") format('woff'),
          url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.ttf?v=144924896243009736581702441667") format('truetype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.svg%23fontset?2642") format('svg');
+         url("//shiro-shiro.uk/cdn/shop/t/38/assets/tt_commons_bold.svg%23fontset?2840") format('svg');
     font-weight: bold;
     font-style: normal; }
 @font-face {
@@ -31,7 +31,7 @@ src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.eot?v=5349344760
     src: url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.eot?%23iefix&v=53493447604702975751702441668") format('embedded-opentype'),
          url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.woff?v=172955185291821497551702441668") format('woff'),
          url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.ttf?v=2405902508093988921702441669") format('truetype'),
-         url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.svg%23fontset?2642") format('svg');
+         url("//shiro-shiro.uk/cdn/shop/t/38/assets/ttcommons-light.svg%23fontset?2840") format('svg');
     font-weight: 100;
     font-style: normal; }
 
@@ -7749,6 +7749,40 @@ $vertical-spacing-two-products-per-row  : 0px;
   margin : 0px;
 }
 }
+
+/* ---------------ProductFooterBanner--------------- */
+.topbanner {
+  background-color: #eeeeee;
+  margin-top: 50px;
+}
+.topbanner__link {
+  transition: .3s;
+}
+.topbanner__link:hover {
+  opacity: .8;
+}
+.topbanner__list {
+  width: 100%;
+  max-width: 1210px;
+  padding: 0 35px;
+  margin: 0 auto;
+}
+.topbanner__list .topbanner__link .topbanner__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@include av-mq('phone') {
+  .topbanner {
+    margin: 50px 0px;
+  }
+  .topbanner__list {
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+}
+
 /* ---------------footerCategory--------------- */
 
 
@@ -8198,6 +8232,16 @@ justify-content: center;
   opacity: 0;
 }
 
+.Header__Logo.ChrismasLogo {
+  margin-top: -5px;
+}
+
+@include av-mq('desk'){
+  .Header__Logo.ChrismasLogo {
+    margin-top: 0px;
+  }
+}
+
 .Header__Icon {
   display: inline-block;
   line-height: 1;
@@ -8420,7 +8464,7 @@ justify-content: center;
 }
 
 .NoticeBar__Wrapper {
-  padding: 12px 15px;
+  padding: 16px 15px;
 }
 
 .NoticeBar__Content {
@@ -8428,8 +8472,14 @@ justify-content: center;
   margin: 0;
 }
 
-.NoticeBar__link {
-  display: block;
+.NoticeBar__Content .NoticeBar__item {
+  list-style: none;
+}
+
+@include av-mq('phone') {
+  .NoticeBar__Wrapper {
+    padding: 12px 15px;
+  }
 }
 
 /**

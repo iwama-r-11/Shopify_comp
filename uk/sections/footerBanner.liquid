@@ -1,0 +1,48 @@
+{% if section.settings.spBanner or section.settings.pcBanner %}
+  <div class="topbanner">
+    <div class="topbannerInner">
+      <div class="topbanner__list">
+        <a class="topbanner__link" href="{{ section.settings.bannerLink }}">
+          <picture class="topbanner__item">
+            <source srcset="{{ section.settings.spBanner | img_url: 'master' }}" media="(max-width: 640px)" />
+            <img src="{{ section.settings.pcBanner | img_url: 'master' }}" alt="{{ section.settings.bannerAlt }}" />
+          </picture>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "footerBanner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "pcBanner",
+        "label": "PC画像"
+      },
+      {
+        "type": "image_picker",
+        "id": "spBanner",
+        "label": "SP画像"
+      },
+      {
+        "type": "url",
+        "id": "bannerLink",
+        "label": "遷移先url"
+      },
+      {
+        "type": "text",
+        "id": "bannerAlt",
+        "label": "バナーALT"
+      }
+    ],
+    "presets": [
+      {
+        "name": "footerBanner"
+      }
+    ]
+  }
+{% endschema %}

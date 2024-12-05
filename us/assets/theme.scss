@@ -7,31 +7,31 @@
 /* fonts */
 @font-face {
 font-family: 'commons';
-  src: url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_regular.otf?2053");
-src: url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_regular.eot?v=905476747193327211702451411");
-    src: url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_regular.eot?%23iefix&v=905476747193327211702451411") format('embedded-opentype'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_regular.woff?v=18428886761694542231702451411") format('woff'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_regular.ttf?v=90111422516889163191702451412") format('truetype'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_regular.svg%23fontset?2053") format('svg');
+  src: url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_regular.otf?2133");
+src: url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_regular.eot?v=905476747193327211733194803");
+    src: url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_regular.eot?%23iefix&v=905476747193327211733194803") format('embedded-opentype'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_regular.woff?v=18428886761694542231733194803") format('woff'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_regular.ttf?v=90111422516889163191733194803") format('truetype'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_regular.svg%23fontset?2133") format('svg');
     font-weight: normal;
     font-style: normal; }
 @font-face {
 font-family: 'commons';
-  src: url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_bold.otf?2053");
-src: url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_bold.eot?v=59013478431828255651702451412");
-    src: url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_bold.eot?%23iefix&v=59013478431828255651702451412") format('embedded-opentype'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_bold.woff?v=25566533858152562201702451411") format('woff'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_bold.ttf?v=144924896243009736581702451411") format('truetype'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/tt_commons_bold.svg%23fontset?2053") format('svg');
+  src: url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_bold.otf?2133");
+src: url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_bold.eot?v=59013478431828255651733194803");
+    src: url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_bold.eot?%23iefix&v=59013478431828255651733194803") format('embedded-opentype'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_bold.woff?v=25566533858152562201733194803") format('woff'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_bold.ttf?v=144924896243009736581733194803") format('truetype'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/tt_commons_bold.svg%23fontset?2133") format('svg');
     font-weight: bold;
     font-style: normal; }
 @font-face {
 font-family: 'commons';
-src: url("//shiro-shiro.us/cdn/shop/t/17/assets/ttcommons-light.eot?v=53493447604702975751702451412");
-    src: url("//shiro-shiro.us/cdn/shop/t/17/assets/ttcommons-light.eot?%23iefix&v=53493447604702975751702451412") format('embedded-opentype'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/ttcommons-light.woff?v=172955185291821497551702451411") format('woff'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/ttcommons-light.ttf?v=2405902508093988921702451413") format('truetype'),
-         url("//shiro-shiro.us/cdn/shop/t/17/assets/ttcommons-light.svg%23fontset?2053") format('svg');
+src: url("//shiro-shiro.us/cdn/shop/t/20/assets/ttcommons-light.eot?v=53493447604702975751733194803");
+    src: url("//shiro-shiro.us/cdn/shop/t/20/assets/ttcommons-light.eot?%23iefix&v=53493447604702975751733194803") format('embedded-opentype'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/ttcommons-light.woff?v=172955185291821497551733194803") format('woff'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/ttcommons-light.ttf?v=2405902508093988921733194803") format('truetype'),
+         url("//shiro-shiro.us/cdn/shop/t/20/assets/ttcommons-light.svg%23fontset?2133") format('svg');
     font-weight: 100;
     font-style: normal; }
 
@@ -143,8 +143,8 @@ $product-show-price-on-hover    : false;
 $product-list-horizontal-spacing: medium;
 $product-list-vertical-spacing  : small;
 
-$cursor-zoom-in-svg    : "//shiro-shiro.us/cdn/shop/t/17/assets/cursor-zoom-in.svg?v=115184326032947292301702451432";
-$cursor-zoom-in-2x-svg : "//shiro-shiro.us/cdn/shop/t/17/assets/cursor-zoom-in-2x.svg?v=77209836688371587921702451432";
+$cursor-zoom-in-svg    : "//shiro-shiro.us/cdn/shop/t/20/assets/cursor-zoom-in.svg?v=115184326032947292301733194803";
+$cursor-zoom-in-2x-svg : "//shiro-shiro.us/cdn/shop/t/20/assets/cursor-zoom-in-2x.svg?v=77209836688371587921733194803";
 
 /* Animation */
 
@@ -8030,7 +8030,7 @@ justify-content: center;
   width: 9px;
   height: 9px;
   margin-left: 8px;
-  background: url("//shiro-shiro.us/cdn/shop/t/17/assets/icon-target.svg?v=24279574862179637881702451411") no-repeat center center/contain;
+  background: url("//shiro-shiro.us/cdn/shop/t/20/assets/icon-target.svg?v=24279574862179637881733194803") no-repeat center center/contain;
 }
 
 .Footer__ThemeAuthor {
@@ -8266,6 +8266,16 @@ justify-content: center;
   top: 0;
   left: 0;
   opacity: 0;
+}
+
+.Header__Logo.ChrismasLogo {
+  margin-top: -5px;
+}
+
+@include av-mq('desk'){
+  .Header__Logo.ChrismasLogo {
+    margin-top: 0px;
+  }
 }
 
 .Header__Icon {
@@ -11886,10 +11896,10 @@ justify-content: center;
   background-size: cover;
 }
 .fragrance_wrap_item.perfume {
-  background-image: url("//shiro-shiro.us/cdn/shop/t/17/assets/perfume_kv.jpg?v=39240043987412038251717738545");
+  background-image: url("//shiro-shiro.us/cdn/shop/t/20/assets/perfume_kv.jpg?v=39240043987412038251733194803");
 }
 .fragrance_wrap_item.classic {
-  background-image: url("//shiro-shiro.us/cdn/shop/t/17/assets/fragrance_kv.jpg?v=178179153519165753291717738555");
+  background-image: url("//shiro-shiro.us/cdn/shop/t/20/assets/fragrance_kv.jpg?v=178179153519165753291733194803");
 }
 .fragrance_wrap_item .title {
   position: absolute;

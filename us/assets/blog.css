@@ -293,7 +293,7 @@ transform: rotate(45deg);
 
 /* 注釈 */
 [id="blog"] .maroon {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 /* 製品画像文字横並びレイアウト */
@@ -551,7 +551,7 @@ transform: rotate(45deg);
     display: flex;
     flex-direction: row;
     margin-bottom: 3px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 [id="blog"] .perfume-lineup-inner-box {

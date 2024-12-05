@@ -830,6 +830,11 @@ CONTENT FOR NORMAL TEMPLATE
                             Aroma Oil
                         </button>
                     </li>
+                    <li class="Linklist__Item {% if current_tags contains 'fabricmist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'fabricmist' %}is-active{% endif %}" data-tag="fabricmist" data-action="toggle-tag">
+                            Fabric Mist
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -864,6 +869,11 @@ CONTENT FOR NORMAL TEMPLATE
                     <li class="Linklist__Item {% if current_tags contains 'Kinmokusei' %}is-selected{% endif %}">
                         <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Kinmokusei' %}is-active{% endif %}" data-tag="Kinmokusei" data-action="toggle-tag">
                             Kinmokusei
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'wood' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'wood' %}is-active{% endif %}" data-tag="wood" data-action="toggle-tag">
+                            Wood
                         </button>
                     </li>
                 </ul>
@@ -912,6 +922,11 @@ CONTENT FOR NORMAL TEMPLATE
                     <li class="Linklist__Item {% if current_tags contains 'Diffuser' %}is-selected{% endif %}">
                         <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Diffuser' %}is-active{% endif %}" data-tag="Diffuser" data-action="toggle-tag">
                             Diffuser
+                        </button>
+                    </li>
+                    <li class="Linklist__Item {% if current_tags contains 'fabricmist' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'fabricmist' %}is-active{% endif %}" data-tag="fabricmist" data-action="toggle-tag">
+                            Fabric Mist
                         </button>
                     </li>
                     <!--
@@ -968,6 +983,11 @@ CONTENT FOR NORMAL TEMPLATE
                         </button>
                     </li>
                     {% comment %} 
+                    <li class="Linklist__Item {% if current_tags contains 'wood' %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'wood' %}is-active{% endif %}" data-tag="wood" data-action="toggle-tag">
+                            Wood
+                        </button>
+                    </li>
                     <li class="Linklist__Item {% if current_tags contains 'Limited' %}is-selected{% endif %}">
                         <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Limited' %}is-active{% endif %}" data-tag="Limited" data-action="toggle-tag">
                             Limited
