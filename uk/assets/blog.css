@@ -777,3 +777,26 @@ transform: rotate(45deg);
 }
 
 /* パフューム第一弾 ハンド美容液 新着 ここまで */
+
+
+/* パフューム第二弾ハンド美容液 新着 */
+/* 製品箇所 */
+[id="blog"] .item-product-media-list-plural {
+    display: flex;
+    row-gap: 48px;
+    flex-direction: column;
+}
+
+@media (pointer: fine) {
+    [id="blog"] .item-product-media-list-plural .base.base--link:hover {
+        opacity: 0.7;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    [id="blog"] .item-product-media-list-plural {
+        row-gap: 40px;
+    }
+}
+
+/* パフューム第二弾ハンド美容液 新着 ここまで */
