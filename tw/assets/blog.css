@@ -312,7 +312,7 @@ blog css
 
 /* 注釈 */
 [id="blog"] .maroon {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 /* 注釈ここまで */
@@ -894,6 +894,10 @@ blog css
     transition: opacity 0.3s, background 0.3s;
 }
 
+[id="blog"] .product-media-image {
+    width: 223px;
+    max-width: 223px;
+}
 
 [id="blog"] .item-product-media-inner .base.base--link {
     transition: opacity 0.3s;
@@ -922,7 +926,7 @@ blog css
     display: flex;
     flex-direction: row;
     margin-bottom: 3px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 [id="blog"] .perfume-lineup-inner-box {
@@ -1004,6 +1008,11 @@ blog css
         margin-top: 8px;
     }
 
+    [id="blog"] .product-media-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
     /* 製品箇所 ここまで */
     /* PERFUME LINE UP */
     [id="blog"] .perfume--item {
@@ -1025,3 +1034,26 @@ blog css
 }
 
 /* パフューム第一弾ハンド美容液 新着 ここまで */
+
+
+/* パフューム第二弾ハンド美容液 新着 */
+/* 製品箇所 */
+[id="blog"] .item-product-media-list-plural {
+    display: flex;
+    row-gap: 48px;
+    flex-direction: column;
+}
+
+@media (pointer: fine) {
+    [id="blog"] .item-product-media-list-plural .base.base--link:hover {
+        opacity: 0.7;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    [id="blog"] .item-product-media-list-plural {
+        row-gap: 40px;
+    }
+}
+
+/* パフューム第二弾ハンド美容液 新着 ここまで */
