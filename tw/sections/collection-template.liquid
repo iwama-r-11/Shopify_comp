@@ -29,7 +29,7 @@
 
 <!-- 美體 -->
 {% assign fl_body_care_fragrance = "fl_皂香, fl_白百合, fl_白茶, fl_伯爵茶, fl_金木樨, fl_木香, fl_限定-其它" | split: ","  %}
-{% assign fl_body_care_item = "fl_手部護理, fl_保濕身體乳-身體乳液, fl_皂香沐浴露-潔膚皂, fl_身體按摩油, fl_身體噴霧, fl_沐浴護理" | split: ","  %}
+{% assign fl_body_care_item = "fl_手部護理, fl_保濕身體乳-身體乳液, fl_沐浴露-潔膚皂, fl_身體按摩油, fl_身體噴霧, fl_沐浴護理" | split: ","  %}
 
 <!-- 美髮 -->
 {% assign fl_hair_care_item = "fl_頭皮護理, fl_洗髮精-潤髮乳, fl_護髮噴霧, fl_護髮精華油, fl_造型" | split: ","  %}
@@ -205,6 +205,9 @@
                           data-action="open-drawer"
                           data-drawer-id="collection-filter-drawer"
                           aria-label="{{ 'collection.filter.show_filter' | t }}">
+                     <span class="icon-wrapper">
+                      <img src="{{ 'icon_filtering.svg' | asset_url }}}" alt="Icon" class="icon-image">
+                    </span>
                     {{ 'collection.filter.title' | t }} {% if current_tags %}<span class="Text--subdued">({{ current_tags.size }})</span>{% endif %}
                   </button>
                 {%- endif -%}
@@ -256,7 +259,8 @@
           {%- if quick_links != empty -%}
             <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
               <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
-                {{- quick_links.title | escape -}} <span class="Collapsible__Plus"></span>
+                {{- quick_links.title | escape -}}
+                <span class="Collapsible__Plus"></span>
               </button>
 
               <div class="Collapsible__Inner">
