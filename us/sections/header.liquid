@@ -113,33 +113,32 @@ HEADER CONTENT
 {%- endcapture -%}
 
 {%- if section.settings.notice_bar -%}  
-  <div class="NoticeBar">
+ <div class="NoticeBar">
     <div class="NoticeBar__Wrapper">
       <ul class="NoticeBar__Content Heading">
         {%- if section.settings.notice_content01 != blank -%}
           <li class="NoticeBar__item"> 
             {%- if section.settings.notice_link01 -%}
-              <a class="NoticeBar__link" href="{{ section.settings.notice_link01 }}">{{ section.settings.notice_content01 | escape }}</a><br>
+              <p><a class="NoticeBar__link" href="{{ section.settings.notice_link01 }}">{{ section.settings.notice_content01 | escape }}</a></p>
             {%- else -%}
-              {{ section.settings.notice_content01 | escape }}
+              <p>{{ section.settings.notice_content01 | escape }}</p>
             {%- endif -%}
           </li>
         {%- endif -%}
         {%- if section.settings.notice_content02 != blank -%}
           <li class="NoticeBar__item">
             {%- if section.settings.notice_link02 -%}
-              <a class="NoticeBar__link" href="{{ section.settings.notice_link02 }}">{{ section.settings.notice_content02 | escape }}</a><br>
-            {%- else -%}
-              {{ section.settings.notice_content02 | escape }}
+              <p><a class="NoticeBar__link" href="{{ section.settings.notice_link02 }}">{{ section.settings.notice_content02 | escape }}</a></p>            {%- else -%}
+              <p>{{ section.settings.notice_content01 | escape }}</p>
             {%- endif -%}
           </li>
         {%- endif -%}
         {%- if section.settings.notice_content03 != blank -%}
           <li class="NoticeBar__item">
             {%- if section.settings.notice_link03 -%}
-              <a class="NoticeBar__link" href="{{ section.settings.notice_link03 }}">{{ section.settings.notice_content03 | escape }}</a><br>
+              <p><a class="NoticeBar__link" href="{{ section.settings.notice_link03 }}">{{ section.settings.notice_content03 | escape }}</a></p>
             {%- else -%}
-              {{ section.settings.notice_content03 | escape }}
+              <p>{{ section.settings.notice_content01 | escape }}</p>
             {%- endif -%}
           </li>
         {%- endif -%}

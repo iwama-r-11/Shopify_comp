@@ -6866,10 +6866,22 @@ select::-ms-expand {
 }
 
 .CollectionToolbar--top {
-  top: $header-base-height;
+  {% comment %}
+    応急処置で修正ヘッダーの高さを取得できるように修正
+  {% endcomment %}
 
+  {% comment %}
+  top: $header-base-height;
+  
   @supports (--css: variables) {
     top: calc(var(--header-height) * var(--use-sticky-header, 0));
+  }
+  {% endcomment %}
+  @include av-mq('phone') {
+    top: 94px;
+  }
+  @include av-mq('tablet') {
+    top: 115px;
   }
 }
 
@@ -6884,6 +6896,9 @@ select::-ms-expand {
 }
 
 .CollectionToolbar__Item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1 0 auto;
   padding: 13px 0;
   border-left: 1px solid $border-color;
@@ -6904,6 +6919,17 @@ select::-ms-expand {
   width: 95px;
   line-height: 1;
   cursor: initial;
+}
+
+.CollectionToolbar__Item .icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px; 
+}
+
+.CollectionToolbar__Item .icon-wrapper .icon-image {
+  width: 1em; 
+  object-fit: contain; 
 }
 
 .CollectionToolbar__LayoutType {
@@ -8416,7 +8442,7 @@ justify-content: center;
 }
 
 .NoticeBar__Wrapper {
-  padding: 16px 15px;
+  padding: 8px 15px;
 }
 
 .NoticeBar__Content {
@@ -8425,12 +8451,29 @@ justify-content: center;
 }
 
 .NoticeBar__Content .NoticeBar__item {
+  height: 30px;
   list-style: none;
+  line-height: 1;
+}
+
+.NoticeBar__Content .NoticeBar__item p,
+.NoticeBar__Content .NoticeBar__item .NoticeBar__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 @include av-mq('phone') {
   .NoticeBar__Wrapper {
-    padding: 12px 15px;
+    padding: 6px 15px;
+  }
+
+  .NoticeBar__Content .NoticeBar__item p {
+    font-size: 12px;
+    line-height: 1.2;
+    width: 70%;
+    margin: 0 auto;
   }
 }
 
