@@ -8429,7 +8429,7 @@ justify-content: center;
 }
 
 .NoticeBar__Wrapper {
-  padding: 16px 15px;
+  padding: 8px 15px;
 }
 
 .NoticeBar__Content {
@@ -8438,12 +8438,28 @@ justify-content: center;
 }
 
 .NoticeBar__Content .NoticeBar__item {
+  height: 30px;
   list-style: none;
+  line-height: 1;
+}
+
+.NoticeBar__Content .NoticeBar__item p,
+.NoticeBar__Content .NoticeBar__item .NoticeBar__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 @include av-mq('phone') {
   .NoticeBar__Wrapper {
-    padding: 12px 15px;
+    padding: 6px 15px;
+  }
+
+  .NoticeBar__Content .NoticeBar__item p {
+    font-size: 12px;
+    width: 70%;
+    margin: 0 auto;
   }
 }
 
@@ -12267,4 +12283,8 @@ font-weight: lighter;
 html body .cookiefirst-root .cfEa3L * {
   font-size: 16px!important;
   line-height: 1;
+}
+
+.Product__Wrapper .meta-img img {
+  margin: 0 auto;
 }
