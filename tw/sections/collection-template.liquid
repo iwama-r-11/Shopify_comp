@@ -29,7 +29,7 @@
 
 <!-- 美體 -->
 {% assign fl_body_care_fragrance = "fl_皂香, fl_白百合, fl_白茶, fl_伯爵茶, fl_金木樨, fl_木香, fl_限定-其它" | split: ","  %}
-{% assign fl_body_care_item = "fl_手部護理, fl_保濕身體乳-身體乳液, fl_皂香沐浴露-潔膚皂, fl_身體按摩油, fl_身體噴霧, fl_沐浴護理" | split: ","  %}
+{% assign fl_body_care_item = "fl_手部護理, fl_保濕身體乳-身體乳液, fl_沐浴露-潔膚皂, fl_身體按摩油, fl_身體噴霧, fl_沐浴護理" | split: ","  %}
 
 <!-- 美髮 -->
 {% assign fl_hair_care_item = "fl_頭皮護理, fl_洗髮精-潤髮乳, fl_護髮噴霧, fl_護髮精華油, fl_造型" | split: ","  %}
@@ -37,6 +37,10 @@
 <!-- 香氛 -->
 {% assign fl_shiro_classics_item = "fl_香水, fl_身體噴霧, fl_擴香, fl_手部護理, fl_保濕身體乳-身體乳液, fl_沐浴露-身體磨砂膏, fl_身體古龍水, fl_身體按摩油, fl_頭髮護理, fl_沐浴護理, fl_洗衣精, fl_柔軟精, fl_香氛精油, fl_室內噴霧" | split: ","  %}
 {% assign fl_shiro_classics_fragrance = "fl_皂香, fl_白百合, fl_白茶, fl_伯爵茶, fl_金木樨, fl_木香, fl_限定-其它" | split: ","  %}
+
+<!-- 香水 -->
+{% assign fl_shiro_perfume_item = "fl_香水, fl_擴香, fl_手部護理, fl_沐浴露, fl_頭髮護理" | split: ","  %}
+{% assign fl_shiro_perfume_fragrance = "fl_花店清香, fl_薰香皮革, fl_勇敢的心, fl_溫柔清晨, fl_巴黎襯衫, fl_巴黎女人香, fl_紅石榴, fl_森林深處, fl_夢中寶石, fl_輕鬆小調, fl_秘密基地, fl_沉靜焚香, fl_限定" | split: ","  %}
 
 {%- capture collection_inner -%}
   {%- comment -%}This is the common part to both template{%- endcomment -%}
@@ -205,6 +209,9 @@
                           data-action="open-drawer"
                           data-drawer-id="collection-filter-drawer"
                           aria-label="{{ 'collection.filter.show_filter' | t }}">
+                     <span class="icon-wrapper">
+                      <img src="{{ 'icon_filtering.svg' | asset_url }}}" alt="Icon" class="icon-image">
+                    </span>
                     {{ 'collection.filter.title' | t }} {% if current_tags %}<span class="Text--subdued">({{ current_tags.size }})</span>{% endif %}
                   </button>
                 {%- endif -%}
@@ -256,7 +263,8 @@
           {%- if quick_links != empty -%}
             <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
               <button type="button" class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
-                {{- quick_links.title | escape -}} <span class="Collapsible__Plus"></span>
+                {{- quick_links.title | escape -}}
+                <span class="Collapsible__Plus"></span>
               </button>
 
               <div class="Collapsible__Inner">
@@ -277,127 +285,127 @@
             {%- if section.settings.filter_mode == 'tag' -%}
     			<div class="filter_title">FILTER BY:</div>
 				{%- if collection.handle == 'makeup' -%}
-                    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
-                      <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
-                        Ingredients <span class="Collapsible__Plus"></span>
-                      </button>
-                      <div class="Collapsible__Inner">
-                        <div class="Collapsible__Content">
-                          <ul class="Linklist ingredients-toggle" style="display: none;">
-                            <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
-                              <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
-                                Gagome kombu
-                              </button>
-                            </li>
-                            <li class="Linklist__Item {% if current_tags contains 'Sesame' %}is-selected{% endif %}">
-                              <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sesame' %}is-active{% endif %}" data-tag="Sesame" data-action="toggle-tag">
-                                Sesame
-                              </button>
-                            </li>
-                            <li class="Linklist__Item {% if current_tags contains 'Ginger' %}is-selected{% endif %}">
-                              <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Ginger' %}is-active{% endif %}" data-tag="Ginger" data-action="toggle-tag">
-                                Ginger
-                              </button>
-                            </li>
-                            <li class="Linklist__Item {% if current_tags contains 'Flaxseed ' %}is-selected{% endif %}">
-                              <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Flaxseed' %}is-active{% endif %}" data-tag="Flaxseed" data-action="toggle-tag">
-                                Flaxseed
-                              </button>
-                            </li>
-                            <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
-                              <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
-                                Shea butter
-                              </button>
-                            </li>
-                            <li class="Linklist__Item {% if current_tags contains 'Sakekasu' %}is-selected{% endif %}">
-                              <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sakekasu' %}is-active{% endif %}" data-tag="Sakekasu" data-action="toggle-tag">
-                                Sake kasu
-                              </button>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+          <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+            <button type="button" class="Collapsible__Button Heading u-h6 ingredients_btn" data-action="toggle-collapsible" aria-expanded="false">
+              Ingredients <span class="Collapsible__Plus"></span>
+            </button>
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <ul class="Linklist ingredients-toggle" style="display: none;">
+                  <li class="Linklist__Item {% if current_tags contains 'Gagomekombu' %}is-selected{% endif %}">
+                    <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Gagomekombu' %}is-active{% endif %}" data-tag="Gagomekombu" data-action="toggle-tag">
+                      Gagome kombu
+                    </button>
+                  </li>
+                  <li class="Linklist__Item {% if current_tags contains 'Sesame' %}is-selected{% endif %}">
+                    <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sesame' %}is-active{% endif %}" data-tag="Sesame" data-action="toggle-tag">
+                      Sesame
+                    </button>
+                  </li>
+                  <li class="Linklist__Item {% if current_tags contains 'Ginger' %}is-selected{% endif %}">
+                    <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Ginger' %}is-active{% endif %}" data-tag="Ginger" data-action="toggle-tag">
+                      Ginger
+                    </button>
+                  </li>
+                  <li class="Linklist__Item {% if current_tags contains 'Flaxseed ' %}is-selected{% endif %}">
+                    <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Flaxseed' %}is-active{% endif %}" data-tag="Flaxseed" data-action="toggle-tag">
+                      Flaxseed
+                    </button>
+                  </li>
+                  <li class="Linklist__Item {% if current_tags contains 'Sheabutter' %}is-selected{% endif %}">
+                    <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sheabutter' %}is-active{% endif %}" data-tag="Sheabutter" data-action="toggle-tag">
+                      Shea butter
+                    </button>
+                  </li>
+                  <li class="Linklist__Item {% if current_tags contains 'Sakekasu' %}is-selected{% endif %}">
+                    <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains 'Sakekasu' %}is-active{% endif %}" data-tag="Sakekasu" data-action="toggle-tag">
+                      Sake kasu
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-                    {%- elsif collection.handle == 'skin-care' -%}
+          {%- elsif collection.handle == 'skin-care' -%}
 
-                  <!-- 保養 -->
-                    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
-                      <button type="button" class="Collapsible__Button Heading u-h6 toggle_1_btn" data-action="toggle-collapsible" aria-expanded="false">
-                        從商品類別搜索 <span class="Collapsible__Plus"></span>
+        <!-- 保養 -->
+          <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+            <button type="button" class="Collapsible__Button Heading u-h6 toggle_1_btn" data-action="toggle-collapsible" aria-expanded="false">
+              從商品類別搜索 <span class="Collapsible__Plus"></span>
+            </button>
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <ul class="Linklist toggle_1" style="display: none;">
+                  {% for item in fl_skin_care_item %}
+                    <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
+                      <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
+                        {{ item | replace: '-', '/' | replace: 'fl_', ''}}
                       </button>
-                      <div class="Collapsible__Inner">
-                        <div class="Collapsible__Content">
-                          <ul class="Linklist toggle_1" style="display: none;">
-                            {% for item in fl_skin_care_item %}
-                              <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
-                                <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
-                                  {{ item | replace: '-', '/' | replace: 'fl_', ''}}
-                                </button>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
-                      <button type="button" class="Collapsible__Button Heading u-h6 toggle_2_btn" data-action="toggle-collapsible" aria-expanded="false">
-                        從肌膚困擾或目的搜索 <span class="Collapsible__Plus"></span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+            <button type="button" class="Collapsible__Button Heading u-h6 toggle_2_btn" data-action="toggle-collapsible" aria-expanded="false">
+              從肌膚困擾或目的搜索 <span class="Collapsible__Plus"></span>
+            </button>
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <ul class="Linklist toggle_2" style="display: none;">
+                  {% for item in fl_skin_care_purpose %}
+                    <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
+                      <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
+                        {{ item | replace: '-', '/' | replace: 'fl_', ''}}
                       </button>
-                      <div class="Collapsible__Inner">
-                        <div class="Collapsible__Content">
-                          <ul class="Linklist toggle_2" style="display: none;">
-                            {% for item in fl_skin_care_purpose %}
-                              <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
-                                <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
-                                  {{ item | replace: '-', '/' | replace: 'fl_', ''}}
-                                </button>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
-                      <button type="button" class="Collapsible__Button Heading u-h6 toggle_3_btn" data-action="toggle-collapsible" aria-expanded="false">
-                        從成分搜索 <span class="Collapsible__Plus"></span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+            <button type="button" class="Collapsible__Button Heading u-h6 toggle_3_btn" data-action="toggle-collapsible" aria-expanded="false">
+              從成分搜索 <span class="Collapsible__Plus"></span>
+            </button>
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <ul class="Linklist toggle_3" style="display: none;">
+                  {% for item in fl_skin_care_material %}
+                    <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
+                      <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
+                        {{ item | replace: '-', '/' | replace: 'fl_', ''}}
                       </button>
-                      <div class="Collapsible__Inner">
-                        <div class="Collapsible__Content">
-                          <ul class="Linklist toggle_3" style="display: none;">
-                            {% for item in fl_skin_care_material %}
-                              <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
-                                <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
-                                  {{ item | replace: '-', '/' | replace: 'fl_', ''}}
-                                </button>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-    			
-                  {%- elsif collection.handle == 'hair-care' -%}
-                  
-                  <!-- 美髮 -->
-                    <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
-                      <button type="button" class="Collapsible__Button Heading u-h6 toggle_1_btn" data-action="toggle-collapsible" aria-expanded="false">
-                        從商品類別搜索 <span class="Collapsible__Plus"></span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        {%- elsif collection.handle == 'hair-care' -%}
+        
+        <!-- 美髮 -->
+          <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+            <button type="button" class="Collapsible__Button Heading u-h6 toggle_1_btn" data-action="toggle-collapsible" aria-expanded="false">
+              從商品類別搜索 <span class="Collapsible__Plus"></span>
+            </button>
+            <div class="Collapsible__Inner">
+              <div class="Collapsible__Content">
+                <ul class="Linklist toggle_1" style="display: none;">
+                  {% for item in fl_hair_care_item %}
+                    <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
+                      <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{item | strip}}" data-action="toggle-tag">
+                        {{ item | replace: '-', '/' | replace: 'fl_', ''}}
                       </button>
-                      <div class="Collapsible__Inner">
-                        <div class="Collapsible__Content">
-                          <ul class="Linklist toggle_1" style="display: none;">
-                            {% for item in fl_hair_care_item %}
-                              <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
-                                <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{item | strip}}" data-action="toggle-tag">
-                                  {{ item | replace: '-', '/' | replace: 'fl_', ''}}
-                                </button>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
                     
     			{%- elsif collection.handle == 'body-care' -%}
           <!-- 美體 -->
@@ -519,6 +527,46 @@
               </div>
             </div>
           </div>
+
+          {%- elsif collection.handle == 'shiro-perfume' -%}
+            <!-- PERFUME -->	
+            <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+              <button type="button" class="Collapsible__Button Heading u-h6 toggle_1_btn" data-action="toggle-collapsible" aria-expanded="false">
+                從香味搜索 <span class="Collapsible__Plus"></span>
+              </button>
+              <div class="Collapsible__Inner">
+                <div class="Collapsible__Content">
+                  <ul class="Linklist toggle_1" style="display: none;">
+                    {% for item in fl_shiro_perfume_fragrance %}
+                      <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
+                          {{ item | replace: '-', '/' | replace: 'fl_', ''}}
+                        </button>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+  
+            <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
+              <button type="button" class="Collapsible__Button Heading u-h6 toggle_2_btn" data-action="toggle-collapsible" aria-expanded="false">
+                從商品類別搜索 <span class="Collapsible__Plus"></span>
+              </button>
+              <div class="Collapsible__Inner">
+                <div class="Collapsible__Content">
+                  <ul class="Linklist toggle_2" style="display: none;">
+                    {% for item in fl_shiro_perfume_item %}
+                      <li class="Linklist__Item {% if current_tags contains item %}is-selected{% endif %}">
+                        <button type="button" class="Link Link--primary Text--subdued {% if current_tags contains item %}is-active{% endif %}" data-tag="{{ item | strip }}" data-action="toggle-tag">
+                          {{ item | replace: '-', '/' | replace: 'fl_', ''}}
+                        </button>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
 
     			{%- else -%}
     				{%- comment -%} <div class="Collapsible Collapsible--padded Collapsible--autoExpand">
@@ -680,7 +728,7 @@
           {%- endif -%}
         {%- endif -%}
         {%- if section.settings.fragrance_filter == true -%}
-          {%- if collection.handle == 'shiro-classics' or collection.handle == 'eau-de-perfume' or collection.handle == 'solid-perfume' -%}
+          {%- if collection.handle == 'shiro-classics' or collection.handle == 'shiro-perfume' or collection.handle == 'eau-de-perfume' or collection.handle == 'solid-perfume' -%}
             {{- collection_toolbar -}}
           {%- endif -%}
         {%- endif -%}
@@ -758,6 +806,16 @@
               </div>
             {%- endif -%}
           {%- endif -%}
+          {%- if section.settings.body_filter == true -%}
+            {%- if collection.handle == 'shiro-perfume' -%}
+              <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
+                <div class="CollectionFilters">
+                  {{ filters_content }}
+                  <button type="button" class="Button Button--secondary" data-action="reset-tags" {% if current_tags == blank %}style="display: none"{% endif %}>{{ 'collection.filter.reset' | t }}</button>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
 
           {%- endif -%}
 
@@ -784,6 +842,11 @@
         {%- endif -%}
         {%- if section.settings.fragrance_filter == true -%}
           {%- if collection.handle == 'shiro-classics' -%}
+            {{- collection_toolbar -}}
+          {%- endif -%}
+        {%- endif -%}
+        {%- if section.settings.fragrance_filter == true -%}
+          {%- if collection.handle == 'shiro-perfume' -%}
             {{- collection_toolbar -}}
           {%- endif -%}
         {%- endif -%}
