@@ -129,7 +129,7 @@ HEADER CONTENT
           <li class="NoticeBar__item">
             {%- if section.settings.notice_link02 -%}
               <p><a class="NoticeBar__link" href="{{ section.settings.notice_link02 }}">{{ section.settings.notice_content02 | escape }}</a></p>            {%- else -%}
-              <p>{{ section.settings.notice_content01 | escape }}</p>
+              <p>{{ section.settings.notice_content02 | escape }}</p>
             {%- endif -%}
           </li>
         {%- endif -%}
@@ -138,7 +138,7 @@ HEADER CONTENT
             {%- if section.settings.notice_link03 -%}
               <p><a class="NoticeBar__link" href="{{ section.settings.notice_link03 }}">{{ section.settings.notice_content03 | escape }}</a></p>
             {%- else -%}
-              <p>{{ section.settings.notice_content01 | escape }}</p>
+              <p>{{ section.settings.notice_content03 | escape }}</p>
             {%- endif -%}
           </li>
         {%- endif -%}
@@ -397,9 +397,9 @@ HEADER CONTENT
 
     <div class="Header__FlexItem Header__FlexItem--logo">
       {%- if template == 'index' -%}
-        <h1 class="Header__Logo ChrismasLogo">{{ header_logo }}</h1>
+        <h1 class="Header__Logo">{{ header_logo }}</h1>
       {%- else -%}
-        <div class="Header__Logo ChrismasLogo">{{ header_logo }}</div>
+        <div class="Header__Logo">{{ header_logo }}</div>
       {%- endif -%}
     </div>
 
