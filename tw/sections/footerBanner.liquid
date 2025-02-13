@@ -1,4 +1,4 @@
-{% if section.settings.spBanner or section.settings.pcBanner %}
+{% if section.settings.enable_banner and section.settings.spBanner or section.settings.pcBanner %}
   <div class="topbanner">
     <div class="topbannerInner">
       <div class="topbanner__list">
@@ -18,6 +18,12 @@
   {
     "name": "footerBanner",
     "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_banner",
+        "label": "バナーを表示する",
+        "default": true
+      },
       {
         "type": "image_picker",
         "id": "pcBanner",
